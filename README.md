@@ -56,3 +56,9 @@ cd "$(bat --config-dir)/themes"
 curl -O https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme
 bat cache --build
 ```
+
+## 7. Chezmoi init
+Please do this twice for toml file and recreate .dotfiles directory
+```bash
+chezmoi init --apply --verbose https://github.com/jenkinpan/dotfiles.git
+```
