@@ -58,7 +58,7 @@ bat cache --build
 ```
 
 ## 7. Chezmoi init
-Please do this twice for toml file and recreate .dotfiles directory
+Please run the init code <span style={color:"red"}>twice<span> for toml file and recreate .dotfiles directory
 ```bash
 chezmoi init --apply --verbose https://github.com/jenkinpan/dotfiles.git
 ```
