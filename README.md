@@ -62,3 +62,7 @@ Please do this twice for toml file and recreate .dotfiles directory
 ```bash
 chezmoi init --apply --verbose https://github.com/jenkinpan/dotfiles.git
 ```
+And then you can delete the ~/.local/share/chezmoi folder
+```bash
+rm -rf ~/.local/share/chezmoi
+```
