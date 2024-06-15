@@ -40,24 +40,7 @@ paru -S zsh oh-my-zsh-git zoxide fzf bat eza zsh-theme-powerlevel10k nvm fd
 chsh -s /usr/bin/zsh
 ```
 
-## 5. Install zsh plugins
-
-```bash
-sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-sudo git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
-```
-
-## 6. Install bat theme
-
-```bash
-mkdir -p "$(bat --config-dir)/themes"
-cd "$(bat --config-dir)/themes"
-curl -O https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme
-bat cache --build
-```
-
-## 7. Chezmoi init
+## 5. Chezmoi init
 Please run the init code <span style={color:"red"}>twice<span> for toml file and recreate .dotfiles directory
 ```bash
 chezmoi init --apply --verbose https://github.com/jenkinpan/dotfiles.git
@@ -65,4 +48,18 @@ chezmoi init --apply --verbose https://github.com/jenkinpan/dotfiles.git
 And then you can delete the ~/.local/share/chezmoi folder
 ```bash
 rm -rf ~/.local/share/chezmoi
+```
+
+## 6. Install zsh plugins
+
+```bash
+sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+sudo git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
+```
+
+## 7. Install bat theme
+
+```bash
+bat cache --build
 ```
