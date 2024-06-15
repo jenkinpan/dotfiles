@@ -1,3 +1,0 @@
-0000000000000000000000000000000000000000 4b0460365ef7c0002fccb92eb06eb73e1ee7e19a jenkin <jenkin@archlinux.(none)> 1717830227 +0800	clone: from https://github.com/jenkinpan/nvim.git
-4b0460365ef7c0002fccb92eb06eb73e1ee7e19a 22413c92bd368b5d82b5ca1f395865a03013b94c jenkin <jenkinpan028@gmail.com> 1718285418 +0800	commit: update autoinstall mason stuffs
-22413c92bd368b5d82b5ca1f395865a03013b94c 1ce59cbc4e60e81cbd0a83740afbf2fcbc023312 jenkin <jenkinpan028@gmail.com> 1718417023 +0800	commit: update spell check list
