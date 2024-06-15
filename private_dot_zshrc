@@ -58,7 +58,6 @@ export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # -- use fd instead of fzf
-
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude /git"
@@ -98,5 +97,3 @@ alias vim='nvim'
 alias lla='ls -a'
 alias cd='z'
 
-# Created by `pipx` on 2024-06-15 11:09:46
-export PATH="$PATH:/home/jenkin/.local/bin"
