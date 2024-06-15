@@ -1,4 +1,4 @@
-# dotfiles
+# Dotfiles by chezmoi
 
 ## 0. choose five mirrors in china for archlinux(only for chinese archer)
 
