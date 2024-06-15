@@ -1,6 +1,6 @@
 # dotfiles
 
-## 0. choose five mirrors in china for archlinux
+## 0. choose five mirrors in china for archlinux(only for chinese archer)
 
 ```bash
 curl -s "https://archlinux.org/mirrorlist/?country=CN&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 -
