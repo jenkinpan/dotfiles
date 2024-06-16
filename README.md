@@ -9,7 +9,7 @@ curl -s "https://archlinux.org/mirrorlist/?country=CN&protocol=https&use_mirror_
 ## 1. Install some packages
 
 ```bash
-sudo pacman -S git chezmoi
+sudo pacman -S git chezmoi fastfetch
 ```
 
 ## 2. Install Paru or Yay
