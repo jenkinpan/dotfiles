@@ -41,7 +41,7 @@ chsh -s /usr/bin/zsh
 ```
 
 ## 5. Chezmoi init
-Please run the init code twice for toml file and recreate .dotfiles directory
+Please run the init code twice for toml file and create .dotfiles directory in home
 ```bash
 chezmoi init --apply --verbose https://github.com/jenkinpan/dotfiles.git
 ```
