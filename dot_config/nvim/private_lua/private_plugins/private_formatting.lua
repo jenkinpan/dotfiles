@@ -39,6 +39,7 @@ return {
 					vue = { "prettier", "rustywind" },
 					sh = { "shfmt" }, -- set formatter for shell
 					bash = { "shfmt" }, -- set formatter for bash
+					zsh = { "beautysh" },
 				},
 				format_on_save = {
 					lsp_fallback = true,
