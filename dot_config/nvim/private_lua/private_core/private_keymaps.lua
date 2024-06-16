@@ -65,7 +65,7 @@ map("n", "<leader>ds", "<cmd>NoiceDismiss<CR>", opts)
 -- set get preview code with gitsigns
 map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk <CR>", opts)
 -- open LazyGit
-map("n", "<leader>gg", "<cmd>LazyGit<CR>", opts)
+map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Open Lazygit" })
 -- open Telescope git repos
 map("n", "<leader>gr", function()
 	require("telescope").extensions.lazygit.lazygit()
