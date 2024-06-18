@@ -73,11 +73,6 @@ return {
 				},
 				x = {
 					name = "Trouble",
-					x = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
-					w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics" },
-					d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics" },
-					q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
-					l = { "<cmd>TroubleToggle loclist<cr>", "Loclist" },
 				},
 				Z = {
 					"<cmd>lua require('telescope').extensions.zoxide.list()<cr>",
