@@ -76,6 +76,7 @@ map("n", "<leader>fb", "<cmd>Telescope buffers <CR>", opts)
 map("n", "<leader>fh", "<cmd>Telescope help_tags <CR>", opts)
 map("n", "<leader>ff", "<cmd>Telescope find_files <CR>", opts)
 map("n", "<leader>fg", "<cmd>Telescope live_grep <CR>", opts)
+map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Todo List (Telescope)" })
 
 -- debugging keymaps
 map("n", "<leader>dt", "<cmd>DapToggleBreakpoint <CR>", { desc = "Toggle Breakpoint" })
@@ -86,24 +87,12 @@ map("n", "<leader>ut", "<cmd>UndotreeToggle <CR>", { desc = "Toggle UndoTree" })
 map("n", "<leader>uf", "<cmd>UndotreeFocus <CR>", { desc = "Focus on UndoTree" })
 
 -- Trouble keymaps
-map("n", "<leader>xx", function()
-	require("trouble").toggle()
-end, { desc = "Toggle Trouble" }) -- Toggle Trouble
-map("n", "<leader>xw", function()
-	require("trouble").toggle("workspace_diagnostics")
-end, { desc = "Toggle Workspace Trouble" }) -- Toggle Workspace Trouble
-map("n", "<leader>xd", function()
-	require("trouble").toggle("document_diagnostics")
-end, { desc = "Toggle Document Trouble" }) -- Toggle Document Trouble
-map("n", "<leader>xq", function()
-	require("trouble").toggle("quickfix")
-end, { desc = "Toggle Quickfix Trouble" }) -- Toggle Quickfix Trouble
-map("n", "<leader>xl", function()
-	require("trouble").toggle("loclist")
-end, { desc = "Toggle Loclist Trouble" }) -- Toggle Loclist Trouble
-map("n", "gR", function()
-	require("trouble").toggle("lsp_references")
-end, { desc = "Toggle LSP References" }) -- Toggle LSP References
+map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Toggle Trouble" }) -- Toggle Trouble
+map("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
+map("n", "<leader>xq", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" }) -- Toggle Quickfix Trouble
+map("n", "<leader>xl", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble) " }) -- Toggle Loclist Trouble
+map("n", "<leader>xt", "<cmd>Trouble todo filter = {tag = {TODO,FIX,FIXME,NOTE}}<cr>", { desc = "Todo List (Trouble)" })
+map("n", "gR", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", { desc = "Toggle LSP References" }) -- Toggle LSP References
 
 -- Zoxide
 map("n", "<leader>Z", function()
