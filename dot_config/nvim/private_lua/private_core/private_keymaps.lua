@@ -94,7 +94,7 @@ map("n", "<leader>xl", "<cmd>Trouble loclist toggle<cr>", { desc = "Location Lis
 map(
 	"n",
 	"<leader>xt",
-	"<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,FIXME,NOTE}}<cr>",
+	"<cmd>Trouble todo focus toggle filter = {tag = {TODO,FIX,FIXME,NOTE}}<cr>",
 	{ desc = "Todo List (Trouble)" }
 )
 map("n", "gR", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", { desc = "Toggle LSP References" }) -- Toggle LSP References

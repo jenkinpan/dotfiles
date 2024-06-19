@@ -3,7 +3,7 @@ return {
 	event = "InsertEnter",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		{ "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+		{ "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
 		"hrsh7th/cmp-buffer", -- source for text in buffer
