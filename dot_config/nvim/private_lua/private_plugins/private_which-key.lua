@@ -21,14 +21,6 @@ return {
 				["`"] = { "<cmd>Lspsaga term_toggle<cr>", "Toggle Terminal" },
 				b = {
 					name = "Buffers",
-					p = { "<cmd>BufferLinePick<cr>", "Pick buffer" },
-					c = { "<cmd>BufferLinePickClose<cr>", "Close pick" },
-					o = { "<cmd>BufferLineCloseOthers<cr>", "Close others" },
-					["1"] = { "<cmd>BufferLineGoToBuffer 1<cr>", "Go to buffer 1" },
-					["2"] = { "<cmd>BufferLineGoToBuffer 2<cr>", "Go to buffer 2" },
-					["3"] = { "<cmd>BufferLineGoToBuffer 3<cr>", "Go to buffer 3" },
-					["4"] = { "<cmd>BufferLineGoToBuffer 4<cr>", "Go to buffer 4" },
-					["5"] = { "<cmd>BufferLineGoToBuffer 5<cr>", "Go to buffer 5" },
 				},
 				c = {
 					name = "Code Actions",
@@ -68,8 +60,6 @@ return {
 				n = { "<cmd>noh<cr>", "Cancel highlight" },
 				u = {
 					name = "Undo Tree",
-					t = { "<cmd>UndotreeToggle<cr>", "Toggle Undo Tree" },
-					f = { "<cmd>UndotreeFocus<cr>", "Focus Undo Tree" },
 				},
 				x = {
 					name = "Trouble",
