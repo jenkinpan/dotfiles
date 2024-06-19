@@ -91,7 +91,12 @@ map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Toggle T
 map("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
 map("n", "<leader>xq", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" }) -- Toggle Quickfix Trouble
 map("n", "<leader>xl", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble) " }) -- Toggle Loclist Trouble
-map("n", "<leader>xt", "<cmd>Trouble todo filter = {tag = {TODO,FIX,FIXME,NOTE}}<cr>", { desc = "Todo List (Trouble)" })
+map(
+	"n",
+	"<leader>xt",
+	"<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,FIXME,NOTE}}<cr>",
+	{ desc = "Todo List (Trouble)" }
+)
 map("n", "gR", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", { desc = "Toggle LSP References" }) -- Toggle LSP References
 
 -- Zoxide
