@@ -185,9 +185,9 @@ vim.keymap.set("i", "<c-x>", function()
 end, { expr = true, silent = true })
 
 -- toggle showing inlay_hint
-map("n", "<leader>hh", function()
+map("n", "<leader>ch", function()
 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "Toggle Inlay Hints" })
 
 -- toggle highlight-color
-map("n", "<leader>hc", "<cmd>HighlightColors Toggle<CR>", { desc = "Toggle HighlightColors" })
+map("n", "<leader>cc", "<cmd>HighlightColors Toggle<CR>", { desc = "Toggle HighlightColors" })
