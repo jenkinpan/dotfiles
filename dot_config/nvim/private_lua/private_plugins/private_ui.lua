@@ -103,6 +103,7 @@ return {
 		end,
 	},
 	{
+		-- set folds with nvim-ufo
 		"kevinhwang91/nvim-ufo",
 		event = "VeryLazy",
 		dependencies = {
@@ -181,8 +182,10 @@ return {
 							view = "notify",
 							filter = { event = "msg_showmode" },
 						},
-						event = "notify",
-						fidn = "No information available",
+						{
+							event = "notify",
+							find = "No information available",
+						},
 					},
 					opts = { skip = true },
 				},
