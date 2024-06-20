@@ -63,13 +63,13 @@ map("n", "<leader>ds", "<cmd>NoiceDismiss<CR>", opts)
 
 -- Git Stuffs keymaps
 -- set get preview code with gitsigns
-map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk <CR>", opts)
+map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk <CR>", { desc = "Preview Hunk" })
 -- open LazyGit
 map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Open Lazygit" })
 -- open Telescope git repos
 map("n", "<leader>gr", function()
 	require("telescope").extensions.lazygit.lazygit()
-end, opts)
+end, { desc = "Show Historical Repos" })
 
 -- set telescope keymaps
 map("n", "<leader>fb", "<cmd>Telescope buffers <CR>", { desc = "Find Buffers (Telescope)" })

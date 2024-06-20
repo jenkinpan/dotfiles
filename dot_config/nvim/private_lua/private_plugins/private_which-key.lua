@@ -33,9 +33,6 @@ return {
 				},
 				g = {
 					name = "Git Stuffs",
-					p = { "<cmd>Gitsigns preview_hunk<cr>", "Preview Hunk" },
-					g = { "<cmd>LazyGit<cr>", "LazyGit" },
-					r = { "<cmd>lua require('telescope').extensions.lazygit.lazygit()<cr>", "Show historical Repos" },
 				},
 				l = {
 					name = "Lspsaga",
