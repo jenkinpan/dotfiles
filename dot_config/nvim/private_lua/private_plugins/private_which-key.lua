@@ -24,24 +24,12 @@ return {
 				},
 				c = {
 					name = "Code Actions",
-					a = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
-					f = {
-						"<cmd>lua require('conform').format({lsp_fallback = true,async = true,timeout_ms = 500,})<cr>",
-						"Code Format",
-					},
-					s = { "<cmd>CodeSnapPreviewOn<cr>", "Open Code Snap Preview" },
 				},
 				d = {
 					name = "Debug",
-					t = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
-					c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
 				},
 				f = {
 					name = "Telescope",
-					f = { "<cmd>Telescope find_files<cr>", "Find File" },
-					g = { "<cmd>Telescope live_grep<cr>", "Grep" },
-					b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-					h = { "<cmd>Telescope help_tags<cr>", "Help" },
 				},
 				g = {
 					name = "Git Stuffs",

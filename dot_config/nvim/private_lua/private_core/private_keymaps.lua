@@ -25,7 +25,6 @@ map("n", "<leader>lo", "<cmd>Lspsaga outline<CR>", { desc = "Open Outline" })
 map("n", "<leader>lf", "<cmd>Lspsaga finder<cr>", { desc = "Find References" })
 map("n", "<leader>lr", "<cmd>Lspsaga rename<cr>", { desc = "Rename" })
 
-vim.keymap.set("n", "zM", "<cmd>lua require('ufo').closeAllFolds()<CR>", opts)
 -- set KeyBind for BufferLine
 map("n", "<leader>bp", "<cmd>BufferLinePick <CR>", { desc = "Go to Picked Buffer" }) -- go to a specific buffer
 map("n", "<leader>bc", "<cmd>BufferLinePickClose <CR>", { desc = "Close picked buffer" }) -- close a specific buffer
@@ -50,6 +49,7 @@ map("n", "<c-l>", "<cmd>wincmd l<CR>", opts)
 -- set terminal toggle
 map("n", "<leader>`", "<cmd>Lspsaga term_toggle<CR>", opts)
 map("t", "<leader>`", [[<cmd>Lspsaga term_toggle<CR>]], opts)
+
 -- set shortcut for Neotree
 map("n", "<C-n>", "<cmd>NvimTreeFindFile<CR>", opts)
 
@@ -72,10 +72,10 @@ map("n", "<leader>gr", function()
 end, opts)
 
 -- set telescope keymaps
-map("n", "<leader>fb", "<cmd>Telescope buffers <CR>", opts)
-map("n", "<leader>fh", "<cmd>Telescope help_tags <CR>", opts)
-map("n", "<leader>ff", "<cmd>Telescope find_files <CR>", opts)
-map("n", "<leader>fg", "<cmd>Telescope live_grep <CR>", opts)
+map("n", "<leader>fb", "<cmd>Telescope buffers <CR>", { desc = "Find Buffers (Telescope)" })
+map("n", "<leader>fh", "<cmd>Telescope help_tags <CR>", { desc = "Find Help (Telescope)" })
+map("n", "<leader>ff", "<cmd>Telescope find_files <CR>", { desc = "Find Files (Telescope)" })
+map("n", "<leader>fg", "<cmd>Telescope live_grep <CR>", { desc = "live grep (Telescope)" })
 map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Todo List (Telescope)" })
 
 -- debugging keymaps
