@@ -36,9 +36,6 @@ return {
 				},
 				l = {
 					name = "Lspsaga",
-					o = { "<cmd>Lspsaga outline<cr>", "Open Outline" },
-					f = { "<cmd>Lspsaga finder<cr>", "Find References" },
-					r = { "<cmd>Lspsaga rename<cr>", "Rename" },
 				},
 				L = { "<cmd>Lazy<cr>", "Open Lazy" },
 				M = { "<cmd>Mason<cr>", "Open Mason" },

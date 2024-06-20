@@ -17,7 +17,7 @@ map("n", "<leader>L", "<cmd>Lazy <CR>", { desc = "Open Lazy" })
 -- Open Mason
 map("n", "<leader>M", "<cmd>Mason <CR>", { desc = "Open Mason" })
 
--- cancel highlight search result for /
+-- cancel highlight search result
 map("n", "<leader>n", "<cmd>noh<CR>", { desc = "Cancel Search highlight" })
 
 -- Toggle Symbols Outline
