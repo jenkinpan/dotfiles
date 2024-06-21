@@ -105,7 +105,7 @@ map("n", "<leader>Z", function()
 end, { desc = "Zoxide" })
 
 -- Neorg keymaps
--- new Neorg Note
+-- New Neorg Note
 map(
 	"n",
 	"<localleader>nn",
