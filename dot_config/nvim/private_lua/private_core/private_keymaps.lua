@@ -113,20 +113,20 @@ map(
 	{ desc = "[neorg] Create New Note" }
 )
 
--- metadata
+-- Metadata
 map("n", "<localleader>im", "<cmd>Neorg inject-metadata<CR>", { desc = "[neorg] Inject Metadata" })
 map("n", "<localleader>id", "<cmd>lua require('neorg.core').tempus.insert-date()<cr>", { desc = "[neorg] Insert Date" })
 map("n", "<localleader>u", "<cmd>Neorg update-metadata<CR>", { desc = "[neorg] Update Metadata" })
--- table of contents
+-- Table of contents
 map("n", "<localleader>c", "<cmd>Neorg toc<CR>", { desc = "[neorg] Table of Contents" })
--- journal
+-- Journal
 map("n", "<localleader>jc", "<cmd>Neorg journal toc<CR>", { desc = "[neorg] Journal Table of Contents" })
 map("n", "<localleader>jC", "<cmd>Neorg journal custom<CR>", { desc = "[neorg] New Journal Custom" })
 map("n", "<localleader>jt", "<cmd>Neorg journal today<CR>", { desc = "[neorg] Journal Today" })
 map("n", "<localleader>jT", "<cmd>Neorg journal tomorrow<CR>", { desc = "[neorg] Journal Tomorrow" })
 map("n", "<localleader>jy", "<cmd>Neorg journal yesterday<CR>", { desc = "[neorg] Journal Yesterday" })
 
--- list
+-- List
 map(
 	"n",
 	"<localleader>li",
@@ -140,7 +140,7 @@ map(
 	{ desc = "[neorg] Toggle (Un)ordered List" }
 )
 
--- todo tasks
+-- Todo tasks
 map(
 	"n",
 	"<localleader>ta",
@@ -194,7 +194,7 @@ map(
 map("n", "<localleader>ef", "<cmd>Neorg export to-file<CR>", { desc = "[neorg] Export tofile" })
 map("n", "<localleader>ed", "<cmd>Neorg export directory<CR>", { desc = "[neorg] Export to directory" })
 
--- neorg mode
+-- Neorg mode
 map("n", "<localleader>mn", "<cmd>Neorg mode norg<cr>", { desc = "[neorg] Enter Norg Mode" })
 map("n", "<localleader>mh", "<cmd>Neorg mode traverse-heading<cr>", { desc = "[neorg] Heading Traversal Mode" })
 map("n", "<localleader>ml", "<cmd>Neorg mode traverse-link<cr>", { desc = "[neorg] Enter Link Traversal Mode" })
