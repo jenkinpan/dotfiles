@@ -43,7 +43,7 @@ source $ZSH/oh-my-zsh.sh
 # nvm for nodejs
 source /usr/share/nvm/init-nvm.sh
 
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 
 # ---- FZF ----
 
@@ -96,9 +96,18 @@ _fzf_comprun() {
 # ----- Bat (better cat) -----
 export BAT_THEME=tokyonight_night
 
+# ----- yazi ----
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # ---- Alias ----
 alias cls='clear'
 alias vim='nvim'
 alias lla='ls -a'
-alias cd='z'
 
