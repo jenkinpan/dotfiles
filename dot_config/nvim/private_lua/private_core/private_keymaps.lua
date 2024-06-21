@@ -105,8 +105,17 @@ map("n", "<leader>Z", function()
 end, { desc = "Zoxide" })
 
 -- Neorg keymaps
+-- new Neorg Note
+map(
+	"n",
+	"<localleader>nn",
+	"<cmd>lua require('neorg.core').dirman.new.note()<cr>",
+	{ desc = "[neorg] Create New Note" }
+)
+
 -- metadata
 map("n", "<localleader>im", "<cmd>Neorg inject-metadata<CR>", { desc = "[neorg] Inject Metadata" })
+map("n", "<localleader>id", "<cmd>lua require('neorg.core').tempus.insert-date()<cr>", { desc = "[neorg] Insert Date" })
 map("n", "<localleader>u", "<cmd>Neorg update-metadata<CR>", { desc = "[neorg] Update Metadata" })
 -- table of contents
 map("n", "<localleader>c", "<cmd>Neorg toc<CR>", { desc = "[neorg] Table of Contents" })
@@ -116,6 +125,21 @@ map("n", "<localleader>jC", "<cmd>Neorg journal custom<CR>", { desc = "[neorg] N
 map("n", "<localleader>jt", "<cmd>Neorg journal today<CR>", { desc = "[neorg] Journal Today" })
 map("n", "<localleader>jT", "<cmd>Neorg journal tomorrow<CR>", { desc = "[neorg] Journal Tomorrow" })
 map("n", "<localleader>jy", "<cmd>Neorg journal yesterday<CR>", { desc = "[neorg] Journal Yesterday" })
+
+-- list
+map(
+	"n",
+	"<localleader>li",
+	"<cmd>lua require('neorg.core').pivot.invert-list-type()<cr>",
+	{ desc = "[neorg] Invert (Un)ordered List" }
+)
+map(
+	"n",
+	"<localleader>lt",
+	"<cmd>lua require('neorg.core').pivot.toggle-list-type()<cr>",
+	{ desc = "[neorg] Toggle (Un)ordered List" }
+)
+
 -- todo tasks
 map(
 	"n",
@@ -169,6 +193,11 @@ map(
 -- Export markdown file
 map("n", "<localleader>ef", "<cmd>Neorg export to-file<CR>", { desc = "[neorg] Export tofile" })
 map("n", "<localleader>ed", "<cmd>Neorg export directory<CR>", { desc = "[neorg] Export to directory" })
+
+-- neorg mode
+map("n", "<localleader>mn", "<cmd>Neorg mode norg<cr>", { desc = "[neorg] Enter Norg Mode" })
+map("n", "<localleader>mh", "<cmd>Neorg mode traverse-heading<cr>", { desc = "[neorg] Heading Traversal Mode" })
+map("n", "<localleader>ml", "<cmd>Neorg mode traverse-link<cr>", { desc = "[neorg] Enter Link Traversal Mode" })
 
 -- Codeium keymaps
 vim.keymap.set("i", "<tab>", function()
