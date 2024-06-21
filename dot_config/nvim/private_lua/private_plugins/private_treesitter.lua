@@ -23,6 +23,8 @@ return {
 				"norg_meta",
 				"org",
 				"json",
+				"vue",
+				"toml",
 			},
 			auto_install = true,
 			highlight = { enable = true },
