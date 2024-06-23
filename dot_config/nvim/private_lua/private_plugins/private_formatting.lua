@@ -12,6 +12,7 @@ return {
 					"codelldb",
 					"shfmt",
 					"htmlhint",
+					"beautysh",
 				},
 			})
 		end,

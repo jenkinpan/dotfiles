@@ -1,6 +1,8 @@
-# Dotfiles by chezmoi
+# Dotfiles by Chezmoi
 
-## 0. choose five mirrors in china for archlinux(only for chinese Archer)
+-- for Arch Linux
+
+## 0. Choose five mirrors in china for Arch Linux(only for Chinese Archer)
 
 ```bash
 curl -s "https://archlinux.org/mirrorlist/?country=CN&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 -
@@ -41,11 +43,15 @@ chsh -s /usr/bin/zsh
 ```
 
 ## 5. Chezmoi init
+
 Please run the init code twice for toml file and create .dotfiles directory in home
+
 ```bash
 chezmoi init --apply --verbose https://github.com/jenkinpan/dotfiles.git
 ```
+
 And then you can delete the ~/.local/share/chezmoi folder
+
 ```bash
 rm -rf ~/.local/share/chezmoi
 ```
