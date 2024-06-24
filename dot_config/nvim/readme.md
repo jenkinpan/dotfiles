@@ -93,3 +93,11 @@ luarocks.nvim<br>
 ```help
 `<leader>ds` - Dsimiss all visible messages
 ```
+
+### KeyBind for mini.surround
+
+```bash
+'sa' # in visual mode by selecting a code or code block and plus the signal you decided to use.
+'sd' # in normal mode -> first type sd and type the signal you want to remove.
+'sr' # in normal mode -> first type sr and type the signal you want to replace and finally type the new signal.
+```
