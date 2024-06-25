@@ -7,7 +7,8 @@ return {
 	end,
 	opts = {},
 	config = function()
-		require("which-key").setup({
+		local wk = require("which-key")
+		wk.setup({
 			plugins = {
 				spelling = {
 					enabled = true,
@@ -16,7 +17,7 @@ return {
 			},
 		})
 
-		require("which-key").register({
+		wk.register({
 			["<leader>"] = {
 				["`"] = { "<cmd>Lspsaga term_toggle<cr>", "Toggle Terminal" },
 				b = {
@@ -68,5 +69,11 @@ return {
 				},
 			},
 		})
+
+		wk.register({
+			["<leader>"] = {
+				c = { name = "Codesnap" },
+			},
+		}, { mode = "v" })
 	end,
 }

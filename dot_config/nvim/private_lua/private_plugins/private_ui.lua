@@ -28,7 +28,6 @@ return {
 	{
 		-- set UI: comment show
 		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {},
 	},
 	{

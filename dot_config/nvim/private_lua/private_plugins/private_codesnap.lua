@@ -10,7 +10,7 @@ return {
 			watermark = "Code from Jenkin",
 			code_font_family = "Hack",
 			watermark_font_family = "Pacifico",
-			save_path = "~/Pictures/codesnap.png",
+			save_path = "~/Pictures",
 		})
 	end,
 }
