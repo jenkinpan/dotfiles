@@ -58,7 +58,7 @@ map("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action" })
 
--- Codesnap keymaps
+-- CodeSnap keymaps in visual mode
 map("v", "<leader>cc", "<cmd>CodeSnap<CR>", { desc = "Codesnap to clipboard" })
 map("v", "<leader>cs", "<cmd>CodeSnapSave<cr>", { desc = "Save snapshot in ~/Pictures" })
 
