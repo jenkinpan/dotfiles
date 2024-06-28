@@ -1,9 +1,5 @@
 fastfetch --config examples/14
 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ZSH=/usr/share/oh-my-zsh/
 
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -25,18 +21,17 @@ plugins=(
 export LANG=zh_CN.UTF-8
 export LANGUAGE=zh_CN:en_US
 
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
     mkdir $ZSH_CACHE_DIR
 fi
 
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
 
 source $ZSH/oh-my-zsh.sh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # nvm for nodejs
 source /usr/share/nvm/init-nvm.sh
@@ -110,3 +105,4 @@ alias cls='clear'
 alias vim='nvim'
 alias lla='ls -a'
 
+eval "$(starship init zsh)"

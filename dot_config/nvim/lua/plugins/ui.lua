@@ -211,7 +211,6 @@ return {
 	{
 		-- set UI for notification, cmdline and popupmenu
 		"folke/noice.nvim",
-		event = "VeryLazy",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
