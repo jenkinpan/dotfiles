@@ -33,7 +33,7 @@ makepkg -si
 ## 3. Install needed packages
 
 ```bash
-paru -S zsh oh-my-zsh-git zoxide fzf bat eza zsh-theme-powerlevel10k nvm fd ripgrep neovim-nightly-bin
+paru -S zsh oh-my-zsh-git zoxide fzf bat eza starship nvm fd ripgrep neovim-nightly-bin github-cli
 ```
 
 ## 4. Set ZSH as default shell
