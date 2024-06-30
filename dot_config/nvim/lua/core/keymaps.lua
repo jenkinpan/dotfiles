@@ -224,3 +224,63 @@ end, { desc = "Toggle Inlay Hints" })
 
 -- toggle highlight-color
 map("n", "<leader>cc", "<cmd>HighlightColors Toggle<CR>", { desc = "Toggle HighlightColors" })
+
+-- Crates keymaps
+-- NOTE: Only use those keymaps when you open a crates.toml file
+
+vim.keymap.set("n", "<leader>Ct", "<cmd>lua require('crates').toggle()<cr>", { desc = "Toggle Crates" })
+vim.keymap.set("n", "<leader>Cr", "<cmd>lua require('crates').reload()<cr>", { desc = "Reload Crates" })
+
+vim.keymap.set(
+	"n",
+	"<leader>Cv",
+	"<cmd>lua require('crates').show_versions_popup()<cr>",
+	{ desc = "Show Versions Popup" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>Cf",
+	"<cmd>lua require('crates').show_features_popup()<cr>",
+	{ desc = "Show Features Popup" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>Cd",
+	"<cmd>lua require('crates').show_dependencies_popup()<cr>",
+	{ desc = "Show Dependencies Popup" }
+)
+
+vim.keymap.set("n", "<leader>Cu", "<cmd>lua require('crates').update_crate()<cr>", { desc = "update crate" })
+vim.keymap.set("v", "<leader>Cu", "<cmd>lua require('crates').update_crates()<cr>", { desc = "update crates" })
+vim.keymap.set("n", "<leader>Ca", "<cmd>lua require('crates').update_all_crates()<cr>", { desc = "update all crates" })
+vim.keymap.set("n", "<leader>CU", "<cmd>lua require('crates').upgrade_crate()<cr>", { desc = "upgrade crate" })
+vim.keymap.set("v", "<leader>CU", "<cmd>lua require('crates').upgrade_crates()<cr>", { desc = "upgrade crates" })
+vim.keymap.set(
+	"n",
+	"<leader>CA",
+	"<cmd>lua require('crates').upgrade_all_crates()<cr>",
+	{ desc = "upgrade all crates" }
+)
+
+vim.keymap.set(
+	"n",
+	"<leader>Cx",
+	"<cmd>lua require('crates').expand_plain_crate_to_inline_table()<cr>",
+	{ desc = "expand crate" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>CX",
+	"<cmd>lua require('crates').extract_crate_into_table()<cr>",
+	{ desc = "extract crate" }
+)
+
+vim.keymap.set("n", "<leader>CH", "<cmd>lua require('crates').open_homepage()<cr>", { desc = "open homepage" })
+vim.keymap.set("n", "<leader>CR", "<cmd>lua require('crates').open_repository()<cr>", { desc = "open repository" })
+vim.keymap.set(
+	"n",
+	"<leader>CD",
+	"<cmd>lua require('crates').open_documentation()<cr>",
+	{ desc = "open documentation" }
+)
+vim.keymap.set("n", "<leader>CC", "<cmd>lua require('crates').open_crates_io()<cr>", { desc = "open crates.io" })

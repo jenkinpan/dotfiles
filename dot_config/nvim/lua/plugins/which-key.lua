@@ -26,6 +26,9 @@ return {
 				c = {
 					name = "Code Actions",
 				},
+				C = {
+					name = "Crates",
+				},
 				d = {
 					name = "Debug",
 				},
