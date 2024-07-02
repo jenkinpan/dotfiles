@@ -2,11 +2,68 @@ return {
 	{
 		-- set UI: lualine(status line)
 		"nvim-lualine/lualine.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "tokyonight",
+					theme = "auto",
+					component_separators = { left = "", right = "" },
+					section_separators = { left = " ", right = "" },
+				},
+				extensions = { "nvim-tree", "toggleterm" },
+				sections = {
+					lualine_a = {
+						{
+							"mode",
+							icons_enabled = true,
+						},
+					},
+					lualine_b = {
+						{
+							"filetype",
+							colored = true,
+							icon_only = true,
+						},
+						{
+							"filename",
+							file_status = true,
+							newfile_status = false,
+							path = 1,
+						},
+					},
+					lualine_c = {
+						"branch",
+						{
+							"diagnostics",
+							sources = { "nvim_diagnostic" },
+							symbols = {
+								error = " ",
+								warn = " ",
+								hint = " ",
+								info = " ",
+							},
+						},
+					},
+					lualine_x = {
+						{
+							"diff",
+							symbols = {
+								added = " ",
+								modified = " ",
+								removed = " ",
+							},
+						},
+					},
+
+					lualine_y = {},
+
+					lualine_z = {
+						"progress",
+						"location",
+						function()
+							return " " .. os.date("%R")
+						end,
+					},
 				},
 			})
 		end,
@@ -21,7 +78,7 @@ return {
 		end,
 	},
 	{
-		-- set UI: undotree
+		-- set UI: Undo Tree
 		"mbbill/undotree",
 		event = "VeryLazy",
 	},
