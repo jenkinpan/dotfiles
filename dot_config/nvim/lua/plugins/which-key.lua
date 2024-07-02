@@ -41,8 +41,11 @@ return {
 				l = {
 					name = "Lspsaga",
 				},
-				u = {
+				U = {
 					name = "Undo Tree",
+				},
+				u = {
+					name = "UI",
 				},
 				x = {
 					name = "Trouble",

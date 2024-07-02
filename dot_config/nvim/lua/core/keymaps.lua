@@ -51,7 +51,7 @@ map("n", "<leader>`", "<cmd>Lspsaga term_toggle<CR>", opts)
 map("t", "<leader>`", [[<cmd>Lspsaga term_toggle<CR>]], opts)
 
 -- set shortcut for Neotree
-map("n", "<C-n>", "<cmd>NvimTreeFindFile<CR>", opts)
+map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle NvimTree" })
 
 -- set shortcut for LSP
 map("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
@@ -63,7 +63,7 @@ map("v", "<leader>cc", "<cmd>CodeSnap<CR>", { desc = "Codesnap to clipboard" })
 map("v", "<leader>cs", "<cmd>CodeSnapSave<cr>", { desc = "Save snapshot in ~/Pictures" })
 
 -- set dismiss noice message
-map("n", "<leader>ds", "<cmd>NoiceDismiss<CR>", opts)
+map("n", "<leader>un", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
 
 -- Git Stuffs keymaps
 -- set get preview code with gitsigns
@@ -87,8 +87,8 @@ map("n", "<leader>dt", "<cmd>DapToggleBreakpoint <CR>", { desc = "Toggle Breakpo
 map("n", "<leader>dc", "<cmd>DapContinue <CR>", { desc = "Dap Continue" })
 
 -- UndoTree keymaps
-map("n", "<leader>ut", "<cmd>UndotreeToggle <CR>", { desc = "Toggle UndoTree" })
-map("n", "<leader>uf", "<cmd>UndotreeFocus <CR>", { desc = "Focus on UndoTree" })
+map("n", "<leader>Ut", "<cmd>UndotreeToggle <CR>", { desc = "Toggle UndoTree" })
+map("n", "<leader>Uf", "<cmd>UndotreeFocus <CR>", { desc = "Focus on UndoTree" })
 
 -- Trouble keymaps
 map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Toggle Trouble" }) -- Toggle Trouble
@@ -223,7 +223,7 @@ map("n", "<leader>ch", function()
 end, { desc = "Toggle Inlay Hints" })
 
 -- toggle highlight-color
-map("n", "<leader>cc", "<cmd>HighlightColors Toggle<CR>", { desc = "Toggle HighlightColors" })
+map("n", "<leader>uc", "<cmd>HighlightColors Toggle<CR>", { desc = "Toggle HighlightColors" })
 
 -- Crates keymaps
 -- NOTE: Only use those keymaps when you open a crates.toml file
