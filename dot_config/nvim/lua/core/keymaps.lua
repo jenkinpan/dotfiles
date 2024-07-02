@@ -81,6 +81,12 @@ map("n", "<leader>fh", "<cmd>Telescope help_tags <CR>", { desc = "Find Help (Tel
 map("n", "<leader>ff", "<cmd>Telescope find_files <CR>", { desc = "Find Files (Telescope)" })
 map("n", "<leader>fg", "<cmd>Telescope live_grep <CR>", { desc = "live grep (Telescope)" })
 map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Todo List (Telescope)" })
+map(
+	"n",
+	"<leader>fc",
+	"<cmd>lua require('telescope.builtin').find_files{vim.fn.stdpath('config')}<cr>",
+	{ desc = "Find Config (Telescope)" }
+)
 
 -- debugging keymaps
 map("n", "<leader>dt", "<cmd>DapToggleBreakpoint <CR>", { desc = "Toggle Breakpoint" })

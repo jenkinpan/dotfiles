@@ -29,7 +29,7 @@ return {
         { action = "ene | startinsert",                              desc = " New File",        icon = " ", key = "n" },
         { action = 'Telescope oldfiles',                 desc = " Recent Files",    icon = " ", key = "r" },
         { action = 'Telescope live_grep',                desc = " Find Text",       icon = " ", key = "g" },
-        { action = 'lua LazyVim.pick.config_files()()',              desc = " Config",          icon = " ", key = "c" },
+        { action = "lua require('telescope.builtin').find_files{vim.fn.stdpath('config')}",              desc = " Config",          icon = " ", key = "c" },
         { action = 'lua require("persistence").load()',              desc = " Restore Session", icon = " ", key = "s" },
         { action = "Lazy",                                           desc = " Lazy",            icon = "󰒲 ", key = "l" },
         { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit",            icon = " ", key = "q" },
