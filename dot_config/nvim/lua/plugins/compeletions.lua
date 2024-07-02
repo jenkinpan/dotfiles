@@ -2,6 +2,11 @@ return {
 	{
 		"saecki/crates.nvim",
 		event = { "BufRead Cargo.toml" },
+		opts = {
+			completion = {
+				cmp = { enabled = true },
+			},
+		},
 		config = function()
 			require("crates").setup()
 		end,
@@ -62,14 +67,23 @@ return {
 				-- Enable pictogram icons for lsp/autocompletion
 				formatting = {
 					expandable_indicator = true,
-					format = lspkind.cmp_format({
-						mode = "symbol_text",
-						maxwidth = 50,
-						ellipsis_char = "...",
-						symbol_map = {
-							Copilot = "",
-						},
-					}),
+					format = function(entry, item)
+						local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+						item = lspkind.cmp_format({
+							-- lspkind format settings
+							mode = "symbol_text",
+							maxwidth = 50,
+							ellipsis_char = "...",
+							symbol_map = {
+								Copilot = "",
+							},
+						})(entry, item)
+						if color_item.abbr_hl_group then
+							item.kind_hl_group = color_item.abbr_hl_group
+							item.kind = color_item.abbr
+						end
+						return item
+					end,
 				},
 			})
 
