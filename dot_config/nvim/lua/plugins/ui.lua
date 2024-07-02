@@ -6,7 +6,7 @@ return {
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "dracula",
+					theme = "tokyonight",
 				},
 			})
 		end,
@@ -140,9 +140,6 @@ return {
 		config = function()
 			vim.opt.termguicolors = true
 			require("bufferline").setup({
-				-- set catppuccin theme for bufferline
-				highlights = require("catppuccin.groups.integrations.bufferline").get(),
-
 				options = {
 					indicator = {
 						icon = "▎",
