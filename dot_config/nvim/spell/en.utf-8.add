@@ -42,3 +42,12 @@ CodeSnap
 toml
 lspkind
 set
+TreeSitter
+Neovim
+util
+css
+gitignore
+javascript
+json
+norg
+yaml
