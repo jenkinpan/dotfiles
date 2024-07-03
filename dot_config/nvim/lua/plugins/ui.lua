@@ -191,7 +191,6 @@ return {
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
 		version = "*",
-		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
 			vim.opt.termguicolors = true
 			require("bufferline").setup({
@@ -234,6 +233,14 @@ return {
 						reveal = { "close" },
 					},
 				},
+			})
+			vim.api.nvim_create_autocmd({ "BufAdd", "BufDelete" }, {
+				callback = function()
+					vim.schedule(function()
+						---@diagnostic disable-next-line: undefined-global
+						pcall(nvim_bufferline)
+					end)
+				end,
 			})
 		end,
 	},
