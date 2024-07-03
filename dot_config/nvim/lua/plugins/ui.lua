@@ -7,6 +7,7 @@ return {
 			require("lualine").setup({
 				options = {
 					theme = "auto",
+					disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
 					component_separators = { left = "", right = "" },
 					section_separators = { left = " ", right = "" },
 				},
@@ -292,14 +293,12 @@ return {
 			})
 		end,
 	},
+	{ "MunifTanjim/nui.nvim", lazy = true },
+	{ "rcarriga/nvim-notify", lazy = true },
 	{
 		-- set UI for notification, cmdline and popupmenu
 		"folke/noice.nvim",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-			"hrsh7th/nvim-cmp",
-		},
+		event = "VeryLazy",
 		config = function()
 			require("noice").setup({
 				lsp = {
