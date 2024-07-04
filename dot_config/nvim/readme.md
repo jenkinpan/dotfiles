@@ -1,6 +1,6 @@
 # neovim config profile
 
-use Lazy to manage plugins
+use lazy.nvim to manage plugins
 
 ## file tree
 
