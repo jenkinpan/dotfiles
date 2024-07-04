@@ -2,6 +2,7 @@ return {
 	{ "nvim-lua/plenary.nvim", lazy = true },
 	{
 		"nvim-telescope/telescope.nvim",
+		cmd = "Telescope",
 		branch = "0.1.x",
 		dependencies = {
 			"nvim-lua/popup.nvim",

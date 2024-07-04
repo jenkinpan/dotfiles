@@ -18,6 +18,7 @@ return {
 		})
 
 		wk.register({
+			["gs"] = { name = "surround" },
 			["<leader>"] = {
 				["`"] = { "<cmd>Lspsaga term_toggle<cr>", "Toggle Terminal" },
 				b = {
@@ -77,6 +78,7 @@ return {
 		})
 
 		wk.register({
+			["gs"] = { name = "surround" },
 			["<leader>"] = {
 				c = { name = "Codesnap" },
 			},
