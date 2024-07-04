@@ -33,11 +33,7 @@ require("lazy").setup({ import = "plugins" }, {
 		root = vim.fn.stdpath("data") .. "/lazy-rocks",
 		server = "https://nvim-neorocks.github.io/rocks-binaries/",
 	},
-	checkers = {
+	checker = {
 		enabled = true,
-		concurrency = nil, ---@type number? set to 1 to check for updates very slowly
-		notify = true, -- get a notification when new updates are found
-		frequency = 3600, -- check for updates every hour
-		check_pinned = false, -- check for pinned packages that can't be updated
 	},
 })
