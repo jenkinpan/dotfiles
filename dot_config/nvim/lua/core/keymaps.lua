@@ -17,6 +17,9 @@ map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Open Lazy" })
 -- Open Mason
 map("n", "<leader>M", "<cmd>Mason<cr>", { desc = "Open Mason" })
 
+-- quit
+map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+
 -- cancel highlight search result
 map("n", "<leader>n", "<cmd>noh<cr>", { desc = "Cancel Search highlight" })
 
@@ -47,7 +50,7 @@ map("n", "<c-h>", "<cmd>wincmd h<cr>", opts)
 map("n", "<c-l>", "<cmd>wincmd l<cr>", opts)
 
 -- set terminal toggle
-map("n", "<leader>`", "<cmd>Lspsaga term_toggle<cr>", opts)
+map("n", "<leader>`", "<cmd>Lspsaga term_toggle<cr>", { desc = "Toggle Terminal" })
 map("t", "<leader>`", [[<cmd>Lspsaga term_toggle<cr>]], opts)
 
 -- set shortcut for Neotree
