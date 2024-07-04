@@ -77,6 +77,7 @@ return {
 	{
 		-- set UI: comment show
 		"folke/todo-comments.nvim",
+		event = "VeryLazy",
 		opts = {},
 	},
 	{

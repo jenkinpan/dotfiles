@@ -10,12 +10,12 @@ vim.api.nvim_create_autocmd("User", {
 vim.api.nvim_create_autocmd("User", {
 	pattern = "MasonToolsUpdateCompleted",
 	callback = function(e)
-		vim.schedule(function()
-			if #e.data == 0 then
-				print("Mason no updates found")
-			else
+		if #e.data == 0 then
+			return
+		else
+			vim.schedule(function()
 				print("Mason update finished")
-			end
-		end)
+			end)
+		end
 	end,
 })

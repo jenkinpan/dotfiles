@@ -1,19 +1,10 @@
 return {
+	{ "nvim-neotest/nvim-nio", lazy = true },
+	{ "mfussenegger/nvim-dap-python", lazy = true },
+	{ "rcarriga/nvim-dap-ui", lazy = true },
 	{
 		"mfussenegger/nvim-dap",
 		event = "VeryLazy",
-		dependencies = {
-			{
-				"rcarriga/nvim-dap-ui",
-				dependencies = {
-					"nvim-neotest/nvim-nio",
-				},
-			},
-
-			-- python debugger
-			-- the debugpy server must be installed
-			"mfussenegger/nvim-dap-python",
-		},
 		config = function()
 			local dap, dapui = require("dap"), require("dapui")
 			require("dapui").setup()
