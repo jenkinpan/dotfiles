@@ -1,7 +1,6 @@
 return {
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		lazy = false,
 		config = function()
 			require("mason-tool-installer").setup({
 				ensure_installed = {
@@ -14,6 +13,9 @@ return {
 					"htmlhint",
 					"beautysh",
 				},
+				auto_update = true,
+				run_on_start = true,
+				start_delay = 300,
 			})
 		end,
 	},

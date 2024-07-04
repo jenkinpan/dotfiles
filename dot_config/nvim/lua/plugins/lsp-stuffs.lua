@@ -1,46 +1,47 @@
 return {
 	{
-		"williamboman/mason.nvim",
-		lazy = false,
-		config = function()
-			require("mason").setup({
-				ui = {
-					border = "rounded",
-					icons = {
-						package_installed = "✓",
-						package_pending = "➜",
-						package_uninstalled = "✗",
-					},
-				},
-			})
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		lazy = false,
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					-- ensure_installed LSP servers
-					"eslint",
-					"rust_analyzer",
-					"tsserver",
-					"volar",
-					"lua_ls",
-					"emmet_ls",
-					"markdown_oxide",
-					"slint_lsp",
-					"biome",
-					"tailwindcss",
-					"pylsp",
-				},
-				auto_install = true,
-			})
-		end,
-	},
-	{
 		"neovim/nvim-lspconfig",
-		event = { "BufReadPost" },
+		lazy = true,
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			{
+				"williamboman/mason.nvim",
+				config = function()
+					require("mason").setup({
+						ui = {
+							border = "rounded",
+							icons = {
+								package_installed = "✓",
+								package_pending = "➜",
+								package_uninstalled = "✗",
+							},
+						},
+					})
+				end,
+			},
+			{
+				"williamboman/mason-lspconfig.nvim",
+				config = function()
+					require("mason-lspconfig").setup({
+						ensure_installed = {
+							-- ensure_installed LSP servers
+							"eslint",
+							"rust_analyzer",
+							"tsserver",
+							"volar",
+							"lua_ls",
+							"emmet_ls",
+							"markdown_oxide",
+							"slint_lsp",
+							"biome",
+							"tailwindcss",
+							"pylsp",
+						},
+						auto_install = true,
+					})
+				end,
+			},
+		},
 		opts = {
 			inlay_hints = { enable = true },
 		},
@@ -133,10 +134,8 @@ return {
 	},
 	{
 		"nvimdev/lspsaga.nvim",
+		lazy = true,
 		event = "LspAttach",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter", -- optional
-		},
 		config = function()
 			require("lspsaga").setup({
 				outline = {

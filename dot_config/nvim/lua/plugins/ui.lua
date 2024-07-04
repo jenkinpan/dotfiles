@@ -69,15 +69,6 @@ return {
 			})
 		end,
 	},
-	-- {
-	-- 	-- set UI: greeter interface
-	-- 	"goolord/alpha-nvim",
-	-- 	event = "VimEnter",
-	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	-- 	config = function()
-	-- 		require("alpha").setup(require("alpha.themes.startify").config)
-	-- 	end,
-	-- },
 	{
 		-- set UI: Undo Tree
 		"mbbill/undotree",
@@ -87,14 +78,6 @@ return {
 		-- set UI: comment show
 		"folke/todo-comments.nvim",
 		opts = {},
-	},
-	{
-		-- set icons more nicely
-		"rachartier/tiny-devicons-auto-colors.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("tiny-devicons-auto-colors").setup()
-		end,
 	},
 	{
 		-- set UI: highlight colors

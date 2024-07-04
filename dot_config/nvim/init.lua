@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 require("core.keymaps")
 require("core.options")
 require("core.neovide")
+require("core.autocmd")
 
 -- import plugins, and the file location is `nvim/lua/plugins`
 require("lazy").setup({ import = "plugins" }, {
