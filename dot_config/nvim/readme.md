@@ -27,8 +27,6 @@ Lspsaga<br>
 nvim-lint<br>
 flash.nvim<br>
 neorg<br>
-luarocks.nvim<br>
-<strong>Luarocks will automatically build. But if there are some problem, we can build it manually by `:Lazy build luarocks.nvim`</strong>
 
 ## KeyBinding
 
@@ -47,7 +45,7 @@ luarocks.nvim<br>
 - NORMAL mode
 
 ```help
-`Ctrl+n` - open Neo-Tree on the left side
+`<leader>+e` - Toggle Nvim-Tree on the left side
 ```
 
 ### KeyBind for Telescope
@@ -91,13 +89,13 @@ luarocks.nvim<br>
 - NORMAL mode
 
 ```help
-`<leader>ds` - Dsimiss all visible messages
+`<leader>un` - Dsimiss all visible messages
 ```
 
 ### KeyBind for mini.surround
 
 ```bash
-'sa' # in visual mode by selecting a code or code block and plus the signal you decided to use.
-'sd' # in normal mode -> first type sd and type the signal you want to remove.
-'sr' # in normal mode -> first type sr and type the signal you want to replace and finally type the new signal.
+'gsa' # in visual mode by selecting a code or code block and plus the signal you decided to use.
+'gsd' # in normal mode -> first type gsd and type the signal you want to remove.
+'gsr' # in normal mode -> first type gsr and type the signal you want to replace and finally type the new signal.
 ```
