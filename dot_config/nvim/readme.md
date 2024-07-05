@@ -41,7 +41,7 @@ copilot.lua<br>
 `Ctrl+k` - jump to the upper split window
 ```
 
-### KeyBind for Neo-Tree
+### KeyBind for Nvim-Tree
 
 - NORMAL mode
 
