@@ -27,6 +27,7 @@ Lspsaga<br>
 nvim-lint<br>
 flash.nvim<br>
 neorg<br>
+copilot.lua<br>
 
 ## KeyBinding
 
