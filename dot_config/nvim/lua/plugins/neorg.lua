@@ -1,7 +1,6 @@
 return {
 	{
 		"nvim-neorg/neorg",
-		lazy = true, -- enable lazy load
 		ft = "norg", -- lazy load on file type
 		cmd = "Neorg", -- lazy load on command
 		opts = {
