@@ -20,6 +20,7 @@ return {
 		wk.register({
 			["gs"] = { name = "surround" },
 			["<leader>"] = {
+				a = { name = "AI" },
 				b = { name = "Buffers" },
 				c = { name = "Code Actions" },
 				C = { name = "Crates" },
@@ -46,6 +47,7 @@ return {
 		wk.register({
 			["gs"] = { name = "surround" },
 			["<leader>"] = {
+				a = { name = "AI" },
 				c = { name = "Codesnap" },
 			},
 		}, { mode = "v" })
