@@ -212,20 +212,6 @@ map("n", "<localleader>mn", "<cmd>Neorg mode norg<cr>", { desc = "[neorg] Enter 
 map("n", "<localleader>mh", "<cmd>Neorg mode traverse-heading<cr>", { desc = "[neorg] Heading Traversal Mode" })
 map("n", "<localleader>ml", "<cmd>Neorg mode traverse-link<cr>", { desc = "[neorg] Enter Link Traversal Mode" })
 
--- Codeium keymaps
-vim.keymap.set("i", "<tab>", function()
-	return vim.fn["codeium#Accept"]()
-end, { expr = true, silent = true })
-vim.keymap.set("i", "<c-.>", function()
-	return vim.fn["codeium#CycleCompletions"](1)
-end, { expr = true, silent = true })
-vim.keymap.set("i", "<c-,>", function()
-	return vim.fn["codeium#CycleCompletions"](-1)
-end, { expr = true, silent = true })
-vim.keymap.set("i", "<c-x>", function()
-	return vim.fn["codeium#Clear"]()
-end, { expr = true, silent = true })
-
 -- toggle showing inlay_hint
 map("n", "<leader>ch", function()
 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())

@@ -13,7 +13,7 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
+		event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			{ "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
@@ -24,6 +24,12 @@ return {
 			"windwp/nvim-autopairs", -- autopairs
 			"onsails/lspkind.nvim", -- pictogram icons for lsp/autocompletion
 			"hrsh7th/cmp-cmdline", -- cmdline completion
+			{
+				"zbirenbaum/copilot-cmp",
+				config = function()
+					require("copilot_cmp").setup({})
+				end,
+			},
 		},
 		config = function()
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
@@ -56,11 +62,12 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" }, -- LSP source
-					{ name = "copilot" },
-					{ name = "buffer" }, -- text with current buffer
-					{ name = "path" }, -- file system paths
-					{ name = "luasnip" }, -- snippets
+					{ name = "nvim_lsp", max_item_count = 5, group_index = 2 }, -- LSP source
+					{ name = "codeium", group_index = 0 }, -- codeium source
+					{ name = "copilot", group_index = 0 }, -- copilot source
+					{ name = "buffer", max_item_count = 5 }, -- text with current buffer
+					{ name = "path", max_item_count = 5, group_index = 2 }, -- file system paths
+					{ name = "luasnip", max_item_count = 5, group_index = 2 }, -- snippets
 					{ name = "neorg" }, -- set neorg completion source
 					{ name = "crates" }, -- set rust crates
 				}),
@@ -76,6 +83,7 @@ return {
 							ellipsis_char = "...",
 							symbol_map = {
 								Copilot = "",
+								Codeium = "",
 							},
 						})(entry, item)
 						if color_item.abbr_hl_group then
