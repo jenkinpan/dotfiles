@@ -17,39 +17,27 @@ return {
 			},
 		})
 
-		wk.register({
-			["gs"] = { name = "surround" },
-			["<leader>"] = {
-				a = { name = "AI" },
-				b = { name = "Buffers" },
-				c = { name = "Code Actions" },
-				C = { name = "Crates" },
-				d = { name = "Debug" },
-				f = { name = "Telescope" },
-				g = { name = "Git Stuffs" },
-				l = { name = "Lspsaga" },
-				q = { name = "quit/session" },
-				U = { name = "Undo Tree" },
-				u = { name = "UI" },
-				x = { name = "Trouble" },
-			},
-			["<localleader>"] = {
-				e = { name = "[neorg] Export" },
-				t = { name = "[neorg] Todo Tasks" },
-				i = { name = "[neorg] Insert" },
-				j = { name = "[neorg] Journal" },
-				l = { name = "[neorg] List" },
-				m = { name = "[neorg] Mode" },
-				n = { name = "[neorg] New" },
-			},
+		wk.add({
+			{ "<leader>C", group = "Crates" },
+			{ "<leader>U", group = "Undo Tree" },
+			{ "<leader>a", group = "AI" },
+			{ "<leader>b", group = "Buffers" },
+			{ "<leader>c", group = "Code Actions" },
+			{ "<leader>d", group = "Debug" },
+			{ "<leader>f", group = "Telescope" },
+			{ "<leader>g", group = "Git Stuffs" },
+			{ "<leader>l", group = "Lspsaga" },
+			{ "<leader>q", group = "quit/session" },
+			{ "<leader>u", group = "UI" },
+			{ "<leader>x", group = "Trouble" },
+			{ "<localleader>e", group = "[neorg] Export" },
+			{ "<localleader>i", group = "[neorg] Insert" },
+			{ "<localleader>j", group = "[neorg] Journal" },
+			{ "<localleader>l", group = "[neorg] List" },
+			{ "<localleader>m", group = "[neorg] Mode" },
+			{ "<localleader>n", group = "[neorg] New" },
+			{ "<localleader>t", group = "[neorg] Todo Tasks" },
+			{ "gs", group = "surround" },
 		})
-
-		wk.register({
-			["gs"] = { name = "surround" },
-			["<leader>"] = {
-				a = { name = "AI" },
-				c = { name = "Codesnap" },
-			},
-		}, { mode = "v" })
 	end,
 }

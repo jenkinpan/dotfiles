@@ -37,6 +37,7 @@ return {
 				"json",
 				"vue",
 				"toml",
+				"diff",
 			},
 			auto_install = true,
 			highlight = { enable = true },
