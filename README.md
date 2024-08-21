@@ -63,9 +63,3 @@ sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUS
 sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 sudo git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
 ```
-
-## 7. Install bat theme
-
-```bash
-bat cache --build
-```
