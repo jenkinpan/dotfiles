@@ -1,5 +1,6 @@
 return {
 	{
+		-- set for rust crates
 		"saecki/crates.nvim",
 		event = { "BufRead Cargo.toml" },
 		opts = {

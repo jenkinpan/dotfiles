@@ -14,7 +14,7 @@ return {
 					"beautysh",
 					"eslint",
 					"rust_analyzer",
-					"tsserver",
+					"ts_ls",
 					"volar",
 					"lua_ls",
 					"emmet_ls",
