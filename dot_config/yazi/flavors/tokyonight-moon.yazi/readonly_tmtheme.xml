@@ -1,0 +1,262 @@
+ <manager>
+    <cwd>
+        <fg>#828bb8</fg>
+        <italic>true</italic>
+    </cwd>
+    <hovered>
+        <bg>#2f334d</bg>
+    </hovered>
+    <preview_hovered>
+        <bg>#2f334d</bg>
+    </preview_hovered>
+    <find_keyword>
+        <fg>#1e2030</fg>
+        <bg>#ff966c</bg>
+        <bold>true</bold>
+    </find_keyword>
+    <find_position>
+        <fg>#0db9d7</fg>
+        <bg>#203346</bg>
+        <bold>true</bold>
+    </find_position>
+    <marker_copied>
+        <fg>#4fd6be</fg>
+        <bg>#4fd6be</bg>
+    </marker_copied>
+    <marker_cut>
+        <fg>#ff757f</fg>
+        <bg>#ff757f</bg>
+    </marker_cut>
+    <marker_marked>
+        <fg>#c099ff</fg>
+        <bg>#c099ff</bg>
+    </marker_marked>
+    <marker_selected>
+        <fg>#82aaff</fg>
+        <bg>#82aaff</bg>
+    </marker_selected>
+    <tab_active>
+        <fg>#c8d3f5</fg>
+        <bg>#2f334d</bg>
+    </tab_active>
+    <tab_inactive>
+        <fg>#3b4261</fg>
+        <bg>#222436</bg>
+    </tab_inactive>
+    <tab_width>1</tab_width>
+    <count_copied>
+        <fg>#c8d3f5</fg>
+        <bg>#41a6b5</bg>
+    </count_copied>
+    <count_cut>
+        <fg>#c8d3f5</fg>
+        <bg>#c53b53</bg>
+    </count_cut>
+    <count_selected>
+        <fg>#c8d3f5</fg>
+        <bg>#3e68d7</bg>
+    </count_selected>
+    <border_symbol>│</border_symbol>
+    <border_style>
+        <fg>#589ed7</fg>
+    </border_style>
+</manager>
+<mode>
+    <normal_main>
+        <fg>#1b1d2b</fg>
+        <bg>#82aaff</bg>
+        <bold>true</bold>
+    </normal_main>
+    <normal_alt>
+        <fg>#82aaff</fg>
+        <bg>#3b4261</bg>
+    </normal_alt>
+    <select_main>
+        <fg>#1b1d2b</fg>
+        <bg>#c099ff</bg>
+        <bold>true</bold>
+    </select_main>
+    <select_alt>
+        <fg>#c099ff</fg>
+        <bg>#3b4261</bg>
+    </select_alt>
+    <unset_main>
+        <fg>#1b1d2b</fg>
+        <bg>#fca7ea</bg>
+        <bold>true</bold>
+    </unset_main>
+    <unset_alt>
+        <fg>#fca7ea</fg>
+        <bg>#3b4261</bg>
+    </unset_alt>
+</mode>
+<status>
+    <separator_open></separator_open>
+    <separator_close></separator_close>
+    <progress_label>
+        <fg>#828bb8</fg>
+        <bold>true</bold>
+    </progress_label>
+    <progress_normal>
+        <fg>#222436</fg>
+    </progress_normal>
+    <progress_error>
+        <fg>#ff757f</fg>
+    </progress_error>
+    <perm_type>
+        <fg>#82aaff</fg>
+    </perm_type>
+    <perm_read>
+        <fg>#ffc777</fg>
+    </perm_read>
+    <perm_write>
+        <fg>#ff757f</fg>
+    </perm_write>
+    <perm_exec>
+        <fg>#c3e88d</fg>
+    </perm_exec>
+    <perm_sep>
+        <fg>#444a73</fg>
+    </perm_sep>
+</status>
+<pick>
+    <border>
+        <fg>#589ed7</fg>
+    </border>
+    <active>
+        <fg>#c8d3f5</fg>
+        <bg>#2d3f76</bg>
+    </active>
+    <inactive>
+        <fg>#c8d3f5</fg>
+    </inactive>
+</pick>
+<input>
+    <border>
+        <fg>#0db9d7</fg>
+    </border>
+    <title>
+        <fg>#0db9d7</fg>
+    </title>
+    <value>
+        <fg>#fca7ea</fg>
+    </value>
+    <selected>
+        <bg>#2d3f76</bg>
+    </selected>
+</input>
+<completion>
+    <border>
+        <fg>#0db9d7</fg>
+    </border>
+    <active>
+        <fg>#c8d3f5</fg>
+        <bg>#2d3f76</bg>
+    </active>
+    <inactive>
+        <fg>#c8d3f5</fg>
+    </inactive>
+    <icon_file></icon_file>
+    <icon_folder></icon_folder>
+    <icon_command></icon_command>
+</completion>
+<tasks>
+    <border>
+        <fg>#589ed7</fg>
+    </border>
+    <title>
+        <fg>#589ed7</fg>
+    </title>
+    <hovered>
+        <fg>#c8d3f5</fg>
+        <bg>#2d3f76</bg>
+    </hovered>
+</tasks>
+<which>
+    <cols>3</cols>
+    <mask>
+        <bg>#1e2030</bg>
+    </mask>
+    <cand>
+        <fg>#86e1fc</fg>
+    </cand>
+    <rest>
+        <fg>#82aaff</fg>
+    </rest>
+    <desc>
+        <fg>#c099ff</fg>
+    </desc>
+    <separator> ➜ </separator>
+    <separator_style>
+        <fg>#636da6</fg>
+    </separator_style>
+</which>
+<confirm>
+    <border>
+        <fg>#0db9d7</fg>
+    </border>
+    <title>
+        <fg>#589ed7</fg>
+    </title>
+    <content/>
+    <list/>
+    <btn_yes>
+        <bg>#2d3f76</bg>
+    </btn_yes>
+    <btn_no/>
+    <btn_labels>  [Y]es    (N)o  </btn_labels>
+</confirm>
+<spot>
+    <border>
+        <fg>#589ed7</fg>
+    </border>
+    <title>
+        <fg>#589ed7</fg>
+    </title>
+</spot>
+<notify>
+    <title_info>
+        <fg>#0db9d7</fg>
+    </title_info>
+    <title_warn>
+        <fg>#ffc777</fg>
+    </title_warn>
+    <title_error>
+        <fg>#c53b53</fg>
+    </title_error>
+    <icon_error></icon_error>
+    <icon_warn></icon_warn>
+    <icon_info></icon_info>
+</notify>
+<help>
+    <on>
+        <fg>#c3e88d</fg>
+    </on>
+    <run>
+        <fg>#c099ff</fg>
+    </run>
+    <hovered>
+        <bg>#2f334d</bg>
+    </hovered>
+    <footer>
+        <fg>#c8d3f5</fg>
+        <bg>#222436</bg>
+    </footer>
+</help>
+<filetype>
+    <rules>
+        <mime>image/*</mime>
+        <fg>#ffc777</fg>
+        <mime>{audio,video}/*</mime>
+        <fg>#c099ff</fg>
+        <mime>application/*zip</mime>
+        <fg>#ff757f</fg>
+        <mime>application/x-{tar,bzip*,7z-compressed,xz,rar}</mime>
+        <fg>#ff757f</fg>
+        <mime>application/{pdf,doc,rtf,vnd.*}</mime>
+        <fg>#86e1fc</fg>
+        <*/>
+        <*/>
+        <*//>
+    </rules>
+</filetype>

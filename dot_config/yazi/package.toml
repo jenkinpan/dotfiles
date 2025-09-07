@@ -1,0 +1,27 @@
+[plugin]
+deps = []
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "3e6da98"
+hash = "deff42490f77b222e9d3a84dc16a76c5"
+
+[[flavor.deps]]
+use = "jenkinpan/themes-yazi:tokyonight-day"
+rev = "22c50f5"
+hash = "7a506ac3f69290bb6b9dc139e1c22769"
+
+[[flavor.deps]]
+use = "jenkinpan/themes-yazi:tokyonight-storm"
+rev = "9528f4e"
+hash = "16f47f99b44248328ae174ef5cebdcdc"
+
+[[flavor.deps]]
+use = "jenkinpan/themes-yazi:tokyonight-moon"
+rev = "9528f4e"
+hash = "178eaabc413eec025ec96cb3c407c734"
+
+[[flavor.deps]]
+use = "jenkinpan/themes-yazi:tokyonight-night"
+rev = "9528f4e"
+hash = "31e4eda48bedf47641c1656f7ace789b"
