@@ -11,6 +11,8 @@ export PATH="$HOME/.bun/bin:$PATH"
 
 export EDITOR='nvim'
 
+export HOMEBREW_NO_ENV_HINTS=1
+
 ZSH=~/.oh-my-zsh
 
 ZSH_THEME=""
