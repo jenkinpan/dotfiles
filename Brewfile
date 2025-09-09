@@ -4,6 +4,7 @@ brew "fastfetch"
 brew "fzf"
 brew "gh"
 brew "lazygit"
+brew "mas"
 brew "neovim"
 brew "nvm"
 brew "pandoc"
@@ -16,6 +17,18 @@ cask "font-monaspace"
 cask "kitty"
 cask "mos"
 cask "visual-studio-code"
+mas "AdBlocker", id: 1018301773
+mas "APTV", id: 1630403500
+mas "Command X", id: 6448461551
+mas "Developer", id: 640199958
+mas "Goodnotes", id: 1444383602
+mas "Infuse", id: 1136220934
+mas "Keynote讲演", id: 409183694
+mas "Numbers表格", id: 409203825
+mas "Pages文稿", id: 409201541
+mas "Quantumult X", id: 1443988620
+mas "WhatsApp", id: 310633997
+mas "克拉壁纸", id: 1469525516
 vscode "1yib.rust-bundle"
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.project-manager"
