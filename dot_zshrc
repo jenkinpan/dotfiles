@@ -35,10 +35,7 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
     mkdir $ZSH_CACHE_DIR
 fi
 
-
-
 source $ZSH/oh-my-zsh.sh
-
 
 # zoxide init and also set as cd
 eval "$(zoxide init zsh --cmd cd)"
