@@ -1,34 +1,63 @@
 tap "oven-sh/bun"
+# Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# Modern, maintained replacement for ls
 brew "eza"
+# Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
 brew "fd"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
 brew "gh"
+# Interpreter for PostScript and PDF
 brew "ghostscript"
+# Tools and libraries to manipulate images in many formats
 brew "imagemagick"
+# Simple terminal UI for git commands
 brew "lazygit"
+# Package manager for the Lua programming language
 brew "luarocks"
+# Mac App Store command-line interface
 brew "mas"
+# CLI for Mermaid library
 brew "mermaid-cli"
+# Incremental parsing library
 brew "tree-sitter"
+# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Manage multiple Node.js versions
 brew "nvm"
+# Swiss-army knife of markup format conversion
 brew "pandoc"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Rust toolchain installer
 brew "rustup"
+# Cross-shell prompt for astronauts
 brew "starship"
+# Modernized, complete, self-contained TeX/LaTeX engine
 brew "tectonic"
+# Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
+# Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
+# Send any size file between devices
 cask "blip"
 cask "font-hack-nerd-font"
 cask "font-monaspace"
+# Web browser
 cask "google-chrome"
+# File archiver
 cask "keka"
+# GPU-based terminal emulator
 cask "kitty"
+# Smooths scrolling and set mouse scroll directions independently
 cask "mos"
+# Open-source code editor
 cask "visual-studio-code"
 mas "AdBlocker", id: 1018301773
 mas "APTV", id: 1630403500
