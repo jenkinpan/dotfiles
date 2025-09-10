@@ -1,6 +1,6 @@
 # Dotfiles by Chezmoi
 
--- for Arch Linux
+-- for Arch Linux users --
 
 ## 0. Choose five mirrors in china for Arch Linux(only for Chinese Archer)
 
