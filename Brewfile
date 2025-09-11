@@ -45,6 +45,8 @@ brew "yazi"
 brew "zoxide"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
+# User-friendly GUI app for Homebrew
+cask "applite"
 # Send any size file between devices
 cask "blip"
 cask "font-hack-nerd-font"
