@@ -71,7 +71,6 @@ mas "Pages文稿", id: 409201541
 mas "Quantumult X", id: 1443988620
 mas "WhatsApp", id: 310633997
 mas "克拉壁纸", id: 1469525516
-vscode "1yib.rust-bundle"
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.project-manager"
 vscode "astro-build.astro-vscode"
@@ -82,7 +81,6 @@ vscode "davidanson.vscode-markdownlint"
 vscode "dbaeumer.vscode-eslint"
 vscode "digitalbrainstem.javascript-ejs-support"
 vscode "donjayamanne.githistory"
-vscode "dustypomerleau.rust-syntax"
 vscode "eamodio.gitlens"
 vscode "esbenp.prettier-vscode"
 vscode "fill-labs.dependi"
@@ -130,6 +128,7 @@ vscode "slint.slint"
 vscode "streetsidesoftware.code-spell-checker"
 vscode "sumneko.lua"
 vscode "swiftlang.swift-vscode"
+vscode "tamasfe.even-better-toml"
 vscode "twxs.cmake"
 vscode "vadimcn.vscode-lldb"
 vscode "visualstudioexptteam.vscodeintellicode"
