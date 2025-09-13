@@ -27,7 +27,7 @@ plugins=(
     chezmoi
     bun
     brew
-    rest
+    rust
 )
 
 export LANG=zh_CN.UTF-8
