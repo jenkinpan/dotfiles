@@ -24,6 +24,10 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-autocomplete
+    chezmoi
+    bun
+    brew
+    rest
 )
 
 export LANG=zh_CN.UTF-8
