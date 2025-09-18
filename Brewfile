@@ -39,6 +39,10 @@ brew "rustup"
 brew "starship"
 # Modernized, complete, self-contained TeX/LaTeX engine
 brew "tectonic"
+# Simplified and community-driven man pages
+brew "tldr"
+# Terminal multiplexer
+brew "tmux"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
 # Shell extension to navigate your filesystem faster
@@ -57,6 +61,8 @@ cask "keka"
 cask "kitty"
 # Smooths scrolling and set mouse scroll directions independently
 cask "mos"
+# Music streaming platform
+cask "neteasemusic"
 # Open-source code editor
 cask "visual-studio-code"
 mas "AdBlocker", id: 1018301773
