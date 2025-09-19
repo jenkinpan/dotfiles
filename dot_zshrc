@@ -28,6 +28,7 @@ plugins=(
     bun
     brew
     rust
+    tmux
 )
 
 export LANG=zh_CN.UTF-8
