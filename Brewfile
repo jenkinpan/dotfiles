@@ -1,3 +1,4 @@
+tap "cormacrelf/tap"
 tap "oven-sh/bun"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
