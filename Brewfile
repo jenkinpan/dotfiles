@@ -14,6 +14,8 @@ brew "fzf"
 brew "gh"
 # Interpreter for PostScript and PDF
 brew "ghostscript"
+# Improved top (interactive process viewer)
+brew "htop"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Simple terminal UI for git commands
