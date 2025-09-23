@@ -53,14 +53,22 @@ eval "$(zoxide init zsh --cmd cd)"
 eval "$(fzf --zsh)"
 
 # --- setup fzf theme ---
-fg="#CBE0F0"
-bg="#011628"
-bg_highlight="#143652"
-purple="#B388FF"
-blue="#06BCE4"
-cyan="#2CF9ED"
 
-export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
+export FZF_DEFAULT_OPTS="
+--color=fg:-1
+--color=fg+:-1
+--color=bg:-1
+--color=bg+:20
+--color=pointer:-1
+--color=header:1
+--color=border:4
+--color=hl:16
+--color=hl+:17
+--color=info:21
+--color=prompt:2
+--color=marker:21
+--color=spinner:21
+--color=scrollbar:dim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -96,7 +104,7 @@ _fzf_comprun() {
 }
 
 # ----- Bat (better cat) -----
-export BAT_THEME=tokyonight_night
+export BAT_THEME=tokyonight_day
 
 # ----- yazi ----
 function yy() {
