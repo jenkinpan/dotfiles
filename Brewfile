@@ -54,8 +54,6 @@ brew "tmux"
 brew "tree"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
-# Pluggable terminal workspace, with terminal multiplexer as the base feature
-brew "zellij"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Watcher for macOS 10.14+ light/dark mode changes
