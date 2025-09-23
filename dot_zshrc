@@ -50,7 +50,7 @@ eval "$(zoxide init zsh --cmd cd)"
 # set tmux startup
 if [ -z "$TMUX" ]; then
   # Attach to an existing session if one exists, otherwise create a new one.
-  tmux attach || exec tmux new-session
+  tmux attach || exec tmux new -s zsh
 fi
 
 # ---- FZF ----
