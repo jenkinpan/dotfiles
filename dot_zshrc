@@ -13,6 +13,9 @@ export EDITOR='nvim'
 
 export HOMEBREW_NO_ENV_HINTS=1
 
+# Setup oh-my-zsh auto update
+zstyle ':omz:update' mode auto
+
 ZSH=~/.oh-my-zsh
 
 ZSH_THEME=""
