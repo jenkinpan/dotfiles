@@ -31,20 +31,6 @@ export EDITOR='nvim'
 export COLORTERM='truecolor'
 export HOMEBREW_NO_ENV_HINTS=1
 
-plugins=(
-    git
-    eza
-    archlinux
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    zsh-autocomplete
-    chezmoi
-    bun
-    brew
-    rust
-    tmux
-)
-
 export LANG=zh_CN.UTF-8
 export LANGUAGE=zh_CN:en_US
 
@@ -140,3 +126,17 @@ compinit
 # End of Docker CLI completions
 
 
+# Add in zinit plugins
+zi light zsh-users/zsh-autosuggestions
+zi light zsh-users/zsh-syntax-highlighting
+zi light zsh-users/zsh-completions
+
+
+# Add in snippets
+zi snippet OMZP::git
+zi snippet OMZP::chezmoi
+zi snippet OMZP::archlinux
+zi snippet OMZP::eza
+zi snippet OMZP::bun
+zi snippet OMZP::brew
+zi snippet OMZP::rust
