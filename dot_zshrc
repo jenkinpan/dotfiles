@@ -1,8 +1,26 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load starship theme
+# line 1: `starship` binary as command, from github release
+# line 2: starship setup at clone(create init.zsh, completion)
+# line 3: pull behavior same as clone, source init.zsh
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh"
+zinit light starship/starship
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 fastfetch --config examples/14
 
@@ -10,15 +28,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.bun/bin:$PATH"
 
 export EDITOR='nvim'
-
+export COLORTERM='truecolor'
 export HOMEBREW_NO_ENV_HINTS=1
-
-# Setup oh-my-zsh auto update
-zstyle ':omz:update' mode auto
-
-ZSH=~/.oh-my-zsh
-
-ZSH_THEME=""
 
 plugins=(
     git
@@ -38,14 +49,6 @@ export LANG=zh_CN.UTF-8
 export LANGUAGE=zh_CN:en_US
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
-
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
-
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-    mkdir $ZSH_CACHE_DIR
-fi
-
-source $ZSH/oh-my-zsh.sh
 
 # zoxide init and also set as cd
 eval "$(zoxide init zsh --cmd cd)"
@@ -130,10 +133,10 @@ alias cls='clear'
 alias vim='nvim'
 alias lla='ls -a'
 
-eval "$(starship init zsh)"
-
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/jenkin/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+
