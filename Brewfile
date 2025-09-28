@@ -31,6 +31,8 @@ brew "luarocks"
 brew "mas"
 # CLI for Mermaid library
 brew "mermaid-cli"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
 # Incremental parsing library
 brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
