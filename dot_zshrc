@@ -90,6 +90,7 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(fzf --zsh)"
 
 fastfetch --config examples/14
 
