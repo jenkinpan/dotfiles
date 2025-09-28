@@ -20,6 +20,31 @@ zinit ice as"command" from"gh-r" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
+
+# Add in zinit plugins
+zinit for \
+  wait"0" lucid light-mode \
+    zsh-users/zsh-autosuggestions \
+    zdharma-continuum/fast-syntax-highlighting \
+    zsh-users/zsh-completions \
+    zdharma-continuum/history-search-multi-word
+
+zinit ice lucid wait'0'
+zinit light Aloxaf/fzf-tab
+
+# 使用 knqyf263/pet（原始版本）
+zinit ice as"command" from"gh-r" pick"pet-*darwin*"
+zinit light knqyf263/pet
+
+# Add in snippets
+zi snippet OMZP::git
+zi snippet OMZP::chezmoi
+zi snippet OMZP::archlinux
+zi snippet OMZP::eza
+zi snippet OMZP::bun
+zi snippet OMZP::brew
+zi snippet OMZP::rust
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 fastfetch --config examples/14
@@ -125,18 +150,26 @@ autoload -Uz compinit
 compinit
 # End of Docker CLI completions
 
+# pet - macOS 版本检测
+if [[ "$OSTYPE" == darwin* ]]; then
+    zinit ice as"command" from"gh-r" pick"*darwin*"
+else
+    zinit ice as"command" from"gh-r" pick"*linux*"
+fi
 
-# Add in zinit plugins
-zi light zsh-users/zsh-autosuggestions
-zi light zsh-users/zsh-syntax-highlighting
-zi light zsh-users/zsh-completions
+# ===================================================================
+# 🎯 补全与交互优化
+# ===================================================================
+# 启用带选择菜单的补全
+zstyle ':completion:*' menu select
 
-
-# Add in snippets
-zi snippet OMZP::git
-zi snippet OMZP::chezmoi
-zi snippet OMZP::archlinux
-zi snippet OMZP::eza
-zi snippet OMZP::bun
-zi snippet OMZP::brew
-zi snippet OMZP::rust
+# macOS 兼容的 fzf-tab 预览
+if [[ "$OSTYPE" == darwin* ]]; then
+    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+    zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview 'git log --oneline --graph --color=always $word | head -20'
+    zstyle ':fzf-tab:complete:kill:*' fzf-preview 'ps -p $realpath[#,-1] -o pid,%cpu,%mem,comm -c' --height=20
+else
+    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+    zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview 'git log --oneline --graph --color=always $word | head -20'
+    zstyle ':fzf-tab:complete:kill:*' fzf-preview 'ps --pid=$realpath[#,-1] -o pid,%cpu,%mem,cmd --width=${COLUMNS} --color=always' --height=20
+fi
