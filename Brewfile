@@ -1,8 +1,6 @@
 tap "cormacrelf/tap"
 tap "oven-sh/bun"
 tap "sst/tap"
-# Extendable version manager with support for Ruby, Node.js, Erlang & more
-brew "asdf"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -25,8 +23,6 @@ brew "htop"
 brew "imagemagick"
 # Simple terminal UI for git commands
 brew "lazygit"
-# Package manager for the Lua programming language
-brew "luarocks"
 # Mac App Store command-line interface
 brew "mas"
 # CLI for Mermaid library
