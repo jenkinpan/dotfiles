@@ -1,4 +1,6 @@
-### Added by Zinit's installer
+# ===================================================================
+# 🔌 Zinit Plugin Manager install & load
+# ===================================================================
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
     command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
@@ -11,17 +13,39 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Load starship theme
-# line 1: `starship` binary as command, from github release
-# line 2: starship setup at clone(create init.zsh, completion)
-# line 3: pull behavior same as clone, source init.zsh
+# ===================================================================
+# 🔧 load zinit core annex (required)
+# ===================================================================
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+# ===================================================================
+# 🎨 Starship prompt
+# ===================================================================
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
+# ===================================================================
+# ⚙️ Zsh core features (lazy load)
+# ===================================================================
+zinit wait"1" lucid for \
+    OMZL::clipboard.zsh \
+    OMZL::history.zsh \
+    OMZL::key-bindings.zsh \
+    OMZL::completion.zsh
 
+#######################################################
 # Add in zinit plugins
+#######################################################
+
+zinit ice lucid wait'0'
+zinit light Aloxaf/fzf-tab
+
 zinit for \
   wait"0" lucid light-mode \
     zsh-users/zsh-autosuggestions \
@@ -29,10 +53,7 @@ zinit for \
     zsh-users/zsh-completions \
     zdharma-continuum/history-search-multi-word
 
-zinit ice lucid wait'0'
-zinit light Aloxaf/fzf-tab
-
-# 使用 knqyf263/pet（原始版本）
+# use knqyf263/pet（original version）
 zinit ice as"command" from"gh-r" pick"pet-*darwin*"
 zinit light knqyf263/pet
 
@@ -45,6 +66,29 @@ zi snippet OMZP::bun
 zi snippet OMZP::brew
 zi snippet OMZP::rust
 
+#######################################################
+# 🧰 Cli tools setup
+#######################################################
+
+zinit ice as"program" from"gh-r" pick"fzf"
+zinit light junegunn/fzf
+
+#######################################################
+# History Configuration
+#######################################################
+
+HISTSIZE=10000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 fastfetch --config examples/14
@@ -55,14 +99,11 @@ export PATH="$HOME/.bun/bin:$PATH"
 export EDITOR='nvim'
 export COLORTERM='truecolor'
 export HOMEBREW_NO_ENV_HINTS=1
-
 export LANG=zh_CN.UTF-8
 export LANGUAGE=zh_CN:en_US
 
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-
 # zoxide init and also set as cd
-eval "$(zoxide init zsh --cmd cd)"
+eval "$(zoxide init --cmd cd zsh)"
 
 # set tmux startup
 if [ -z "$TMUX" ]; then
@@ -71,32 +112,29 @@ if [ -z "$TMUX" ]; then
 fi
 
 # ---- FZF ----
-
-# setup fzf keybindings and fuzzy completion
-eval "$(fzf --zsh)"
-
 # --- setup fzf theme ---
 
-export FZF_DEFAULT_OPTS="
---color=fg:-1
---color=fg+:-1
---color=bg:-1
---color=bg+:20
---color=pointer:-1
---color=header:1
---color=border:4
---color=hl:16
---color=hl+:17
---color=info:21
---color=prompt:2
---color=marker:21
---color=spinner:21
---color=scrollbar:dim"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [[ -x "$(command -v fzf)" ]]; then
+  export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+    --color=fg:-1 \
+    --color=fg+:-1 \
+    --color=bg:-1 \
+    --color=bg+:20 \
+    --color=pointer:-1 \
+    --color=header:1 \
+    --color=border:4 \
+    --color=hl:16 \
+    --color=hl+:17 \
+    --color=info:21 \
+    --color=prompt:2 \
+    --color=marker:21 \
+    --color=spinner:21 \
+    --color=scrollbar:dim \
+  "
+fi
 
 # -- use fd instead of fzf
-export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+# export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude /git"
 
@@ -111,38 +149,39 @@ _fzf_compgen_dir() {
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
-# Advanced customization of fzf options via _fzf_comprun function
-# - The first argument to the function is the name of the command.
-# - You should make sure to pass the rest of the arguments to fzf.
-_fzf_comprun() {
-    local command=$1
-    shift
-
-    case "$command" in
-        cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
-        export|unset) fzf --preview "eval 'echo \$'{}"         "$@" ;;
-        ssh)          fzf --preview 'dig {}'                   "$@" ;;
-        *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
-    esac
-}
-
 # ----- Bat (better cat) -----
 export BAT_THEME=tokyonight_day
 
-# ----- yazi ----
+#######################################################
+# Functions
+#######################################################
+
+# yy shell wrapper that provides the ability to change the current working directory when exiting Yazi.
 function yy() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
     yazi "$@" --cwd-file="$tmp"
     if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-        cd -- "$cwd"
+        builtin cd -- "$cwd"
     fi
     rm -f -- "$tmp"
 }
 
-# ---- Alias ----
+
+#######################################################
+# Aliases
+#######################################################
 alias cls='clear'
 alias vim='nvim'
 alias lla='ls -a'
+alias ls='eza --icons --group-directories-first --color=always --time-style=long-iso'
+alias ll='ls -lh'
+alias la='ll -a'
+
+# Alias for lazygit
+# Link: https://github.com/jesseduffield/lazygit
+if [[ -x "$(command -v lazygit)" ]]; then
+    alias lg='lazygit'
+fi
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/jenkin/.docker/completions $fpath)
@@ -150,26 +189,14 @@ autoload -Uz compinit
 compinit
 # End of Docker CLI completions
 
-# pet - macOS 版本检测
-if [[ "$OSTYPE" == darwin* ]]; then
-    zinit ice as"command" from"gh-r" pick"*darwin*"
-else
-    zinit ice as"command" from"gh-r" pick"*linux*"
-fi
+#######################################################
+# Completion styling
+#######################################################
 
-# ===================================================================
-# 🎯 补全与交互优化
-# ===================================================================
-# 启用带选择菜单的补全
-zstyle ':completion:*' menu select
-
-# macOS 兼容的 fzf-tab 预览
-if [[ "$OSTYPE" == darwin* ]]; then
-    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
-    zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview 'git log --oneline --graph --color=always $word | head -20'
-    zstyle ':fzf-tab:complete:kill:*' fzf-preview 'ps -p $realpath[#,-1] -o pid,%cpu,%mem,comm -c' --height=20
-else
-    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
-    zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview 'git log --oneline --graph --color=always $word | head -20'
-    zstyle ':fzf-tab:complete:kill:*' fzf-preview 'ps --pid=$realpath[#,-1] -o pid,%cpu,%mem,cmd --width=${COLUMNS} --color=always' --height=20
-fi
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
