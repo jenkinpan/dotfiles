@@ -1,5 +1,4 @@
 tap "cormacrelf/tap"
-tap "oven-sh/bun"
 tap "sst/tap"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
@@ -17,6 +16,8 @@ brew "fd"
 brew "gh"
 # Interpreter for PostScript and PDF
 brew "ghostscript"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
 # Improved top (interactive process viewer)
 brew "htop"
 # Tools and libraries to manipulate images in many formats
@@ -55,8 +56,6 @@ brew "uv"
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
-brew "oven-sh/bun/bun"
 # The AI coding agent built for the terminal.
 brew "sst/tap/opencode"
 # Send any size file between devices
