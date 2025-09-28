@@ -1,5 +1,8 @@
 tap "cormacrelf/tap"
 tap "oven-sh/bun"
+tap "sst/tap"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
+brew "asdf"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -42,8 +45,6 @@ brew "pandoc"
 brew "ripgrep"
 # Rust toolchain installer
 brew "rustup"
-# Cross-shell prompt for astronauts
-brew "starship"
 # Modernized, complete, self-contained TeX/LaTeX engine
 brew "tectonic"
 # Simplified and community-driven man pages
@@ -52,12 +53,16 @@ brew "tldr"
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
+# The AI coding agent built for the terminal.
+brew "sst/tap/opencode"
 # Send any size file between devices
 cask "blip"
 cask "font-hack-nerd-font"
