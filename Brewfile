@@ -44,8 +44,8 @@ brew "ripgrep"
 brew "rustup"
 # Modernized, complete, self-contained TeX/LaTeX engine
 brew "tectonic"
-# Simplified and community-driven man pages
-brew "tldr"
+# Official tldr client written in Rust
+brew "tlrc"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
