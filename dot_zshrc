@@ -105,10 +105,10 @@ export LANGUAGE=zh_CN:en_US
 eval "$(zoxide init --cmd cd zsh)"
 
 # set tmux startup
-if [ -z "$TMUX" ]; then
+# if [ -z "$TMUX" ]; then
   # Attach to an existing session if one exists, otherwise create a new one.
-  tmux attach || exec tmux new-session
-fi
+  # tmux attach || exec tmux new-session
+# fi
 
 # ---- FZF ----
 # --- setup fzf theme ---
