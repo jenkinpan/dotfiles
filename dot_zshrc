@@ -1,6 +1,8 @@
-# ===================================================================
-# 🔌 Zinit Plugin Manager install & load
-# ===================================================================
+# ================================================================================
+# ZINIT PLUGIN MANAGER SETUP
+# ================================================================================
+
+# Install zinit if not already installed
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
     command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
@@ -13,67 +15,31 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# ===================================================================
-# 🔧 load zinit core annex (required)
-# ===================================================================
+# Load zinit core extensions
 zinit light-mode for \
     zdharma-continuum/zinit-annex-as-monitor \
     zdharma-continuum/zinit-annex-bin-gem-node \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
-# ===================================================================
-# 🎨 Starship prompt
-# ===================================================================
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
-zinit light starship/starship
+# ================================================================================
+# ENVIRONMENT VARIABLES
+# ================================================================================
 
-# ===================================================================
-# ⚙️ Zsh core features (lazy load)
-# ===================================================================
-zinit wait"1" lucid for \
-    OMZL::clipboard.zsh \
-    OMZL::history.zsh \
-    OMZL::key-bindings.zsh \
-    OMZL::completion.zsh
+export EDITOR='nvim'
+export COLORTERM='truecolor'
+export HOMEBREW_NO_ENV_HINTS=1
+export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN:en_US
+export BAT_THEME=tokyonight_day
 
-#######################################################
-# Add in zinit plugins
-#######################################################
-# zdharma-continuum/history-search-multi-word
+# Path configuration (efficient expansion)
+path=("$HOME/.cargo/bin" "$HOME/.bun/bin" $path)
+export PATH
 
-zinit ice wait"1" lucid
-zinit load zdharma-continuum/history-search-multi-word
-
-zinit ice lucid wait'0'
-zinit light Aloxaf/fzf-tab
-
-zinit for \
-  wait"0" lucid light-mode \
-    zsh-users/zsh-autosuggestions \
-    zdharma-continuum/fast-syntax-highlighting \
-    zsh-users/zsh-completions \
-
-# Add in snippets
-zi snippet OMZP::git
-zi snippet OMZP::chezmoi
-zi snippet OMZP::archlinux
-zi snippet OMZP::eza
-zi snippet OMZP::bun
-zi snippet OMZP::rust
-
-#######################################################
-# 🧰 Cli tools setup
-#######################################################
-
-zinit ice as"program" from"gh-r" pick"fzf"
-zinit light junegunn/fzf
-
-#######################################################
-# History Configuration
-#######################################################
+# ================================================================================
+# HISTORY CONFIGURATION
+# ================================================================================
 
 HISTSIZE=10000
 HISTFILE=~/.zsh_history
@@ -88,122 +54,308 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 setopt auto_list
 
-eval "$(mise activate zsh)"
+# ================================================================================
+# COMPLETION SYSTEM SETUP (Before plugins)
+# ================================================================================
 
-fastfetch --config examples/14
+# Setup cache directory early
+ZSH_CACHE_DIR="${ZSH_CACHE_DIR:-$HOME/.cache/zsh}"
+[[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
 
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.bun/bin:$PATH"
-
-export EDITOR='nvim'
-export COLORTERM='truecolor'
-export HOMEBREW_NO_ENV_HINTS=1
-export LANG=zh_CN.UTF-8
-export LANGUAGE=zh_CN:en_US
-
-# zoxide init and also set as cd
-eval "$(zoxide init --cmd cd zsh)"
-
-# set tmux startup
-# if [ -z "$TMUX" ]; then
-  # Attach to an existing session if one exists, otherwise create a new one.
-  # tmux attach || exec tmux new-session
-# fi
-
-# ---- FZF ----
-# --- setup fzf theme ---
-
-if [[ -x "$(command -v fzf)" ]]; then
-  export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-    --color=fg:-1 \
-    --color=fg+:-1 \
-    --color=bg:-1 \
-    --color=bg+:20 \
-    --color=pointer:-1 \
-    --color=header:1 \
-    --color=border:4 \
-    --color=hl:16 \
-    --color=hl+:17 \
-    --color=info:21 \
-    --color=prompt:2 \
-    --color=marker:21 \
-    --color=spinner:21 \
-    --color=scrollbar:dim \
-  "
+# Homebrew completion setup (consolidated)
+if command -v brew >/dev/null 2>&1; then
+  # Cache brew prefix to avoid multiple calls
+  HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-$(brew --prefix)}"
+  readonly HOMEBREW_PREFIX
+  
+  local brew_comp_dir="$HOMEBREW_PREFIX/share/zsh/site-functions"
+  
+  # Add to fpath if directory exists
+  [[ -d "$brew_comp_dir" ]] && fpath=("$brew_comp_dir" $fpath)
+  
+  # Auto-refresh logic: check if any completion file is newer than dump
+  if [[ -d "$brew_comp_dir" ]]; then
+    local -a brew_files=("$brew_comp_dir"/_*)
+    if (( ${#brew_files} )); then
+      # Find newest completion file using zsh globbing
+      local newest_comp="${brew_files[1]}"
+      local f
+      for f in "${brew_files[@]}"; do
+        [[ "$f" -nt "$newest_comp" ]] && newest_comp="$f"
+      done
+      
+      # Refresh dump if needed
+      if [[ ! -e "$ZSH_CACHE_DIR/.zcompdump" || "$newest_comp" -nt "$ZSH_CACHE_DIR/.zcompdump" ]]; then
+        autoload -Uz compinit
+        compinit -u -d "$ZSH_CACHE_DIR/.zcompdump"
+      fi
+    fi
+  fi
 fi
 
-# -- use fd instead of fzf
-# export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude /git"
+# Ensure compinit is always loaded
+if ! whence -w compinit >/dev/null 2>&1; then
+  autoload -Uz compinit
+  compinit -u -d "$ZSH_CACHE_DIR/.zcompdump"
+fi
 
-_fzf_compgen_path() {
-    fd --hidden --exclude .git . "$1"
-}
+# Now it's safe to use compdef - explicit mise completion registration
+if (( $+commands[brew] )); then
+  local brew_comp_dir="${HOMEBREW_PREFIX}/share/zsh/site-functions"
+  if [[ -f "$brew_comp_dir/_mise" ]] && ! whence -w _mise >/dev/null 2>&1; then
+    autoload -Uz _mise && compdef _mise mise
+  fi
+fi
 
-_fzf_compgen_dir() {
-    fd --type=d --hidden --exclude .git ."$1"
-}
+# Enable completion caching
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "$ZSH_CACHE_DIR/.zcompcache"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
 
-export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
-export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+# ================================================================================
+# PROMPT SETUP
+# ================================================================================
 
-# ----- Bat (better cat) -----
-export BAT_THEME=tokyonight_day
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh"
+zinit light starship/starship
 
-#######################################################
-# Functions
-#######################################################
+# ================================================================================
+# ZSH CORE FEATURES
+# ================================================================================
 
-# yy shell wrapper that provides the ability to change the current working directory when exiting Yazi.
+zinit wait"1" lucid for \
+    OMZL::clipboard.zsh \
+    OMZL::history.zsh \
+    OMZL::key-bindings.zsh \
+    OMZL::completion.zsh
+
+# ================================================================================
+# ESSENTIAL PLUGINS
+# ================================================================================
+
+# Autosuggestions, syntax highlighting, and completions
+# Load core interactive helpers immediately (no delay) to ensure autosuggestions/Syntax highlighting at first keystroke
+zinit for \
+  lucid light-mode blockf \
+    zdharma-continuum/fast-syntax-highlighting \
+    zsh-users/zsh-autosuggestions \
+    zsh-users/zsh-completions
+
+# Enhanced tab completion
+zinit ice lucid wait'0'
+zinit light Aloxaf/fzf-tab
+
+# History search enhancement
+zinit ice wait"1" lucid
+zinit load zdharma-continuum/history-search-multi-word
+
+# ================================================================================
+# CLI TOOLS
+# ================================================================================
+
+# FZF fuzzy finder
+zinit ice as"program" from"gh-r" pick"fzf"
+zinit light junegunn/fzf
+
+# OMZ plugin snippets
+zi snippet OMZP::git
+zi snippet OMZP::archlinux
+zi snippet OMZP::eza
+zi snippet OMZP::rust
+zi snippet OMZP::bun
+
+# ================================================================================
+# FZF CONFIGURATION
+# ================================================================================
+
+if (( $+commands[fzf] )); then
+    # FZF color theme
+    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+        --color=fg:-1 \
+        --color=fg+:-1 \
+        --color=bg:-1 \
+        --color=bg+:20 \
+        --color=pointer:-1 \
+        --color=header:1 \
+        --color=border:4 \
+        --color=hl:16 \
+        --color=hl+:17 \
+        --color=info:21 \
+        --color=prompt:2 \
+        --color=marker:21 \
+        --color=spinner:21 \
+        --color=scrollbar:dim"
+
+    # FZF command configuration
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude /git"
+
+    # Preview configuration
+    export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+    export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+    # Custom completion functions
+    _fzf_compgen_path() {
+        fd --hidden --exclude .git . "$1"
+    }
+
+    _fzf_compgen_dir() {
+        fd --type=d --hidden --exclude .git ."$1"
+    }
+fi
+
+# ================================================================================
+# PLUGIN-SPECIFIC COMPLETION CONFIGURATION
+# ================================================================================
+
+# FZF-tab configuration
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+
+# History search configuration
+zstyle :plugin:history-search-multi-word reset-prompt-protect 1
+zstyle ":history-search-multi-word" page-size "11"
+
+# ================================================================================
+# KEY BINDINGS
+# ================================================================================
+
+# ----- zsh-autosuggestions tweaks -----
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+bindkey "^R" history-search-multi-word
+
+# ================================================================================
+# ALIASES
+# ================================================================================
+
+# Basic commands
+alias cls='clear'
+alias vim='nvim'
+alias ..='cd ..'
+
+# Homebrew completion check
+alias bcc='brew_completion_check'  # run to verify & reload Homebrew completions
+
+# Enhanced ls with eza
+alias ls='eza --icons --group-directories-first --color=always --time-style=long-iso'
+alias ll='ls -lh'
+alias la='ll -a'
+alias lla='ls -a'
+
+# Git shortcuts (conditional alias)
+(( $+commands[lazygit] )) && alias lg='lazygit'
+
+# ================================================================================
+# CUSTOM FUNCTIONS
+# ================================================================================
+
+# Yazi shell wrapper - changes directory when exiting
 function yy() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
     yazi "$@" --cwd-file="$tmp"
-    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    if cwd="$(cat -- \"$tmp\")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
         builtin cd -- "$cwd"
     fi
     rm -f -- "$tmp"
 }
 
+# -----------------------------------------------------------------------------
+# 🛠  brew_completion_check: Verify Homebrew completions are loaded
+# -----------------------------------------------------------------------------
+# 1. Scans Homebrew site-functions directory for _<tool> completion files.
+# 2. Checks whether the corresponding function is currently available.
+# 3. If any are missing, offers to rerun compinit to reload completions.
+# Usage: brew_completion_check
+brew_completion_check() {
+  # Early exit if brew not available
+  (( $+commands[brew] )) || {
+    echo "❌ 未找到 Homebrew（brew）命令，无法检查补全。"
+    return 1
+  }
+  
+  local prefix="${HOMEBREW_PREFIX:-$(brew --prefix)}"
+  local comp_dir="$prefix/share/zsh/site-functions"
+  
+  [[ -d "$comp_dir" ]] || {
+    echo "❌ 未找到补全目录：$comp_dir"
+    return 1
+  }
 
-#######################################################
-# Aliases
-#######################################################
-alias cls='clear'
-alias vim='nvim'
-alias lla='ls -a'
-alias ls='eza --icons --group-directories-first --color=always --time-style=long-iso'
-alias ll='ls -lh'
-alias la='ll -a'
-alias ..='cd ..'
+  local missing=() loaded=() total=0
+  local f func cmd
+  
+  # Use glob and check existence efficiently
+  local -a comp_files=("$comp_dir"/_*)
+  (( ${#comp_files} )) || {
+    echo "❌ 补全目录为空。"
+    return 1
+  }
+  
+  for f in "${comp_files[@]}"; do
+    [[ -e "$f" ]] || continue
+    ((total++))
+    
+    func="${f:t}"  # Get basename
+    cmd="${func#_}"  # Remove leading underscore
+    
+    if whence -w "$func" >/dev/null 2>&1; then
+      loaded+=("$cmd")
+    else
+      missing+=("$cmd")
+    fi
+  done
 
-# Alias for lazygit
-# Link: https://github.com/jesseduffield/lazygit
-if [[ -x "$(command -v lazygit)" ]]; then
-    alias lg='lazygit'
-fi
+  # Display statistics with optimized formatting
+  print "📊 补全状态统计："
+  print "   总数：$total 个补全文件"
+  print "   ✅ 已加载：${#loaded[@]} 个${loaded:+ (${(j:, :)loaded})}"
+  
+  if (( ${#missing[@]} )); then
+    print "   ❌ 缺失：${#missing[@]} 个 (${(j:, :)missing})"
+    print
+    
+    # Interactive reload prompt
+    read -q "_ans?🔄 是否现在重新加载补全？ [y/N] " && print
+    
+    if [[ "$_ans" == [yY] ]]; then
+      print "⏳ 正在重新加载补全系统…"
+      autoload -Uz compinit && compinit -u -d "$ZSH_CACHE_DIR/.zcompdump"
+      print "✅ 完成，您可以再次尝试补全。"
+    fi
+  else
+    print "   ❌ 缺失：0 个"
+    print
+    print "🎉 所有 Homebrew 补全均已加载完毕！"
+  fi
+}
 
-#######################################################
-# Completion styling
-#######################################################
+# ================================================================================
+# TOOL INITIALIZATION
+# ================================================================================
 
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-zstyle :plugin:history-search-multi-word reset-prompt-protect 1
-zstyle ":history-search-multi-word" page-size "11"
+# Completion system already initialized early in the config
 
-#######################################################
-# 🔧 keybind
-#######################################################
+# Initialize mise (version manager)
+eval "$(mise activate zsh)"
 
-bindkey "^R" history-search-multi-word
+# Initialize zoxide (better cd)
+eval "$(zoxide init --cmd cd zsh)"
 
+# ================================================================================
+# STARTUP
+# ================================================================================
 
+# Show system info on startup
+fastfetch --config examples/14
 
-autoload -Uz compinit
-compinit -u
+# Optional: Auto-start tmux session (currently enabled)
+# if [ -z "$TMUX" ]; then
+#     tmux attach || exec tmux new-session
+# fi
