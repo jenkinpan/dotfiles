@@ -281,5 +281,3 @@ fastfetch --config examples/14
 # if [ -z "$TMUX" ]; then
 #     tmux attach || exec tmux new-session
 # fi
-
-
