@@ -27,12 +27,21 @@ zinit light-mode for \
 export EDITOR='nvim'
 export COLORTERM='truecolor'
 export HOMEBREW_NO_ENV_HINTS=1
+
+# Language and locale settings
 export LANG=zh_CN.UTF-8
 export LANGUAGE=zh_CN:en_US
+export LC_ALL=zh_CN.UTF-8
+export LC_MESSAGES=zh_CN.UTF-8
+
+# Tool theme configuration
 export BAT_THEME=tokyonight_day
 
+# Git localization
+export GIT_EDITOR='nvim'
+
 # PATH configuration (efficient expansion)
-path=("$HOME/.cargo/bin" "$HOME/.bun/bin" $path)
+path=("/opt/homebrew/bin" "$HOME/.cargo/bin" "$HOME/.bun/bin" $path)
 export PATH
 
 # 📚 HISTORY CONFIGURATION
