@@ -16,6 +16,8 @@ brew "fd"
 brew "gh"
 # Interpreter for PostScript and PDF
 brew "ghostscript"
+# Distributed revision control system
+brew "git"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Improved top (interactive process viewer)
@@ -86,10 +88,12 @@ mas "Keynote讲演", id: 409183694
 mas "Numbers表格", id: 409203825
 mas "Pages文稿", id: 409201541
 mas "Quantumult X", id: 1443988620
+mas "Shadowrocket", id: 932747118
 mas "WhatsApp", id: 310633997
 mas "克拉壁纸", id: 1469525516
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.project-manager"
+vscode "anthropic.claude-code"
 vscode "astro-build.astro-vscode"
 vscode "azemoh.one-monokai"
 vscode "christian-kohler.npm-intellisense"
@@ -107,6 +111,7 @@ vscode "github.copilot"
 vscode "github.copilot-chat"
 vscode "github.remotehub"
 vscode "github.vscode-pull-request-github"
+vscode "google.geminicodeassist"
 vscode "kevinrose.vsc-python-indent"
 vscode "kisstkondoros.vscode-gutter-preview"
 vscode "llvm-vs-code-extensions.lldb-dap"
