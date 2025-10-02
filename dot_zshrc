@@ -1,6 +1,4 @@
-# ================================================================================
-# ZINIT PLUGIN MANAGER SETUP
-# ================================================================================
+# 🚀 ZINIT PLUGIN MANAGER SETUP
 
 # Install zinit if not already installed
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -11,6 +9,7 @@ if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
         print -P "%F{160} The clone has failed.%f%b"
 fi
 
+# Load Zinit
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
@@ -22,10 +21,9 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
-# ================================================================================
-# ENVIRONMENT VARIABLES
-# ================================================================================
+# 🌍 ENVIRONMENT VARIABLES
 
+# Environment variables
 export EDITOR='nvim'
 export COLORTERM='truecolor'
 export HOMEBREW_NO_ENV_HINTS=1
@@ -33,112 +31,92 @@ export LANG=zh_CN.UTF-8
 export LANGUAGE=zh_CN:en_US
 export BAT_THEME=tokyonight_day
 
-# Path configuration (efficient expansion)
+# PATH configuration (efficient expansion)
 path=("$HOME/.cargo/bin" "$HOME/.bun/bin" $path)
 export PATH
 
-# ================================================================================
-# HISTORY CONFIGURATION
-# ================================================================================
+# 📚 HISTORY CONFIGURATION
 
+# History configuration
 HISTSIZE=10000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
-setopt auto_list
 
-# ================================================================================
-# COMPLETION SYSTEM SETUP (Before plugins)
-# ================================================================================
+# History options
+setopt appendhistory          # Append to history file
+setopt sharehistory          # Share history between sessions
+setopt hist_ignore_space     # Ignore commands starting with space
+setopt hist_ignore_all_dups  # Ignore all duplicate commands
+setopt hist_save_no_dups     # Don't save duplicates
+setopt hist_ignore_dups      # Ignore consecutive duplicates
+setopt hist_find_no_dups     # Don't show duplicates in search
+setopt auto_list             # Automatically list choices
+
+# 🔧 COMPLETION SYSTEM SETUP (Before plugins)
 
 # Setup cache directory early
 ZSH_CACHE_DIR="${ZSH_CACHE_DIR:-$HOME/.cache/zsh}"
 [[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
 
 # Homebrew completion setup (consolidated)
-if command -v brew >/dev/null 2>&1; then
-  # Cache brew prefix to avoid multiple calls
+if (( $+commands[brew] )); then
   HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-$(brew --prefix)}"
   readonly HOMEBREW_PREFIX
   
   local brew_comp_dir="$HOMEBREW_PREFIX/share/zsh/site-functions"
-  
-  # Add to fpath if directory exists
   [[ -d "$brew_comp_dir" ]] && fpath=("$brew_comp_dir" $fpath)
   
   # Auto-refresh logic: check if any completion file is newer than dump
-  if [[ -d "$brew_comp_dir" ]]; then
-    local -a brew_files=("$brew_comp_dir"/_*)
-    if (( ${#brew_files} )); then
-      # Find newest completion file using zsh globbing
-      local newest_comp="${brew_files[1]}"
-      local f
-      for f in "${brew_files[@]}"; do
-        [[ "$f" -nt "$newest_comp" ]] && newest_comp="$f"
-      done
-      
-      # Refresh dump if needed
-      if [[ ! -e "$ZSH_CACHE_DIR/.zcompdump" || "$newest_comp" -nt "$ZSH_CACHE_DIR/.zcompdump" ]]; then
-        autoload -Uz compinit
-        compinit -u -d "$ZSH_CACHE_DIR/.zcompdump"
-      fi
-    fi
+  local -a brew_files=("$brew_comp_dir"/_*)
+  if (( ${#brew_files} )); then
+    local newest_comp="${brew_files[1]}"
+    for f in "${brew_files[@]}"; do
+      [[ "$f" -nt "$newest_comp" ]] && newest_comp="$f"
+    done
+    
+    [[ ! -e "$ZSH_CACHE_DIR/.zcompdump" || "$newest_comp" -nt "$ZSH_CACHE_DIR/.zcompdump" ]] && {
+      autoload -Uz compinit
+      compinit -u -d "$ZSH_CACHE_DIR/.zcompdump"
+    }
   fi
 fi
 
 # Ensure compinit is always loaded
-if ! whence -w compinit >/dev/null 2>&1; then
-  autoload -Uz compinit
-  compinit -u -d "$ZSH_CACHE_DIR/.zcompdump"
+(( $+functions[compinit] )) || { autoload -Uz compinit; compinit -u -d "$ZSH_CACHE_DIR/.zcompdump"; }
+
+# Explicit mise completion registration
+if (( $+commands[brew] )) && [[ -f "${HOMEBREW_PREFIX}/share/zsh/site-functions/_mise" ]]; then
+  (( ! $+functions[_mise] )) && { autoload -Uz _mise; compdef _mise mise; }
 fi
 
-# Now it's safe to use compdef - explicit mise completion registration
-if (( $+commands[brew] )); then
-  local brew_comp_dir="${HOMEBREW_PREFIX}/share/zsh/site-functions"
-  if [[ -f "$brew_comp_dir/_mise" ]] && ! whence -w _mise >/dev/null 2>&1; then
-    autoload -Uz _mise && compdef _mise mise
-  fi
-fi
-
-# Enable completion caching
+# Completion configuration
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$ZSH_CACHE_DIR/.zcompcache"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 
-# ================================================================================
-# PROMPT SETUP
-# ================================================================================
+# ⭐ PROMPT SETUP
 
+# Starship prompt (install from GitHub Release)
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
-# ================================================================================
-# ZSH CORE FEATURES
-# ================================================================================
+# 🔧 ZSH CORE FEATURES
 
+# Delayed loading of Oh My Zsh core libraries
 zinit wait"1" lucid for \
     OMZL::clipboard.zsh \
     OMZL::history.zsh \
     OMZL::key-bindings.zsh \
     OMZL::completion.zsh
 
-# ================================================================================
-# ESSENTIAL PLUGINS
-# ================================================================================
+# 🔌 ESSENTIAL PLUGINS
 
 # Autosuggestions, syntax highlighting, and completions
-# Load core interactive helpers immediately (no delay) to ensure autosuggestions/Syntax highlighting at first keystroke
 zinit for \
   lucid light-mode blockf \
     zdharma-continuum/fast-syntax-highlighting \
@@ -153,24 +131,21 @@ zinit light Aloxaf/fzf-tab
 zinit ice wait"1" lucid
 zinit load zdharma-continuum/history-search-multi-word
 
-# ================================================================================
-# CLI TOOLS
-# ================================================================================
+# 🛠️ CLI TOOLS
 
 # FZF fuzzy finder
 zinit ice as"program" from"gh-r" pick"fzf"
 zinit light junegunn/fzf
 
-# OMZ plugin snippets
-zi snippet OMZP::git
-zi snippet OMZP::archlinux
-zi snippet OMZP::eza
-zi snippet OMZP::rust
-zi snippet OMZP::bun
+# Oh My Zsh plugin snippets (delayed loading for better performance)
+zinit wait"2" lucid for \
+    OMZP::git \
+    OMZP::archlinux \
+    OMZP::eza \
+    OMZP::rust \
+    OMZP::bun
 
-# ================================================================================
-# FZF CONFIGURATION
-# ================================================================================
+# 🔍 FZF CONFIGURATION
 
 if (( $+commands[fzf] )); then
     # FZF color theme
@@ -204,13 +179,11 @@ if (( $+commands[fzf] )); then
     }
 
     _fzf_compgen_dir() {
-        fd --type=d --hidden --exclude .git ."$1"
+        fd --type=d --hidden --exclude .git . "$1"
     }
 fi
 
-# ================================================================================
-# PLUGIN-SPECIFIC COMPLETION CONFIGURATION
-# ================================================================================
+# ⚙️ PLUGIN-SPECIFIC COMPLETION CONFIGURATION
 
 # FZF-tab configuration
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
@@ -222,140 +195,91 @@ zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 zstyle :plugin:history-search-multi-word reset-prompt-protect 1
 zstyle ":history-search-multi-word" page-size "11"
 
-# ================================================================================
-# KEY BINDINGS
-# ================================================================================
+# ⌨️ KEY BINDINGS
 
-# ----- zsh-autosuggestions tweaks -----
+# zsh-autosuggestions tweaks
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+# History search keybinding
 bindkey "^R" history-search-multi-word
 
-# ================================================================================
-# ALIASES
-# ================================================================================
+# 🔗 ALIASES
 
 # Basic commands
-alias cls='clear'
-alias vim='nvim'
-alias ..='cd ..'
+alias cls='clear'                    # Clear screen
+alias vim='nvim'                     # Use Neovim
+alias ..='cd ..'                     # Go up one directory
 
 # Homebrew completion check
-alias bcc='brew_completion_check'  # run to verify & reload Homebrew completions
+alias bcc='brew_completion_check'    # Verify & reload Homebrew completions
 
 # Enhanced ls with eza
 alias ls='eza --icons --group-directories-first --color=always --time-style=long-iso'
-alias ll='ls -lh'
-alias la='ll -a'
-alias lla='ls -a'
+alias ll='ls -lh'                    # Detailed list
+alias la='ll -a'                     # Show hidden files
+alias lla='ls -a'                    # Simple show all files
 
 # Git shortcuts (conditional alias)
 (( $+commands[lazygit] )) && alias lg='lazygit'
 
-# ================================================================================
-# CUSTOM FUNCTIONS
-# ================================================================================
+# 📝 CUSTOM FUNCTIONS
 
 # Yazi shell wrapper - changes directory when exiting
-function yy() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+yy() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
     yazi "$@" --cwd-file="$tmp"
-    if cwd="$(cat -- \"$tmp\")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-        builtin cd -- "$cwd"
-    fi
+    cwd="$(< "$tmp")" && [[ -n "$cwd" && "$cwd" != "$PWD" ]] && cd -- "$cwd"
     rm -f -- "$tmp"
 }
 
-# -----------------------------------------------------------------------------
-# 🛠  brew_completion_check: Verify Homebrew completions are loaded
-# -----------------------------------------------------------------------------
-# 1. Scans Homebrew site-functions directory for _<tool> completion files.
-# 2. Checks whether the corresponding function is currently available.
-# 3. If any are missing, offers to rerun compinit to reload completions.
-# Usage: brew_completion_check
-brew_completion_check() {
-  # Early exit if brew not available
-  (( $+commands[brew] )) || {
-    echo "❌ 未找到 Homebrew（brew）命令，无法检查补全。"
-    return 1
-  }
-  
-  local prefix="${HOMEBREW_PREFIX:-$(brew --prefix)}"
-  local comp_dir="$prefix/share/zsh/site-functions"
-  
-  [[ -d "$comp_dir" ]] || {
-    echo "❌ 未找到补全目录：$comp_dir"
-    return 1
-  }
+# 🛠️ brew_completion_check: Verify Homebrew completions are loaded
 
-  local missing=() loaded=() total=0
-  local f func cmd
+brew_completion_check() {
+  (( $+commands[brew] )) || { print "❌ Homebrew not found"; return 1 }
   
-  # Use glob and check existence efficiently
-  local -a comp_files=("$comp_dir"/_*)
-  (( ${#comp_files} )) || {
-    echo "❌ 补全目录为空。"
-    return 1
-  }
+  local comp_dir="${HOMEBREW_PREFIX:-$(brew --prefix)}/share/zsh/site-functions"
+  [[ -d "$comp_dir" ]] || { print "❌ Completion directory not found: $comp_dir"; return 1 }
+
+  local -a missing=() loaded=() comp_files=("$comp_dir"/_*)
+  (( ${#comp_files} )) || { print "❌ Completion directory is empty"; return 1 }
   
-  for f in "${comp_files[@]}"; do
-    [[ -e "$f" ]] || continue
-    ((total++))
-    
-    func="${f:t}"  # Get basename
-    cmd="${func#_}"  # Remove leading underscore
-    
-    if whence -w "$func" >/dev/null 2>&1; then
-      loaded+=("$cmd")
-    else
-      missing+=("$cmd")
-    fi
+  local func cmd
+  for file in "${comp_files[@]}"; do
+    [[ -e "$file" ]] || continue
+    func="${file:t}" cmd="${func#_}"
+    (( $+functions[$func] )) && loaded+=("$cmd") || missing+=("$cmd")
   done
 
-  # Display statistics with optimized formatting
-  print "📊 补全状态统计："
-  print "   总数：$total 个补全文件"
-  print "   ✅ 已加载：${#loaded[@]} 个${loaded:+ (${(j:, :)loaded})}"
+  print "📊 Completion Status:"
+  print "   Total: ${#comp_files[@]} | ✅ Loaded: ${#loaded[@]} | ❌ Missing: ${#missing[@]}"
+  (( ${#loaded[@]} )) && print "   Loaded: ${(j:, :)loaded}"
   
   if (( ${#missing[@]} )); then
-    print "   ❌ 缺失：${#missing[@]} 个 (${(j:, :)missing})"
-    print
-    
-    # Interactive reload prompt
-    read -q "_ans?🔄 是否现在重新加载补全？ [y/N] " && print
-    
-    if [[ "$_ans" == [yY] ]]; then
-      print "⏳ 正在重新加载补全系统…"
-      autoload -Uz compinit && compinit -u -d "$ZSH_CACHE_DIR/.zcompdump"
-      print "✅ 完成，您可以再次尝试补全。"
+    print "   Missing: ${(j:, :)missing}"
+    if read -q $'\n🔄 Reload completions now? [y/N] '; then
+      print "⏳ Reloading..." && autoload -Uz compinit && compinit -u -d "$ZSH_CACHE_DIR/.zcompdump" && print "✅ Done"
     fi
   else
-    print "   ❌ 缺失：0 个"
-    print
-    print "🎉 所有 Homebrew 补全均已加载完毕！"
+    print "🎉 All completions loaded!"
   fi
 }
 
-# ================================================================================
-# TOOL INITIALIZATION
-# ================================================================================
+# 🚀 TOOL INITIALIZATION
 
-# Completion system already initialized early in the config
-
-# Initialize mise (version manager)
+# Note: These eval commands run on every startup
 eval "$(mise activate zsh)"
 
 # Initialize zoxide (better cd)
 eval "$(zoxide init --cmd cd zsh)"
 
-# ================================================================================
-# STARTUP
-# ================================================================================
+# 🎆 STARTUP
 
 # Show system info on startup
 fastfetch --config examples/14
 
-# Optional: Auto-start tmux session (currently enabled)
+# Optional: Auto-start tmux session (currently disabled)
 # if [ -z "$TMUX" ]; then
 #     tmux attach || exec tmux new-session
 # fi
+
+
