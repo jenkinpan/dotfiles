@@ -216,7 +216,6 @@ bindkey "^R" history-search-multi-word
 
 # Basic commands
 alias cls='clear'                    # Clear screen
-alias vim='nvim'                     # Use Neovim
 alias ..='cd ..'                     # Go up one directory
 
 # Homebrew completion check
