@@ -136,10 +136,6 @@ zinit for \
 zinit ice lucid wait'0'
 zinit light Aloxaf/fzf-tab
 
-# History search enhancement
-zinit ice wait"1" lucid
-zinit load zdharma-continuum/history-search-multi-word
-
 # 🛠️ CLI TOOLS
 
 # FZF fuzzy finder
@@ -200,10 +196,6 @@ zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
-# History search configuration
-zstyle :plugin:history-search-multi-word reset-prompt-protect 1
-zstyle ":history-search-multi-word" page-size "11"
-
 # ⌨️ KEY BINDINGS
 
 # zsh-autosuggestions tweaks
@@ -261,7 +253,7 @@ brew_completion_check() {
   print "📊 Completion Status:"
   print "   Total: ${#comp_files[@]} | ✅ Loaded: ${#loaded[@]} | ❌ Missing: ${#missing[@]}"
   (( ${#loaded[@]} )) && print "   Loaded: ${(j:, :)loaded}"
-  
+
   if (( ${#missing[@]} )); then
     print "   Missing: ${(j:, :)missing}"
     if read -q $'\n🔄 Reload completions now? [y/N] '; then
@@ -275,6 +267,17 @@ brew_completion_check() {
 # 🚀 TOOL INITIALIZATION
 
 # Note: These eval commands run on every startup
+
+# Initialize atuin
+eval "$(atuin init zsh)"
+
+# Ensure Ctrl-R is always bound to atuin (runs before each prompt)
+_ensure_atuin_binding() {
+    bindkey '^r' atuin-search
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _ensure_atuin_binding
+
 eval "$(mise activate zsh)"
 
 # Initialize zoxide (better cd)
