@@ -72,10 +72,10 @@ ZSH_CACHE_DIR="${ZSH_CACHE_DIR:-$HOME/.cache/zsh}"
 if (( $+commands[brew] )); then
   HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-$(brew --prefix)}"
   readonly HOMEBREW_PREFIX
-  
+
   local brew_comp_dir="$HOMEBREW_PREFIX/share/zsh/site-functions"
   [[ -d "$brew_comp_dir" ]] && fpath=("$brew_comp_dir" $fpath)
-  
+
   # Auto-refresh logic: check if any completion file is newer than dump
   local -a brew_files=("$brew_comp_dir"/_*)
   if (( ${#brew_files} )); then
@@ -83,7 +83,7 @@ if (( $+commands[brew] )); then
     for f in "${brew_files[@]}"; do
       [[ "$f" -nt "$newest_comp" ]] && newest_comp="$f"
     done
-    
+
     [[ ! -e "$ZSH_CACHE_DIR/.zcompdump" || "$newest_comp" -nt "$ZSH_CACHE_DIR/.zcompdump" ]] && {
       autoload -Uz compinit
       compinit -u -d "$ZSH_CACHE_DIR/.zcompdump"
@@ -201,8 +201,10 @@ zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 # zsh-autosuggestions tweaks
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+# Note: Disabled manual binding - let atuin init handle Ctrl-R automatically
+
 # History search keybinding
-bindkey "^R" history-search-multi-word
+# bindkey "^R" atuin-up-search-viins
 
 # 🔗 ALIASES
 
@@ -236,13 +238,13 @@ yy() {
 
 brew_completion_check() {
   (( $+commands[brew] )) || { print "❌ Homebrew not found"; return 1 }
-  
+
   local comp_dir="${HOMEBREW_PREFIX:-$(brew --prefix)}/share/zsh/site-functions"
   [[ -d "$comp_dir" ]] || { print "❌ Completion directory not found: $comp_dir"; return 1 }
 
   local -a missing=() loaded=() comp_files=("$comp_dir"/_*)
   (( ${#comp_files} )) || { print "❌ Completion directory is empty"; return 1 }
-  
+
   local func cmd
   for file in "${comp_files[@]}"; do
     [[ -e "$file" ]] || continue
