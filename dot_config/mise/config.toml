@@ -1,0 +1,6 @@
+[tools]
+node = "lts"
+bun = "latest"
+python = "latest"
+lua = "5.1"
+usage = "latest"
