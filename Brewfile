@@ -1,5 +1,7 @@
 tap "cormacrelf/tap"
 tap "sst/tap"
+# Improved shell history for zsh, bash, fish and nushell
+brew "atuin"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -78,6 +80,8 @@ cask "mos"
 cask "neteasemusic"
 # Open-source code editor
 cask "visual-studio-code"
+# Multiplayer code editor
+cask "zed"
 mas "AdBlocker", id: 1018301773
 mas "APTV", id: 1630403500
 mas "Command X", id: 6448461551
