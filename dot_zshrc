@@ -120,7 +120,6 @@ zinit light starship/starship
 zinit wait"1" lucid for \
     OMZL::clipboard.zsh \
     OMZL::history.zsh \
-    OMZL::key-bindings.zsh \
     OMZL::completion.zsh
 
 # 🔌 ESSENTIAL PLUGINS
@@ -201,10 +200,7 @@ zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 # zsh-autosuggestions tweaks
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-# Note: Disabled manual binding - let atuin init handle Ctrl-R automatically
-
-# History search keybinding
-# bindkey "^R" atuin-up-search-viins
+# Note: atuin handles Ctrl-R binding automatically via its init
 
 # 🔗 ALIASES
 
@@ -270,16 +266,11 @@ brew_completion_check() {
 
 # Note: These eval commands run on every startup
 
-# Initialize atuin
+# Initialize atuin (disable up arrow key binding)
+export ATUIN_NOBIND=true
 eval "$(atuin init zsh)"
 
-# Ensure Ctrl-R is always bound to atuin (runs before each prompt)
-_ensure_atuin_binding() {
-    bindkey '^r' atuin-search
-}
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd _ensure_atuin_binding
-
+# Initialize mise (version manager)
 eval "$(mise activate zsh)"
 
 # Initialize zoxide (better cd)
@@ -290,6 +281,10 @@ eval "$(zoxide init --cmd cd zsh)"
 # Show system info on startup
 fastfetch --config examples/14
 
+# Ensure atuin Ctrl-R binding after all plugins are loaded
+if (( $+commands[atuin] )); then
+    bindkey '^r' atuin-search
+fi
 # Optional: Auto-start tmux session (currently disabled)
 # if [ -z "$TMUX" ]; then
 #     tmux attach || exec tmux new-session
