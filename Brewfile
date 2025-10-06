@@ -38,8 +38,6 @@ brew "mise"
 brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Manage multiple Node.js versions
-brew "nvm"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Search tool like grep and The Silver Searcher
@@ -68,6 +66,8 @@ brew "sst/tap/opencode"
 cask "blip"
 cask "font-hack-nerd-font"
 cask "font-monaspace"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
 # Web browser
 cask "google-chrome"
 # File archiver
@@ -78,15 +78,12 @@ cask "kitty"
 cask "mos"
 # Music streaming platform
 cask "neteasemusic"
-# Open-source code editor
-cask "visual-studio-code"
 # Multiplayer code editor
 cask "zed"
 mas "AdBlocker", id: 1018301773
 mas "APTV", id: 1630403500
 mas "Command X", id: 6448461551
 mas "Developer", id: 640199958
-mas "Goodnotes", id: 1444383602
 mas "Infuse", id: 1136220934
 mas "Keynote讲演", id: 409183694
 mas "Numbers表格", id: 409203825
@@ -97,9 +94,12 @@ mas "WhatsApp", id: 310633997
 mas "克拉壁纸", id: 1469525516
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.project-manager"
-vscode "anthropic.claude-code"
+vscode "anysphere.cpptools"
+vscode "anysphere.cursorpyright"
+vscode "anysphere.remote-containers"
+vscode "anysphere.remote-ssh"
+vscode "anysphere.remote-wsl"
 vscode "astro-build.astro-vscode"
-vscode "azemoh.one-monokai"
 vscode "christian-kohler.npm-intellisense"
 vscode "davidanson.vscode-markdownlint"
 vscode "dbaeumer.vscode-eslint"
@@ -110,51 +110,35 @@ vscode "esbenp.prettier-vscode"
 vscode "fill-labs.dependi"
 vscode "formulahendry.code-runner"
 vscode "franneck94.c-cpp-runner"
-vscode "github.codespaces"
-vscode "github.copilot"
-vscode "github.copilot-chat"
-vscode "github.remotehub"
+vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
-vscode "google.geminicodeassist"
 vscode "kevinrose.vsc-python-indent"
 vscode "kisstkondoros.vscode-gutter-preview"
-vscode "llvm-vs-code-extensions.lldb-dap"
+vscode "llvm-vs-code-extensions.vscode-clangd"
 vscode "mechatroner.rainbow-csv"
 vscode "ms-azuretools.vscode-containers"
 vscode "ms-ceintl.vscode-language-pack-zh-hans"
 vscode "ms-python.debugpy"
 vscode "ms-python.python"
-vscode "ms-python.vscode-pylance"
-vscode "ms-python.vscode-python-envs"
 vscode "ms-toolsai.jupyter"
 vscode "ms-toolsai.jupyter-keymap"
 vscode "ms-toolsai.jupyter-renderers"
 vscode "ms-toolsai.vscode-jupyter-cell-tags"
 vscode "ms-toolsai.vscode-jupyter-slideshow"
-vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vscode-remote.remote-ssh"
-vscode "ms-vscode-remote.remote-ssh-edit"
-vscode "ms-vscode-remote.remote-wsl"
 vscode "ms-vscode.cmake-tools"
-vscode "ms-vscode.cpptools"
-vscode "ms-vscode.cpptools-extension-pack"
 vscode "ms-vscode.cpptools-themes"
 vscode "ms-vscode.live-server"
 vscode "ms-vscode.powershell"
-vscode "ms-vscode.remote-explorer"
-vscode "ms-vscode.remote-repositories"
 vscode "naumovs.color-highlight"
 vscode "pkief.material-icon-theme"
 vscode "ritwickdey.liveserver"
 vscode "rust-lang.rust-analyzer"
 vscode "slint.slint"
 vscode "sumneko.lua"
-vscode "swiftlang.swift-vscode"
 vscode "tamasfe.even-better-toml"
 vscode "twxs.cmake"
 vscode "usernamehw.errorlens"
 vscode "vadimcn.vscode-lldb"
-vscode "visualstudioexptteam.vscodeintellicode"
 vscode "vue.volar"
 vscode "w88975.code-translate"
 vscode "wallabyjs.quokka-vscode"
