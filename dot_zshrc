@@ -138,8 +138,7 @@ zinit light Aloxaf/fzf-tab
 # 🛠️ CLI TOOLS
 
 # FZF fuzzy finder
-zinit ice as"program" from"gh-r" pick"fzf"
-zinit light junegunn/fzf
+# For fzf-tmux using, I install it with Homebrew
 
 # Oh My Zsh plugin snippets (delayed loading for better performance)
 zinit wait"2" lucid for \
@@ -276,6 +275,9 @@ eval "$(mise activate zsh)"
 # Initialize zoxide (better cd)
 eval "$(zoxide init --cmd cd zsh)"
 
+# Initialize fzf
+eval "$(fzf --zsh)"
+
 # 🎆 STARTUP
 
 # Show system info on startup
@@ -289,3 +291,6 @@ fi
 # if [ -z "$TMUX" ]; then
 #     tmux attach || exec tmux new-session
 # fi
+
+# Suppress "Last login" message manually
+[[ -f ~/.hushlogin ]] || touch ~/.hushlogin
