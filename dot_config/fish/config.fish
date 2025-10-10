@@ -1,12 +1,13 @@
 status is-interactive; or exit
 
 # remove greeting
-set -U fish_greeting
+set -g fish_greeting
 
 # Path
 set -x fish_user_paths
-fish_add_path $PATH ~/.cargo/bin
-fish_add_path $PATH /opt/homebrew/bin
+fish_add_path /opt/homebrew/bin $PATH
+fish_add_path ~/.cargo/bin $PATH
+fish_add_path /opt/homebrew/sbin $PATH
 
 # Cursor styles
 set -gx fish_vi_force_cursor 1

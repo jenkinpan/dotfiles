@@ -179,6 +179,7 @@ $env.PROMPT_INDICATOR_VI_INSERT = ": "
 # When a commandline extends across multiple lines:
 $env.PROMPT_MULTILINE_INDICATOR = "::: "
 
+# add custom paths to PATH at the front
 $env.path = [
   "/opt/homebrew/bin"
   "/opt/homebrew/sbin"
