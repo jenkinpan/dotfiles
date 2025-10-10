@@ -89,6 +89,7 @@ let external_completer = {|spans|
     mise => $fish_completer
     asdf => $fish_completer
     chezmoi => $fish_completer
+    atuin => $fish_completer
     _ => $carapace_completer
   } | do $in $spans
 }
@@ -178,7 +179,11 @@ $env.PROMPT_INDICATOR_VI_INSERT = ": "
 # When a commandline extends across multiple lines:
 $env.PROMPT_MULTILINE_INDICATOR = "::: "
 
-$env.path ++= ["/usr/local/bin" "~/.cargo/bin" "/opt/homebrew/bin"]
+$env.path = [
+  "/opt/homebrew/bin"
+  "/opt/homebrew/sbin"
+  "~/.cargo/bin"
+] ++ $env.PATH
 
 $env.TOPIARY_CONFIG_FILE = "/Users/jenkin/topiary-nushell/languages.ncl"
 $env.TOPIARY_LANGUAGE_DIR = "/Users/jenkin/topiary-nushell/languages"
