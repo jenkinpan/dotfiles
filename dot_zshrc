@@ -108,12 +108,6 @@ zstyle ':completion:*' menu no
 
 # ⭐ PROMPT SETUP
 
-# Starship prompt (install from GitHub Release)
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
-zinit light starship/starship
-
 # 🔧 ZSH CORE FEATURES
 
 # Delayed loading of Oh My Zsh core libraries
@@ -277,6 +271,9 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Initialize fzf
 eval "$(fzf --zsh)"
+
+# Initialize Starship prompt
+eval "$(starship init zsh)"
 
 # 🎆 STARTUP
 
