@@ -1,0 +1,22 @@
+0000000000000000000000000000000000000000 69954e720ee3ef76df6defafd2c1f33ca790dd7a jenkin <jenkinpan0628@gmail.com> 1759834661 +0800	commit (initial): init git
+69954e720ee3ef76df6defafd2c1f33ca790dd7a 33883521d2441aad3af931efd18956d921ada306 jenkin <jenkinpan0628@gmail.com> 1759834669 +0800	commit: init git
+33883521d2441aad3af931efd18956d921ada306 e45c0334bf4a9030f565de87b1c3987dff88e817 jenkin <jenkinpan0628@gmail.com> 1759834738 +0800	commit: git init
+e45c0334bf4a9030f565de87b1c3987dff88e817 430ddd29cf1d7ab85497374423b8acdf1f84eb23 jenkin <jenkinpan0628@gmail.com> 1759836280 +0800	commit: add plugin
+430ddd29cf1d7ab85497374423b8acdf1f84eb23 39118f701673f2ced229d842c7d0136c42ad4ea4 jenkin <jenkinpan0628@gmail.com> 1759836968 +0800	commit: use ctrl-r for fuzzy history finding
+39118f701673f2ced229d842c7d0136c42ad4ea4 832d77ef0a9531d91ddbf135fec7ce7647de632a jenkin <jenkinpan0628@gmail.com> 1759837043 +0800	commit: update keybind for fix something
+832d77ef0a9531d91ddbf135fec7ce7647de632a 5c738bf5806e8f2f3d7f583467a45906da09f23f jenkin <jenkinpan0628@gmail.com> 1759841201 +0800	commit: add some alias for command
+5c738bf5806e8f2f3d7f583467a45906da09f23f 772455ddeda4a5f1f035d1887aa96d860532fa8e jenkin <jenkinpan0628@gmail.com> 1759844913 +0800	commit: remove plugin
+772455ddeda4a5f1f035d1887aa96d860532fa8e 0a5a104c899e2bcb1ff9bb0e7436eaa2e6fd832f jenkin <jenkinpan0628@gmail.com> 1759853214 +0800	commit: update config
+0a5a104c899e2bcb1ff9bb0e7436eaa2e6fd832f 32236599b0d97592c262461a2a8b6c72c36e91da jenkin <jenkinpan0628@gmail.com> 1759927678 +0800	commit: add external completer
+32236599b0d97592c262461a2a8b6c72c36e91da d51c87973f3de3cfcc2762c13992129d12af2e7f jenkin <jenkinpan0628@gmail.com> 1759934912 +0800	commit: remove atuin in nushell. use default search instead of it
+d51c87973f3de3cfcc2762c13992129d12af2e7f 34a952a67e72c583169fb7490842a1a5b59eefd1 jenkin <jenkinpan0628@gmail.com> 1759934956 +0800	commit: remove themes folder
+34a952a67e72c583169fb7490842a1a5b59eefd1 4d04c0dc00ba396485e4127054433248a9570cb4 jenkin <jenkinpan0628@gmail.com> 1759935087 +0800	commit: remove
+4d04c0dc00ba396485e4127054433248a9570cb4 b693a26370502647e72576a1c95215d96f70ab7e jenkin <jenkinpan0628@gmail.com> 1759988918 +0800	commit: add
+b693a26370502647e72576a1c95215d96f70ab7e ac4423de3227c86e15d9643aebb3b8e8c1500e01 jenkin <jenkinpan0628@gmail.com> 1760020879 +0800	commit: use sqlite style history file
+ac4423de3227c86e15d9643aebb3b8e8c1500e01 325056a25e485022fb89e6452ebe193fe7bd1338 jenkin <jenkinpan0628@gmail.com> 1760021743 +0800	commit: update
+325056a25e485022fb89e6452ebe193fe7bd1338 646fac964d246240f235183d6b7b05f2bac224a0 jenkin <jenkinpan0628@gmail.com> 1760021850 +0800	commit: fix args problem
+646fac964d246240f235183d6b7b05f2bac224a0 677ee826b3c2bfc958def96ee13f687f464a594d jenkin <jenkinpan0628@gmail.com> 1760057426 +0800	commit: create a folder auloader for autoload my own completion and some alias
+677ee826b3c2bfc958def96ee13f687f464a594d fcdcb198bc83450b7285ab4b643a4b9afee5dbec jenkin <jenkinpan0628@gmail.com> 1760068769 +0800	commit: add autoload folder
+fcdcb198bc83450b7285ab4b643a4b9afee5dbec 0840541a3c7c6951232c948e1abedd806165b19c jenkin <jenkinpan0628@gmail.com> 1760076830 +0800	commit: use topiary to format *.nu files
+0840541a3c7c6951232c948e1abedd806165b19c 583c6cc868cd8338c79b4a3e7d46eb75014822f9 jenkin <jenkinpan0628@gmail.com> 1760076842 +0800	commit: add history
+583c6cc868cd8338c79b4a3e7d46eb75014822f9 77f892df1e9b9e97fd692b96d32e941eba0100a8 jenkin <jenkinpan0628@gmail.com> 1760076973 +0800	commit: add history file into .gitignore

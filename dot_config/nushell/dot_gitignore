@@ -1,0 +1,7 @@
+history.txt
+
+.DS_Store
+
+history.sqlite3
+history.aqlite3-shm
+history.aqlite3-wal
