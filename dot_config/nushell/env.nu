@@ -88,6 +88,7 @@ let external_completer = {|spans|
     git => $fish_completer
     mise => $fish_completer
     asdf => $fish_completer
+    chezmoi => $fish_completer
     _ => $carapace_completer
   } | do $in $spans
 }
