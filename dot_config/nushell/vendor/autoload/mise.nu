@@ -1,5 +1,5 @@
 export-env {
-  
+
   $env.MISE_SHELL = "nu"
   let mise_hook = {
     condition: { "MISE_SHELL" in $env }
@@ -20,19 +20,19 @@ def "parse vars" [] {
   $in | from csv --noheaders --no-infer | rename 'op' 'name' 'value'
 }
 
-export def --env --wrapped main [command?: string, --help, ...rest: string] {
-  let commands = ["deactivate", "shell", "sh"]
+export def --env --wrapped main [command?: string --help ...rest: string] {
+  let commands = ["deactivate" "shell" "sh"]
 
   if ($command == null) {
-    ^"/opt/homebrew/bin/mise"
+    ^"/opt/homebrew/opt/mise/bin/mise"
   } else if ($command == "activate") {
     $env.MISE_SHELL = "nu"
   } else if ($command in $commands) {
-    ^"/opt/homebrew/bin/mise" $command ...$rest
+    ^"/opt/homebrew/opt/mise/bin/mise" $command ...$rest
     | parse vars
     | update-env
   } else {
-    ^"/opt/homebrew/bin/mise" $command ...$rest
+    ^"/opt/homebrew/opt/mise/bin/mise" $command ...$rest
   }
 }
 
@@ -51,8 +51,7 @@ def --env "update-env" [] {
 }
 
 def --env mise_hook [] {
-  ^"/opt/homebrew/bin/mise" hook-env -s nu
-    | parse vars
-    | update-env
+  ^"/opt/homebrew/opt/mise/bin/mise" hook-env -s nu
+  | parse vars
+  | update-env
 }
-
