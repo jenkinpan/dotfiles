@@ -20,6 +20,11 @@ set -gx EDITOR (which nvim)
 set -gx VISUAL $EDITOR
 set -gx SUDO_EDITOR $EDITOR
 
+set -gx LANG zh_CN.UTF-8
+set -gx LANGUAGE zh_CN:en_US
+set -gx LC_ALL zh_CN.UTF-8
+set -gx LC_MESSAGES zh_CN.UTF-8
+
 # Nubind atuin default keybindings
 set -gx ATUIN_NOBIND true
 

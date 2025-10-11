@@ -179,6 +179,12 @@ $env.PROMPT_INDICATOR_VI_INSERT = ": "
 # When a commandline extends across multiple lines:
 $env.PROMPT_MULTILINE_INDICATOR = "::: "
 
+# set Language/locale
+$env.LANG = "zh_CN.UTF-8"
+$env.LANGUAGE = "zh_CN:en_US"
+$env.LC_ALL = "zh_CN.UTF-8"
+$env.LC_MESSAGES = "zh_CN.UTF-8"
+
 # add custom paths to PATH at the front
 $env.path = [
   "/opt/homebrew/bin"
@@ -191,4 +197,5 @@ $env.PATH = ($env.PATH | uniq)
 
 $env.TOPIARY_CONFIG_FILE = "/Users/jenkin/topiary-nushell/languages.ncl"
 $env.TOPIARY_LANGUAGE_DIR = "/Users/jenkin/topiary-nushell/languages"
-source ./catppuccin_mocha.nu
+
+source ./catppuccin_latte.nu
