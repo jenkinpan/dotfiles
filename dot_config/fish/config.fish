@@ -16,14 +16,19 @@ set -gx fish_cursor_insert line blink
 set -gx fish_cursor_visual block
 set -gx fish_cursor_replace_one underscore
 
+# editor
 set -gx EDITOR (which nvim)
 set -gx VISUAL $EDITOR
 set -gx SUDO_EDITOR $EDITOR
 
+# language
 set -gx LANG zh_CN.UTF-8
 set -gx LANGUAGE zh_CN:en_US
 set -gx LC_ALL zh_CN.UTF-8
 set -gx LC_MESSAGES zh_CN.UTF-8
+
+# homebrew hint
+set -gx HOMEBREW_NO_ENV_HINTS=1
 
 # Nubind atuin default keybindings
 set -gx ATUIN_NOBIND true
