@@ -198,4 +198,4 @@ $env.PATH = ($env.PATH | uniq)
 $env.TOPIARY_CONFIG_FILE = "/Users/jenkin/topiary-nushell/languages.ncl"
 $env.TOPIARY_LANGUAGE_DIR = "/Users/jenkin/topiary-nushell/languages"
 
-source ./catppuccin_latte.nu
+source ./catppuccin_mocha.nu

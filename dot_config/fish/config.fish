@@ -28,7 +28,7 @@ set -gx LC_ALL zh_CN.UTF-8
 set -gx LC_MESSAGES zh_CN.UTF-8
 
 # homebrew hint
-set -gx HOMEBREW_NO_ENV_HINTS=1
+set -gx HOMEBREW_NO_ENV_HINTS 1
 
 # Nubind atuin default keybindings
 set -gx ATUIN_NOBIND true
