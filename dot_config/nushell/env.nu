@@ -90,6 +90,7 @@ let external_completer = {|spans|
     asdf => $fish_completer
     chezmoi => $fish_completer
     atuin => $fish_completer
+    brew => $fish_completer
     _ => $carapace_completer
   } | do $in $spans
 }
@@ -198,4 +199,4 @@ $env.PATH = ($env.PATH | uniq)
 $env.TOPIARY_CONFIG_FILE = "/Users/jenkin/topiary-nushell/languages.ncl"
 $env.TOPIARY_LANGUAGE_DIR = "/Users/jenkin/topiary-nushell/languages"
 
-source ./catppuccin_mocha.nu
+source ./catppuccin_latte.nu
