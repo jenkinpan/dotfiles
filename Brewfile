@@ -6,6 +6,8 @@ brew "atuin"
 brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Multi-shell multi-command argument completer
+brew "carapace"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
 # Modern, maintained replacement for ls
@@ -14,6 +16,12 @@ brew "eza"
 brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
+# Plugin manager for the Fish shell
+brew "fisher"
+# Command-line fuzzy finder written in Go
+brew "fzf"
 # GitHub command-line tool
 brew "gh"
 # Interpreter for PostScript and PDF
@@ -38,12 +46,16 @@ brew "mise"
 brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Modern shell for the GitHub era
+brew "nushell"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Rust toolchain installer
 brew "rustup"
+# Cross-shell prompt for astronauts
+brew "starship"
 # Modernized, complete, self-contained TeX/LaTeX engine
 brew "tectonic"
 # Official tldr client written in Rust
@@ -60,12 +72,17 @@ brew "uv"
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# UNIX shell (command interpreter)
+brew "zsh"
 # The AI coding agent built for the terminal.
 brew "sst/tap/opencode"
 # Send any size file between devices
 cask "blip"
+# Voice and text chat software
+cask "discord"
 cask "font-hack-nerd-font"
 cask "font-monaspace"
+cask "font-monaspace-nf"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Web browser
@@ -94,53 +111,10 @@ mas "WhatsApp", id: 310633997
 mas "克拉壁纸", id: 1469525516
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.project-manager"
-vscode "anysphere.cpptools"
-vscode "anysphere.cursorpyright"
-vscode "anysphere.remote-containers"
-vscode "anysphere.remote-ssh"
-vscode "anysphere.remote-wsl"
-vscode "astro-build.astro-vscode"
-vscode "christian-kohler.npm-intellisense"
-vscode "davidanson.vscode-markdownlint"
-vscode "dbaeumer.vscode-eslint"
-vscode "digitalbrainstem.javascript-ejs-support"
-vscode "donjayamanne.githistory"
-vscode "eamodio.gitlens"
-vscode "esbenp.prettier-vscode"
-vscode "fill-labs.dependi"
+vscode "catppuccin.catppuccin-vsc"
+vscode "catppuccin.catppuccin-vsc-icons"
 vscode "formulahendry.code-runner"
-vscode "franneck94.c-cpp-runner"
 vscode "github.vscode-github-actions"
-vscode "github.vscode-pull-request-github"
-vscode "kevinrose.vsc-python-indent"
-vscode "kisstkondoros.vscode-gutter-preview"
-vscode "llvm-vs-code-extensions.vscode-clangd"
-vscode "mechatroner.rainbow-csv"
-vscode "ms-azuretools.vscode-containers"
 vscode "ms-ceintl.vscode-language-pack-zh-hans"
-vscode "ms-python.debugpy"
-vscode "ms-python.python"
-vscode "ms-toolsai.jupyter"
-vscode "ms-toolsai.jupyter-keymap"
-vscode "ms-toolsai.jupyter-renderers"
-vscode "ms-toolsai.vscode-jupyter-cell-tags"
-vscode "ms-toolsai.vscode-jupyter-slideshow"
-vscode "ms-vscode.cmake-tools"
-vscode "ms-vscode.cpptools-themes"
-vscode "ms-vscode.live-server"
-vscode "ms-vscode.powershell"
-vscode "naumovs.color-highlight"
-vscode "pkief.material-icon-theme"
-vscode "ritwickdey.liveserver"
-vscode "rust-lang.rust-analyzer"
-vscode "slint.slint"
-vscode "sumneko.lua"
 vscode "tamasfe.even-better-toml"
-vscode "twxs.cmake"
-vscode "usernamehw.errorlens"
-vscode "vadimcn.vscode-lldb"
-vscode "vue.volar"
-vscode "w88975.code-translate"
-vscode "wallabyjs.quokka-vscode"
-vscode "xabikos.javascriptsnippets"
-vscode "zhuangtongfa.material-theme"
+vscode "thenuprojectcontributors.vscode-nushell-lang"
