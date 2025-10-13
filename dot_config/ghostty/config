@@ -30,4 +30,3 @@ confirm-close-surface = false
 
 macos-icon = custom
 
-command = /opt/homebrew/bin/fish
