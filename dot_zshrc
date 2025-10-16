@@ -289,5 +289,3 @@ fi
 #     tmux attach || exec tmux new-session
 # fi
 
-# Suppress "Last login" message manually
-[[ -f ~/.hushlogin ]] || touch ~/.hushlogin
