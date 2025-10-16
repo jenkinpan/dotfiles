@@ -8,6 +8,7 @@ set -x fish_user_paths
 fish_add_path /opt/homebrew/bin $PATH
 fish_add_path ~/.cargo/bin $PATH
 fish_add_path /opt/homebrew/sbin $PATH
+fish_add_path /opt/homebrew/opt/ruby/bin
 
 # Cursor styles
 set -gx fish_vi_force_cursor 1
