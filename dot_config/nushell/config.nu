@@ -23,18 +23,5 @@ alias cen = config env # config env.nu
 # lg to open LazyGit if installed
 def lg [] { if (which lazygit | is-not-empty) { lazygit } }
 
-# NU_LIB_DIRS
-# -----------
-# Directories in this constant are searched by the
-# `use` and `source` commands.
-# const NU_LIB_DIRS = [
-#     ($nu.default-config-dir | path join 'scripts') # add <nushell-config-dir>/scripts
-#     ($nu.data-dir | path join 'completions') # default home for nushell completions
-# ]
-
-# source ./completions/devtool-completions.nu
-# source ./completions/pkg-checker-completions.nu
-# source ./scripts/aliases/git-aliases.nu
-#
 # Show system info on startup
 fastfetch --config examples/14
