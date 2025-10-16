@@ -3,8 +3,8 @@ README.md
 .DS_Store
 
 history.txt
-history.sqlite3
-history.sqlite3-shm
-history.sqlite3-wal
+~/.config/nushell/history.sqlite3
+~/.config/nushell/history.sqlite3-shm
+~/.config/nushell/history.sqlite3-wal
 
-plugin.msgpackz
+~/.config/nushell/plugin.msgpackz
