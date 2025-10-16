@@ -52,8 +52,12 @@ brew "nushell"
 brew "pandoc"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
 # Rust toolchain installer
 brew "rustup"
+# Smart session manager for the terminal
+brew "sesh"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Modernized, complete, self-contained TeX/LaTeX engine
@@ -76,6 +80,8 @@ brew "zoxide"
 brew "zsh"
 # The AI coding agent built for the terminal.
 brew "sst/tap/opencode"
+# Official bilibili video streaming and sharing platform
+cask "bilibili"
 # Send any size file between devices
 cask "blip"
 # Voice and text chat software
@@ -113,8 +119,12 @@ vscode "aaron-bond.better-comments"
 vscode "alefragnani.project-manager"
 vscode "catppuccin.catppuccin-vsc"
 vscode "catppuccin.catppuccin-vsc-icons"
+vscode "dsznajder.es7-react-js-snippets"
 vscode "formulahendry.code-runner"
 vscode "github.vscode-github-actions"
 vscode "ms-ceintl.vscode-language-pack-zh-hans"
+vscode "rust-lang.rust-analyzer"
 vscode "tamasfe.even-better-toml"
+vscode "tauri-apps.tauri-vscode"
 vscode "thenuprojectcontributors.vscode-nushell-lang"
+vscode "typescriptteam.native-preview"
