@@ -41,7 +41,7 @@ export BAT_THEME=tokyonight_day
 export GIT_EDITOR='nvim'
 
 # PATH configuration (efficient expansion)
-path=("/opt/homebrew/bin" "/opt/homebrew/sbin" "$HOME/.cargo/bin" $path)
+path=("/opt/homebrew/bin" "/opt/homebrew/sbin" "$HOME/.cargo/bin" "$HOME/.bun/bin" $path)
 export PATH
 
 # 📚 HISTORY CONFIGURATION
