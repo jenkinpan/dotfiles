@@ -1,4 +1,5 @@
 tap "cormacrelf/tap"
+tap "jenkinpan/tap"
 tap "sst/tap"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
@@ -16,8 +17,6 @@ brew "eza"
 brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# User-friendly command-line shell for UNIX-like operating systems
-brew "fish"
 # Plugin manager for the Fish shell
 brew "fisher"
 # Command-line fuzzy finder written in Go
@@ -84,8 +83,6 @@ brew "zsh"
 brew "jenkinpan/tap/devtool"
 # The AI coding agent built for the terminal.
 brew "sst/tap/opencode"
-# Official bilibili video streaming and sharing platform
-cask "bilibili"
 # Send any size file between devices
 cask "blip"
 # Voice and text chat software
@@ -126,6 +123,7 @@ vscode "catppuccin.catppuccin-vsc-icons"
 vscode "dsznajder.es7-react-js-snippets"
 vscode "formulahendry.code-runner"
 vscode "github.vscode-github-actions"
+vscode "jnoortheen.nix-ide"
 vscode "ms-ceintl.vscode-language-pack-zh-hans"
 vscode "rust-lang.rust-analyzer"
 vscode "tamasfe.even-better-toml"
