@@ -72,12 +72,16 @@ brew "tree"
 brew "tree-sitter-cli"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Internet file retriever
+brew "wget"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
+# CLI tool for development to update rustup toolchain, mise maintained tools and homebrew packages
+brew "jenkinpan/tap/devtool"
 # The AI coding agent built for the terminal.
 brew "sst/tap/opencode"
 # Official bilibili video streaming and sharing platform

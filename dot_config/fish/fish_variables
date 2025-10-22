@@ -45,3 +45,4 @@ SETUVAR fish_pager_color_selected_background:\x1d
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
+SETUVAR --export fish_user_paths:/Users/jenkin/\x2ebun/bin\x1e/opt/homebrew/opt/ruby/bin\x1e/opt/homebrew/sbin\x1e/Users/jenkin/\x2ecargo/bin\x1e/opt/homebrew/bin\x1e/usr/local/bin\x1e/usr/bin\x1e/bin\x1e/usr/sbin\x1e/sbin\x1e/System/Cryptexes/App/usr/bin\x1e/Applications/Ghostty\x2eapp/Contents/MacOS
