@@ -11,8 +11,8 @@
   "agent": {
     "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4-5"
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini"
     },
     "model_parameters": []
   },
