@@ -5,7 +5,7 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 zoxide init --cmd cd nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
 # Mise init
 mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
-# Atuin Init remove Atuin as it can be replaced by nushell default history search 
+# Atuin Init remove Atuin as it can be replaced by nushell default history search
 # atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
 
 # aliases
