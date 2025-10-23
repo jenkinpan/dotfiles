@@ -278,7 +278,7 @@ eval "$(starship init zsh)"
 # 🎆 STARTUP
 
 # Show system info on startup
-fastfetch --config examples/13
+fastfetch --logo none --config examples/13
 
 # Ensure atuin Ctrl-R binding after all plugins are loaded
 if (( $+commands[atuin] )); then

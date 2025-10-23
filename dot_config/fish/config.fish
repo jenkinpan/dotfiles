@@ -59,6 +59,6 @@ bind \cr _atuin_search
 bind -M insert \cr _atuin_search
 
 # Show system info on startup
-fastfetch --config examples/13
+fastfetch --logo none --config examples/13
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
