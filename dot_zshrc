@@ -131,9 +131,6 @@ zinit light Aloxaf/fzf-tab
 
 # 🛠️ CLI TOOLS
 
-# FZF fuzzy finder
-# For fzf-tmux using, I install it with Homebrew
-
 # Oh My Zsh plugin snippets (delayed loading for better performance)
 zinit wait"2" lucid for \
     OMZP::git \
@@ -238,7 +235,13 @@ brew_completion_check() {
   for file in "${comp_files[@]}"; do
     [[ -e "$file" ]] || continue
     func="${file:t}" cmd="${func#_}"
-    (( $+functions[$func] )) && loaded+=("$cmd") || missing+=("$cmd")
+
+    # Special handling for npm (uses _npm_completion instead of _npm)
+    if [[ "$cmd" == "npm" ]]; then
+      (( $+functions[_npm_completion] )) && loaded+=("$cmd") || missing+=("$cmd")
+    else
+      (( $+functions[$func] )) && loaded+=("$cmd") || missing+=("$cmd")
+    fi
   done
 
   print "📊 Completion Status:"
@@ -247,6 +250,12 @@ brew_completion_check() {
 
   if (( ${#missing[@]} )); then
     print "   Missing: ${(j:, :)missing}"
+
+    # Check if npm is in missing list and provide specific instructions
+    if [[ ${missing[(i)npm]} -le ${#missing[@]} ]]; then
+      print "   ⚠️  npm requires special handling - it's already loaded via source in .zshrc"
+    fi
+
     if read -q $'\n🔄 Reload completions now? [y/N] '; then
       print "⏳ Reloading..." && autoload -Uz compinit && compinit -u -d "$ZSH_CACHE_DIR/.zcompdump" && print "✅ Done"
     fi
@@ -266,6 +275,11 @@ eval "$(atuin init zsh)"
 # Initialize mise (version manager)
 eval "$(mise activate zsh)"
 
+# Load npm completion (needs to be sourced, not autoloaded)
+if [[ -f /opt/homebrew/share/zsh/site-functions/_npm ]]; then
+  source /opt/homebrew/share/zsh/site-functions/_npm
+fi
+
 # Initialize zoxide (better cd)
 eval "$(zoxide init --cmd cd zsh)"
 
@@ -284,4 +298,3 @@ fastfetch --logo none --config examples/13
 if (( $+commands[atuin] )); then
     bindkey '^r' atuin-search
 fi
-
