@@ -8,3 +8,5 @@ history.txt
 ~/.config/nushell/history.sqlite3-wal
 
 ~/.config/nushell/plugin.msgpackz
+
+~/.config/fish/fish_variables
