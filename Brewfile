@@ -33,10 +33,14 @@ brew "gnupg"
 brew "htop"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
+# Handy way to save and run project-specific commands
+brew "just"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Mac App Store command-line interface
 brew "mas"
+# Platform built on V8 to build network applications
+brew "node"
 # CLI for Mermaid library
 brew "mermaid-cli"
 # Polyglot runtime manager (asdf rust clone)
@@ -55,8 +59,6 @@ brew "ripgrep"
 brew "ruby"
 # Rust toolchain installer
 brew "rustup"
-# Smart session manager for the terminal
-brew "sesh"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Modernized, complete, self-contained TeX/LaTeX engine

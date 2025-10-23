@@ -13,10 +13,14 @@
 # the environment (including the current directory) of the calling shell
 export def --env yy [...args] {
     let tmp = (mktemp -t "yazi-cwd.XXXXXX")
-    yazi ...$args --cwd-file $tmp
-    let cwd = (open $tmp)
-    if $cwd != "" and $cwd != $env.PWD {
-        cd $cwd
+    try {
+        yazi ...$args --cwd-file $tmp
+        let cwd = (open $tmp)
+        if $cwd != "" and $cwd != $env.PWD {
+            cd $cwd
+        }
+    } catch {
+        # Clean up even if an error occurs
     }
-    rm -fp $tmp
+    rm -f $tmp
 }
