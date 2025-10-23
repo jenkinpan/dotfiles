@@ -8,5 +8,6 @@ cache-clean:
 check-updates:
    brew outdated
    rustup check
+   mise outdated
 
 

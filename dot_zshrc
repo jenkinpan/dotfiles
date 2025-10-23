@@ -284,8 +284,4 @@ fastfetch --config examples/13
 if (( $+commands[atuin] )); then
     bindkey '^r' atuin-search
 fi
-# Optional: Auto-start tmux session (currently disabled)
-# if [ -z "$TMUX" ]; then
-#     tmux attach || exec tmux new-session
-# fi
 
