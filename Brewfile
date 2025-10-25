@@ -83,8 +83,6 @@ brew "zoxide"
 brew "zsh"
 # CLI tool for development to update rustup toolchain, mise maintained tools and homebrew packages
 brew "jenkinpan/tap/devtool"
-# The AI coding agent built for the terminal.
-brew "sst/tap/opencode"
 # Send any size file between devices
 cask "blip"
 # Voice and text chat software
