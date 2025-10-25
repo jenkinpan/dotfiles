@@ -7,6 +7,8 @@ brew "atuin"
 brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
 # Multi-shell multi-command argument completer
 brew "carapace"
 # Manage your dotfiles across multiple diverse machines, securely
@@ -29,8 +31,6 @@ brew "ghostscript"
 brew "git"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
-# Improved top (interactive process viewer)
-brew "htop"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Handy way to save and run project-specific commands
