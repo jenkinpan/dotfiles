@@ -13,6 +13,8 @@ brew "btop"
 brew "carapace"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# Console Matrix
+brew "cmatrix"
 # Modern, maintained replacement for ls
 brew "eza"
 # Like neofetch, but much faster because written mostly in C
@@ -118,6 +120,7 @@ mas "WhatsApp", id: 310633997
 mas "克拉壁纸", id: 1469525516
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.project-manager"
+vscode "bmalehorn.vscode-fish"
 vscode "catppuccin.catppuccin-vsc"
 vscode "catppuccin.catppuccin-vsc-icons"
 vscode "dsznajder.es7-react-js-snippets"
