@@ -2,6 +2,7 @@ README.md
 .config/nvim/lazy-lock.json
 .DS_Store
 
+*/DS_Store
 history.txt
 ~/.config/nushell/history.sqlite3
 ~/.config/nushell/history.sqlite3-shm
