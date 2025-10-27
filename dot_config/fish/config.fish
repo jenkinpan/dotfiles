@@ -37,7 +37,7 @@ set -gx HOMEBREW_NO_ENV_HINTS 1
 # Nubind atuin default keybindings
 set -gx ATUIN_NOBIND true
 
-# Alias
+# Aliases
 alias cls='clear'
 # Enhanced ls with eza
 alias ls='eza --icons --group-directories-first --color=always --time-style=long-iso'
