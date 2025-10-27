@@ -44,7 +44,9 @@ alias ls='eza --icons --group-directories-first --color=always --time-style=long
 alias ll='ls -lh' # Detailed list
 alias la='ll -a' # Show hidden files
 alias lla='ls -a' # Simple show all files
-alias lg='lazygit'
+if type -q lazygit
+    alias lg='lazygit'
+end
 
 starship init fish | source
 zoxide init --cmd cd fish | source
