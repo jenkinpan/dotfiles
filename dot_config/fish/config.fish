@@ -18,7 +18,8 @@ set -gx fish_cursor_insert line blink
 set -gx fish_cursor_visual block
 set -gx fish_cursor_replace_one underscore
 
-set -gx fish_vi_key_bindings
+# Set vi mode
+set -g fish_vi_key_bindings
 
 # editor
 set -gx EDITOR (which nvim)
