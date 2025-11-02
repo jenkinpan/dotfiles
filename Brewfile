@@ -37,11 +37,13 @@ brew "gnupg"
 brew "imagemagick"
 # Handy way to save and run project-specific commands
 brew "just"
+# Lazier way to manage everything docker
+brew "lazydocker"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Mac App Store command-line interface
 brew "mas"
-# Platform built on V8 to build network applications
+# Open-source, cross-platform JavaScript runtime environment
 brew "node"
 # CLI for Mermaid library
 brew "mermaid-cli"
@@ -100,10 +102,14 @@ cask "google-chrome"
 cask "keka"
 # GPU-based terminal emulator
 cask "kitty"
+# Open-source cross-platform alternative to AirDrop
+cask "localsend"
 # Smooths scrolling and set mouse scroll directions independently
 cask "mos"
 # Music streaming platform
 cask "neteasemusic"
+# Replacement for Docker Desktop
+cask "orbstack"
 # Multiplayer code editor
 cask "zed"
 mas "AdBlocker", id: 1018301773
