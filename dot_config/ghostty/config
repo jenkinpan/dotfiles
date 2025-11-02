@@ -33,6 +33,6 @@ mouse-hide-while-typing = true
 macos-icon = custom
 
 # set cusror shader
-custom-shader = /Users/jenkin/.config/ghostty/shader/cursor_warp.glsl
 custom-shader-animation = false
+custom-shader = /Users/jenkin/.config/ghostty/shader/cursor_warp.glsl
 
