@@ -12,7 +12,7 @@ font-size = 18
 background-opacity = 0.85
 # background-blur = 20
 
-theme = dark:TokyoNight Night,light:TokyoNight Day
+theme = dark:catppuccin-mocha.conf,light:catppuccin-latte.conf
 
 window-theme = auto
 
