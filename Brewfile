@@ -87,6 +87,8 @@ brew "zoxide"
 brew "zsh"
 # CLI tool for development to update rustup toolchain, mise maintained tools and homebrew packages
 brew "jenkinpan/tap/devtool"
+# Application uninstaller
+cask "appcleaner"
 # Send any size file between devices
 cask "blip"
 # Voice and text chat software
@@ -115,7 +117,6 @@ cask "zed"
 mas "AdBlocker", id: 1018301773
 mas "APTV", id: 1630403500
 mas "Command X", id: 6448461551
-mas "Developer", id: 640199958
 mas "Dropover", id: 1355679052
 mas "Hidden Bar", id: 1452453066
 mas "Infuse", id: 1136220934
