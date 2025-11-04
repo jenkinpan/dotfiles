@@ -129,6 +129,10 @@ zinit for \
 zinit ice lucid wait'0'
 zinit light Aloxaf/fzf-tab
 
+# Vi-mode for Zsh
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+
 # 🛠️ CLI TOOLS
 
 # Oh My Zsh plugin snippets (delayed loading for better performance)
