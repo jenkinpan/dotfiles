@@ -69,26 +69,14 @@ ZSH_CACHE_DIR="${ZSH_CACHE_DIR:-$HOME/.cache/zsh}"
 [[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
 
 # Homebrew completion setup (consolidated)
+# 🧩 Homebrew setup
 if (( $+commands[brew] )); then
-  HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-$(brew --prefix)}"
-  readonly HOMEBREW_PREFIX
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 
-  local brew_comp_dir="$HOMEBREW_PREFIX/share/zsh/site-functions"
-  [[ -d "$brew_comp_dir" ]] && fpath=("$brew_comp_dir" $fpath)
-
-  # Auto-refresh logic: check if any completion file is newer than dump
-  local -a brew_files=("$brew_comp_dir"/_*)
-  if (( ${#brew_files} )); then
-    local newest_comp="${brew_files[1]}"
-    for f in "${brew_files[@]}"; do
-      [[ "$f" -nt "$newest_comp" ]] && newest_comp="$f"
-    done
-
-    [[ ! -e "$ZSH_CACHE_DIR/.zcompdump" || "$newest_comp" -nt "$ZSH_CACHE_DIR/.zcompdump" ]] && {
-      autoload -Uz compinit
-      compinit -u -d "$ZSH_CACHE_DIR/.zcompdump"
-    }
-  fi
+  # Add completions if available
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+  autoload -Uz compinit
+  compinit -u -d "${ZSH_CACHE_DIR:-$HOME/.cache/zsh}/.zcompdump"
 fi
 
 # Ensure compinit is always loaded
@@ -275,6 +263,7 @@ brew_completion_check() {
 # Initialize atuin (disable up arrow key binding)
 export ATUIN_NOBIND=true
 eval "$(atuin init zsh)"
+bindkey '^r' atuin-search
 
 # Initialize mise (version manager)
 eval "$(mise activate zsh)"
@@ -297,8 +286,3 @@ eval "$(starship init zsh)"
 
 # Show system info on startup
 fastfetch --logo none --config examples/13
-
-# Ensure atuin Ctrl-R binding after all plugins are loaded
-if (( $+commands[atuin] )); then
-    bindkey '^r' atuin-search
-fi
