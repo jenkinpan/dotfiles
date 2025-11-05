@@ -1,5 +1,5 @@
 function auto_theme
-    # detect system theme
+    # detect system theme(macos only)
     if defaults read -g AppleInterfaceStyle 2>/dev/null | grep -q Dark
         # when system in dark mode, use dark Fish theme, fzf theme and btop theme
         if not test "$fish_theme" = "Catppuccin Mocha"

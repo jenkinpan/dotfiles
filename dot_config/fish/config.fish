@@ -7,15 +7,6 @@ set -gx LANGUAGE zh_CN:en_US
 set -gx LC_ALL zh_CN.UTF-8
 set -gx LC_MESSAGES zh_CN.UTF-8
 
-# --- Homebrew ---
-# if test -x /opt/homebrew/bin/brew
-#     eval "$(/opt/homebrew/bin/brew shellenv)"
-# end
-set -gx HOMEBREW_NO_ENV_HINTS 1
-
-# --- Path ---
-fish_add_path ~/.cargo/bin ~/.bun/bin
-
 # --- Editor ---
 set -gx EDITOR nvim
 set -gx VISUAL $EDITOR
@@ -47,6 +38,14 @@ atuin init fish | source
 fzf --fish | source
 zoxide init --cmd cd fish | source
 starship init fish | source
+
+# --- Homebrew ---
+fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/sbin
+set -gx HOMEBREW_NO_ENV_HINTS 1
+
+# --- Path ---
+fish_add_path ~/.cargo/bin ~/.bun/bin
 
 auto_theme
 
