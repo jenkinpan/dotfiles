@@ -33,6 +33,8 @@ brew "ghostscript"
 brew "git"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Handy way to save and run project-specific commands
