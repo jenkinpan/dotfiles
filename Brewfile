@@ -114,6 +114,8 @@ cask "mos"
 cask "neteasemusic"
 # Replacement for Docker Desktop
 cask "orbstack"
+# Native desktop client for WhatsApp
+cask "whatsapp"
 # Multiplayer code editor
 cask "zed"
 mas "AdBlocker", id: 1018301773
@@ -127,7 +129,6 @@ mas "Numbers表格", id: 409203825
 mas "Pages文稿", id: 409201541
 mas "Quantumult X", id: 1443988620
 mas "Shadowrocket", id: 932747118
-mas "WhatsApp", id: 310633997
 mas "克拉壁纸", id: 1469525516
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.project-manager"
