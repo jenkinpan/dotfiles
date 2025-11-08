@@ -12,13 +12,14 @@ set -gx EDITOR nvim
 set -gx VISUAL $EDITOR
 set -gx SUDO_EDITOR $EDITOR
 
+set -g fish_vi_key_bindings
+
 # --- Cursor styles ---
 set -gx fish_vi_force_cursor 1
 set -gx fish_cursor_default block
 set -gx fish_cursor_insert line blink
 set -gx fish_cursor_visual block
 set -gx fish_cursor_replace_one underscore
-set -g fish_vi_key_bindings
 
 # Nubind atuin default keybindings
 set -gx ATUIN_NOBIND true
