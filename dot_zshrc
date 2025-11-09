@@ -98,14 +98,6 @@ else
     [[ -f ~/.config/themes/catppuccin-fzf-latte.sh ]] && source ~/.config/themes/catppuccin-fzf-latte.sh
 fi
 
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude /git"
-export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
-export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
-
-_fzf_compgen_path() { fd --hidden --exclude .git . "$1" }
-_fzf_compgen_dir() { fd --type=d --hidden --exclude .git . "$1" }
-
 # ⚙️ PLUGIN CONFIGURATION
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
@@ -123,7 +115,7 @@ alias la='ll -a'
 alias lla='ls -a'
 alias lg='lazygit'
 
-# 📝 CUSTOM FUNCTIONS
+# CUSTOM FUNCTIONS
 yy() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
     yazi "$@" --cwd-file="$tmp"
