@@ -1,6 +1,4 @@
 # 🚀 ZINIT PLUGIN MANAGER SETUP
-
-# Install zinit if not already installed
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
     command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
@@ -9,12 +7,10 @@ if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
         print -P "%F{160} The clone has failed.%f%b"
 fi
 
-# Load Zinit
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Load zinit core extensions
 zinit light-mode for \
     zdharma-continuum/zinit-annex-as-monitor \
     zdharma-continuum/zinit-annex-bin-gem-node \
@@ -22,189 +18,105 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 # 🌍 ENVIRONMENT VARIABLES
-
-# Environment variables
 export EDITOR='nvim'
 export COLORTERM='truecolor'
 export HOMEBREW_NO_ENV_HINTS=1
-
-# Language and locale settings
 export LANG=zh_CN.UTF-8
 export LANGUAGE=zh_CN:en_US
 export LC_ALL=zh_CN.UTF-8
 export LC_MESSAGES=zh_CN.UTF-8
-
-# Tool theme configuration
 export BAT_THEME=tokyonight_day
-
-# Git localization
 export GIT_EDITOR='nvim'
 
-# PATH configuration (efficient expansion)
-path=("/opt/homebrew/bin" "/opt/homebrew/sbin" "$HOME/.cargo/bin" "$HOME/.bun/bin" $path)
+# Initialize Homebrew (adds /opt/homebrew/bin and /opt/homebrew/sbin to PATH)
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  fpath=($(/opt/homebrew/bin/brew --prefix)/share/zsh/site-functions $fpath)
+fi
+
+# Add custom paths (after Homebrew to ensure proper order)
+path=("$HOME/.cargo/bin" "$HOME/.bun/bin" $path)
 export PATH
 
 # 📚 HISTORY CONFIGURATION
-
-# History configuration
 HISTSIZE=10000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 
-# History options
-setopt appendhistory          # Append to history file
-setopt sharehistory          # Share history between sessions
-setopt hist_ignore_space     # Ignore commands starting with space
-setopt hist_ignore_all_dups  # Ignore all duplicate commands
-setopt hist_save_no_dups     # Don't save duplicates
-setopt hist_ignore_dups      # Ignore consecutive duplicates
-setopt hist_find_no_dups     # Don't show duplicates in search
-setopt auto_list             # Automatically list choices
+setopt appendhistory sharehistory hist_ignore_space hist_ignore_all_dups \
+       hist_save_no_dups hist_ignore_dups hist_find_no_dups auto_list
 
-# 🔧 COMPLETION SYSTEM SETUP (Before plugins)
-
-# Setup cache directory early
+# 🔧 COMPLETION SYSTEM SETUP
 ZSH_CACHE_DIR="${ZSH_CACHE_DIR:-$HOME/.cache/zsh}"
 [[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
 
-# Homebrew completion setup (consolidated)
-# 🧩 Homebrew setup
-if (( $+commands[brew] )); then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+autoload -Uz compinit
+compinit -u -d "$ZSH_CACHE_DIR/.zcompdump"
 
-  # Add completions if available
-  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-  autoload -Uz compinit
-  compinit -u -d "${ZSH_CACHE_DIR:-$HOME/.cache/zsh}/.zcompdump"
-fi
-
-# Ensure compinit is always loaded
-(( $+functions[compinit] )) || { autoload -Uz compinit; compinit -u -d "$ZSH_CACHE_DIR/.zcompdump"; }
-
-# Explicit mise completion registration
-if (( $+commands[brew] )) && [[ -f "${HOMEBREW_PREFIX}/share/zsh/site-functions/_mise" ]]; then
+if [[ -n "${HOMEBREW_PREFIX:-}" ]] && [[ -f "${HOMEBREW_PREFIX}/share/zsh/site-functions/_mise" ]]; then
   (( ! $+functions[_mise] )) && { autoload -Uz _mise; compdef _mise mise; }
 fi
 
-# Completion configuration
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$ZSH_CACHE_DIR/.zcompcache"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 
-# ⭐ PROMPT SETUP
-
-# 🔧 ZSH CORE FEATURES
-
-# Delayed loading of Oh My Zsh core libraries
+# 🔧 ZSH CORE FEATURES & PLUGINS
 zinit wait"1" lucid for \
     OMZL::clipboard.zsh \
     OMZL::history.zsh \
     OMZL::completion.zsh
 
-# 🔌 ESSENTIAL PLUGINS
-
-# Autosuggestions, syntax highlighting, and completions
-zinit for \
-  lucid light-mode blockf \
+zinit for lucid light-mode blockf \
     zdharma-continuum/fast-syntax-highlighting \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-completions
 
-# Enhanced tab completion
 zinit ice lucid wait'0'
 zinit light Aloxaf/fzf-tab
 
-# Vi-mode for Zsh
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 
-# 🛠️ CLI TOOLS
-
-# Oh My Zsh plugin snippets (delayed loading for better performance)
 zinit wait"2" lucid for \
     OMZP::git \
     OMZP::archlinux \
-    OMZP::eza \
     OMZP::rust \
+    OMZP::eza \
     OMZP::bun
 
 # 🔍 FZF CONFIGURATION
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+    --color=fg:-1,fg+:-1,bg:-1,bg+:20,pointer:-1,header:1,border:4,hl:16,hl+:17,info:21,prompt:2,marker:21,spinner:21,scrollbar:dim"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude /git"
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
-if (( $+commands[fzf] )); then
-    # FZF color theme
-    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-        --color=fg:-1 \
-        --color=fg+:-1 \
-        --color=bg:-1 \
-        --color=bg+:20 \
-        --color=pointer:-1 \
-        --color=header:1 \
-        --color=border:4 \
-        --color=hl:16 \
-        --color=hl+:17 \
-        --color=info:21 \
-        --color=prompt:2 \
-        --color=marker:21 \
-        --color=spinner:21 \
-        --color=scrollbar:dim"
+_fzf_compgen_path() { fd --hidden --exclude .git . "$1" }
+_fzf_compgen_dir() { fd --type=d --hidden --exclude .git . "$1" }
 
-    # FZF command configuration
-    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    export FZF_ALT_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude /git"
-
-    # Preview configuration
-    export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
-    export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
-
-    # Custom completion functions
-    _fzf_compgen_path() {
-        fd --hidden --exclude .git . "$1"
-    }
-
-    _fzf_compgen_dir() {
-        fd --type=d --hidden --exclude .git . "$1"
-    }
-fi
-
-# ⚙️ PLUGIN-SPECIFIC COMPLETION CONFIGURATION
-
-# FZF-tab configuration
+# ⚙️ PLUGIN CONFIGURATION
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
-# ⌨️ KEY BINDINGS
-
-# zsh-autosuggestions tweaks
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-# Note: atuin handles Ctrl-R binding automatically via its init
-
 # 🔗 ALIASES
-
-# Basic commands
-alias cls='clear'                    # Clear screen
-alias ..='cd ..'                     # Go up one directory
-
-# Homebrew completion check
-alias bcc='brew_completion_check'    # Verify & reload Homebrew completions
-
-# Enhanced ls with eza
+alias cls='clear'
+alias ..='cd ..'
 alias ls='eza --icons --group-directories-first --color=always --time-style=long-iso'
-alias ll='ls -lh'                    # Detailed list
-alias la='ll -a'                     # Show hidden files
-alias lla='ls -a'                    # Simple show all files
-
-# Git shortcuts (conditional alias)
-(( $+commands[lazygit] )) && alias lg='lazygit'
+alias ll='ls -lh'
+alias la='ll -a'
+alias lla='ls -a'
+alias lg='lazygit'
 
 # 📝 CUSTOM FUNCTIONS
-
-# Yazi shell wrapper - changes directory when exiting
 yy() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
     yazi "$@" --cwd-file="$tmp"
@@ -212,77 +124,19 @@ yy() {
     rm -f -- "$tmp"
 }
 
-# 🛠️ brew_completion_check: Verify Homebrew completions are loaded
-
-brew_completion_check() {
-  (( $+commands[brew] )) || { print "❌ Homebrew not found"; return 1 }
-
-  local comp_dir="${HOMEBREW_PREFIX:-$(brew --prefix)}/share/zsh/site-functions"
-  [[ -d "$comp_dir" ]] || { print "❌ Completion directory not found: $comp_dir"; return 1 }
-
-  local -a missing=() loaded=() comp_files=("$comp_dir"/_*)
-  (( ${#comp_files} )) || { print "❌ Completion directory is empty"; return 1 }
-
-  local func cmd
-  for file in "${comp_files[@]}"; do
-    [[ -e "$file" ]] || continue
-    func="${file:t}" cmd="${func#_}"
-
-    # Special handling for npm (uses _npm_completion instead of _npm)
-    if [[ "$cmd" == "npm" ]]; then
-      (( $+functions[_npm_completion] )) && loaded+=("$cmd") || missing+=("$cmd")
-    else
-      (( $+functions[$func] )) && loaded+=("$cmd") || missing+=("$cmd")
-    fi
-  done
-
-  print "📊 Completion Status:"
-  print "   Total: ${#comp_files[@]} | ✅ Loaded: ${#loaded[@]} | ❌ Missing: ${#missing[@]}"
-  (( ${#loaded[@]} )) && print "   Loaded: ${(j:, :)loaded}"
-
-  if (( ${#missing[@]} )); then
-    print "   Missing: ${(j:, :)missing}"
-
-    # Check if npm is in missing list and provide specific instructions
-    if [[ ${missing[(i)npm]} -le ${#missing[@]} ]]; then
-      print "   ⚠️  npm requires special handling - it's already loaded via source in .zshrc"
-    fi
-
-    if read -q $'\n🔄 Reload completions now? [y/N] '; then
-      print "⏳ Reloading..." && autoload -Uz compinit && compinit -u -d "$ZSH_CACHE_DIR/.zcompdump" && print "✅ Done"
-    fi
-  else
-    print "🎉 All completions loaded!"
-  fi
-}
-
 # 🚀 TOOL INITIALIZATION
-
-# Note: These eval commands run on every startup
-
-# Initialize atuin (disable up arrow key binding)
 export ATUIN_NOBIND=true
 eval "$(atuin init zsh)"
 bindkey '^r' atuin-search
 
-# Initialize mise (version manager)
 eval "$(mise activate zsh)"
 
-# Load npm completion (needs to be sourced, not autoloaded)
-if [[ -f /opt/homebrew/share/zsh/site-functions/_npm ]]; then
+[[ -f /opt/homebrew/share/zsh/site-functions/_npm ]] && \
   source /opt/homebrew/share/zsh/site-functions/_npm
-fi
 
-# Initialize zoxide (better cd)
 eval "$(zoxide init --cmd cd zsh)"
-
-# Initialize fzf
 eval "$(fzf --zsh)"
-
-# Initialize Starship prompt
 eval "$(starship init zsh)"
 
 # 🎆 STARTUP
-
-# Show system info on startup
 fastfetch --logo none --config examples/13
