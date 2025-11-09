@@ -39,8 +39,6 @@ brew "go"
 brew "imagemagick"
 # Handy way to save and run project-specific commands
 brew "just"
-# Lazier way to manage everything docker
-brew "lazydocker"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Mac App Store command-line interface
