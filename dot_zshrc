@@ -89,8 +89,15 @@ zinit wait"2" lucid for \
     OMZP::bun
 
 # 🔍 FZF CONFIGURATION
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-    --color=fg:-1,fg+:-1,bg:-1,bg+:20,pointer:-1,header:1,border:4,hl:16,hl+:17,info:21,prompt:2,marker:21,spinner:21,scrollbar:dim"
+# 检测系统主题模式并加载相应的fzf主题
+if [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]; then
+    # Dark模式 - 加载catppuccin-mocha主题
+    [[ -f ~/.config/themes/catppuccin-fzf-mocha.sh ]] && source ~/.config/themes/catppuccin-fzf-mocha.sh
+else
+    # Light模式 - 加载catppuccin-latte主题
+    [[ -f ~/.config/themes/catppuccin-fzf-latte.sh ]] && source ~/.config/themes/catppuccin-fzf-latte.sh
+fi
+
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude /git"
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
