@@ -2,7 +2,14 @@ return {
   "folke/snacks.nvim",
   opts = {
     -- enable snakes.image
-    image = { enable = true },
+    image = {
+      enable = true,
+      resolve = function(path, src)
+        if require("obsidian.api").path_is_note(path) then
+          return require("obsidian.api").resolve_image_path(src)
+        end
+      end,
+    },
     terminal = {
       enable = true,
       win = {

@@ -9,7 +9,7 @@ font-feature = liga,clig,ss01,ss02,ss03,ss04,ss05,ss06,ss07,ss08,ss09,ss10,ss11,
 
 font-size = 18
 
-background-opacity = 0.85
+background-opacity = 0.80
 # background-blur = 20
 
 theme = dark:catppuccin-mocha.conf,light:catppuccin-latte.conf
@@ -31,6 +31,9 @@ confirm-close-surface = false
 mouse-hide-while-typing = true
 
 macos-icon = custom
+
+# cursor line thisckness
+adjust-cursor-thickness = 5
 
 # set cusror shader
 custom-shader-animation = false
