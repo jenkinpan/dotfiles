@@ -110,6 +110,8 @@ cask "localsend"
 cask "mos"
 # Music streaming platform
 cask "neteasemusic"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Replacement for Docker Desktop
 cask "orbstack"
 # Native desktop client for WhatsApp
@@ -127,7 +129,6 @@ mas "Numbers表格", id: 409203825
 mas "Pages文稿", id: 409201541
 mas "Quantumult X", id: 1443988620
 mas "Shadowrocket", id: 932747118
-mas "克拉壁纸", id: 1469525516
 vscode "aaron-bond.better-comments"
 vscode "alefragnani.project-manager"
 vscode "bmalehorn.vscode-fish"
