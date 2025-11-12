@@ -109,7 +109,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # 🔗 ALIASES
 alias cls='clear'
 alias ..='cd ..'
-alias ls='eza --icons --group-directories-first --color=always --time-style=long-iso'
+alias ls='eza --icons always --group-directories-first --color=always --time-style=long-iso'
 alias ll='ls -lh'
 alias la='ll -a'
 alias lla='ls -a'
