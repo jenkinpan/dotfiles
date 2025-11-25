@@ -53,3 +53,6 @@ auto_theme
 # bindings
 bind \cr _atuin_search
 bind -M insert \cr _atuin_search
+
+# Added by Antigravity
+fish_add_path /Users/jenkin/.antigravity/antigravity/bin

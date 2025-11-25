@@ -18,7 +18,7 @@ def --env "update-env" [] {
 export-env {
   
   "hide,LUA_INIT,
-set,PATH,/opt/homebrew/bin:/opt/homebrew/sbin:/Users/jenkin/.cargo/bin:/Users/jenkin/.bun/bin:/opt/homebrew/opt/mise/bin:/opt/local/bin:/Users/jenkin/.cargo/bin:/Users/jenkin/.bun/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/Applications/Ghostty.app/Contents/MacOS
+set,PATH,/opt/homebrew/bin:/opt/homebrew/sbin:/Users/jenkin/.cargo/bin:/Users/jenkin/.bun/bin:/opt/homebrew/opt/mise/bin:/Users/jenkin/.antigravity/antigravity/bin:/opt/local/bin:/Users/jenkin/.cargo/bin:/Users/jenkin/.bun/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/Applications/Ghostty.app/Contents/MacOS
 hide,MISE_SHELL,
 hide,__MISE_DIFF,
 hide,__MISE_DIFF,

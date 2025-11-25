@@ -91,6 +91,10 @@ brew "jenkinpan/tap/devtool"
 cask "appcleaner"
 # Send any size file between devices
 cask "blip"
+# Utility that prevents the system from going to sleep
+cask "caffeine"
+# Write, edit, and chat about your code with AI
+cask "cursor"
 # Voice and text chat software
 cask "discord"
 cask "font-hack-nerd-font"
@@ -129,18 +133,3 @@ mas "Numbers表格", id: 409203825
 mas "Pages文稿", id: 409201541
 mas "Quantumult X", id: 1443988620
 mas "Shadowrocket", id: 932747118
-vscode "aaron-bond.better-comments"
-vscode "alefragnani.project-manager"
-vscode "bmalehorn.vscode-fish"
-vscode "catppuccin.catppuccin-vsc"
-vscode "catppuccin.catppuccin-vsc-icons"
-vscode "dsznajder.es7-react-js-snippets"
-vscode "formulahendry.code-runner"
-vscode "github.vscode-github-actions"
-vscode "jnoortheen.nix-ide"
-vscode "ms-ceintl.vscode-language-pack-zh-hans"
-vscode "rust-lang.rust-analyzer"
-vscode "tamasfe.even-better-toml"
-vscode "tauri-apps.tauri-vscode"
-vscode "thenuprojectcontributors.vscode-nushell-lang"
-vscode "typescriptteam.native-preview"
