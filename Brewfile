@@ -104,8 +104,6 @@ cask "font-monaspace-nf"
 cask "ghostty"
 # Web browser
 cask "google-chrome"
-# File archiver
-cask "keka"
 # GPU-based terminal emulator
 cask "kitty"
 # Open-source cross-platform alternative to AirDrop
@@ -118,6 +116,8 @@ cask "neteasemusic"
 cask "obsidian"
 # Replacement for Docker Desktop
 cask "orbstack"
+# Unpacks archive files
+cask "the-unarchiver"
 # Native desktop client for WhatsApp
 cask "whatsapp"
 # Multiplayer code editor
