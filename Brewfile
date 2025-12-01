@@ -93,8 +93,6 @@ cask "appcleaner"
 cask "blip"
 # Utility that prevents the system from going to sleep
 cask "caffeine"
-# Write, edit, and chat about your code with AI
-cask "cursor"
 # Voice and text chat software
 cask "discord"
 cask "font-hack-nerd-font"
@@ -104,16 +102,18 @@ cask "font-monaspace-nf"
 cask "ghostty"
 # Web browser
 cask "google-chrome"
+# Free and open-source media player
+cask "iina"
 # GPU-based terminal emulator
 cask "kitty"
 # Open-source cross-platform alternative to AirDrop
 cask "localsend"
 # Smooths scrolling and set mouse scroll directions independently
 cask "mos"
-# Music streaming platform
-cask "neteasemusic"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Verify system files structure, run miscellaneous maintenance and more
+cask "onyx"
 # Replacement for Docker Desktop
 cask "orbstack"
 # Unpacks archive files
