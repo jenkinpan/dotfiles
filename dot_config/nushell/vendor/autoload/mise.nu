@@ -22,7 +22,7 @@ set,PATH,/opt/homebrew/bin:/opt/homebrew/sbin:/Users/jenkin/.cargo/bin:/Users/je
 hide,MISE_SHELL,
 hide,__MISE_DIFF,
 hide,__MISE_DIFF,
-  "" | parse vars | update-env
+" | parse vars | update-env
   $env.MISE_SHELL = "nu"
   let mise_hook = {
     condition: { "MISE_SHELL" in $env }
