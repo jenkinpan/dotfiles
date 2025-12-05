@@ -3,7 +3,7 @@ function fish_greeting -d "Display system information after shell initialization
     if status --is-interactive
         # 运行 fastfetch，使用您配置中的确切参数
         if type -q fastfetch
-            fastfetch --logo none --config examples/13
+            fastfetch -l arch --config examples/13
         end
     end
 end
