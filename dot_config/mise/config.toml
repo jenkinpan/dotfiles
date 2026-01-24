@@ -10,5 +10,6 @@ description = "Clean cache for cargo and brew."
 run = ['cargo cache -a', 'brew cleanup']
 
 [tasks.update]
+confirm = 'Are you sure want to update and upgrade brew packages and rustup toolchains?'
 description = "Update brew & brew packages and rustup toolchains."
 run = ['mise up', 'brew update', 'brew upgrade', 'rustup update']
