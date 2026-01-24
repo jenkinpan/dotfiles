@@ -3,3 +3,12 @@ node = "lts"
 bun = "latest"
 python = "latest"
 lua = "5.1"
+
+
+[tasks.clean]
+description = "Clean cache for cargo and brew."
+run = ['cargo cache -a', 'brew cleanup']
+
+[tasks.update]
+description = "Update brew & brew packages and rustup toolchains."
+run = ['mise up', 'brew update', 'brew upgrade', 'rustup update']
