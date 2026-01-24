@@ -42,12 +42,10 @@ brew "git"
 brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# Tools and libraries to manipulate images in many formats
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # Install and debug iPhone apps from the command-line
 brew "ios-deploy"
-# Handy way to save and run project-specific commands
-brew "just"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Library to communicate with iOS devices natively
@@ -105,7 +103,7 @@ brew "zsh"
 # CLI tool for development to update rustup toolchain, mise maintained tools and homebrew packages
 brew "jenkinpan/tap/devtool"
 # Get the battery level of all your devices on your Mac.
-cask "airbattery"
+cask "lihaoyun6/tap/airbattery"
 # Application uninstaller
 cask "appcleaner"
 # Send any size file between devices
@@ -154,7 +152,6 @@ mas "APTV", id: 1630403500
 mas "Command X", id: 6448461551
 mas "Developer", id: 640199958
 mas "Dropover", id: 1355679052
-mas "Goodnotes", id: 1444383602
 mas "Hidden Bar", id: 1452453066
 mas "Infuse", id: 1136220934
 mas "Keynote讲演", id: 409183694
@@ -163,6 +160,7 @@ mas "Pages文稿", id: 409201541
 mas "PDFgear", id: 6469021132
 mas "Quantumult X", id: 1443988620
 mas "Shadowrocket", id: 932747118
+mas "Things", id: 904280696
 mas "Xcode", id: 497799835
 cargo "cargo-binstall"
 cargo "cargo-bundle"
@@ -178,4 +176,7 @@ cargo "nu_plugin_gstat"
 cargo "nu_plugin_highlight"
 cargo "nu_plugin_inc"
 cargo "nu_plugin_polars"
+cargo "rustlings"
+cargo "tauri-cli"
 cargo "topiary-cli"
+cargo "ui-cli"
