@@ -54,8 +54,5 @@ auto_theme
 bind \cr _atuin_search
 bind -M insert \cr _atuin_search
 
-# Added by Antigravity
-fish_add_path /Users/jenkin/.antigravity/antigravity/bin
-
 # Mole shell completion
 set -l output (mole completion fish 2>/dev/null); and echo "$output" | source
