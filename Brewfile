@@ -58,6 +58,8 @@ brew "node"
 brew "mermaid-cli"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Deep clean and optimize your Mac
+brew "mole"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Modern shell for the GitHub era
@@ -98,8 +100,6 @@ brew "xcodegen"
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# UNIX shell (command interpreter)
-brew "zsh"
 # CLI tool for development to update rustup toolchain, mise maintained tools and homebrew packages
 brew "jenkinpan/tap/devtool"
 # Get the battery level of all your devices on your Mac.
@@ -135,8 +135,6 @@ cask "mos"
 cask "obs"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-# Verify system files structure, run miscellaneous maintenance and more
-cask "onyx"
 # Replacement for Docker Desktop
 cask "orbstack"
 # Apple Notes extension
