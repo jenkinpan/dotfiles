@@ -47,6 +47,7 @@ set -gx HOMEBREW_NO_ENV_HINTS 1
 
 # --- Path ---
 fish_add_path ~/.cargo/bin ~/.bun/bin
+fish_add_path /Applications/Obsidian.app/Contents/MacOS
 
 auto_theme
 
@@ -56,3 +57,6 @@ bind -M insert \cr _atuin_search
 
 # Mole shell completion
 set -l output (mole completion fish 2>/dev/null); and echo "$output" | source
+
+# OpenClaw Completion
+source "/Users/jenkin/.openclaw/completions/openclaw.fish"
