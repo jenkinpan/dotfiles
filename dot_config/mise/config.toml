@@ -1,8 +1,8 @@
 [tools]
-node = "lts"
 bun = "latest"
 python = "latest"
 lua = "5.1"
+node = "latest"
 
 
 [tasks.clean]
