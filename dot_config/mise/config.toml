@@ -2,7 +2,7 @@
 bun = "latest"
 python = "latest"
 lua = "5.1"
-node = "latest"
+node = "lts"
 
 
 [tasks.clean]

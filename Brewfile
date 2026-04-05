@@ -2,6 +2,7 @@ tap "cormacrelf/tap"
 tap "jenkinpan/tap"
 tap "lihaoyun6/tap"
 tap "sst/tap"
+tap "yakitrak/yakitrak"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Bourne-Again SHell, a UNIX command interpreter
@@ -60,6 +61,8 @@ brew "mermaid-cli"
 brew "mise"
 # Deep clean and optimize your Mac
 brew "mole"
+# Incremental parsing library
+brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Modern shell for the GitHub era
@@ -74,6 +77,8 @@ brew "poppler"
 brew "ripgrep"
 # Rust toolchain installer
 brew "rustup"
+# Smart session manager for the terminal
+brew "sesh"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Modernized, complete, self-contained TeX/LaTeX engine
@@ -86,8 +91,6 @@ brew "tlrc"
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
-# Incremental parsing library
-brew "tree-sitter"
 # Parser generator tool
 brew "tree-sitter-cli"
 # Extremely fast Python package installer and resolver, written in Rust
@@ -102,6 +105,7 @@ brew "yazi"
 brew "zoxide"
 # CLI tool for development to update rustup toolchain, mise maintained tools and homebrew packages
 brew "jenkinpan/tap/devtool"
+brew "yakitrak/yakitrak/obsidian-cli"
 # Get the battery level of all your devices on your Mac.
 cask "lihaoyun6/tap/airbattery"
 # Application uninstaller
@@ -117,6 +121,7 @@ cask "cursor"
 # Voice and text chat software
 cask "discord"
 cask "font-hack-nerd-font"
+cask "font-lxgw-wenkai"
 cask "font-monaspace"
 cask "font-monaspace-nf"
 # Terminal emulator that uses platform-native UI and GPU acceleration
@@ -133,8 +138,6 @@ cask "localsend"
 cask "mos"
 # Open-source software for live streaming and screen recording
 cask "obs"
-# Knowledge base that works on top of a local folder of plain text Markdown files
-cask "obsidian"
 # Replacement for Docker Desktop
 cask "orbstack"
 # Apple Notes extension
@@ -162,7 +165,6 @@ mas "Pixelmator Pro", id: 6746662575
 mas "Quantumult X", id: 1443988620
 mas "Shadowrocket", id: 932747118
 mas "Things", id: 904280696
-mas "Xcode", id: 497799835
 cargo "cargo-binstall"
 cargo "cargo-bundle"
 cargo "cargo-cache"
