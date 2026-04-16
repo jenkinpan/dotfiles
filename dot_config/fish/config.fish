@@ -39,6 +39,7 @@ atuin init fish | source
 fzf --fish | source
 zoxide init --cmd cd fish | source
 starship init fish | source
+hermes completion fish | source
 
 # --- Homebrew ---
 fish_add_path /opt/homebrew/bin
@@ -57,3 +58,7 @@ bind -M insert \cr _atuin_search
 
 # Mole shell completion
 set -l output (mole completion fish 2>/dev/null); and echo "$output" | source
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :

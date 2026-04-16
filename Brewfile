@@ -1,3 +1,4 @@
+tap "antoniorodr/memo"
 tap "cormacrelf/tap"
 tap "jenkinpan/tap"
 tap "lihaoyun6/tap"
@@ -27,6 +28,8 @@ brew "eza"
 brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
 # Plugin manager for the Fish shell
 brew "fisher"
 # Command-line fuzzy finder written in Go
@@ -103,9 +106,11 @@ brew "xcodegen"
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# CLI app to manage your Apple Notes and Apple reminders
+brew "antoniorodr/memo/memo"
 # CLI tool for development to update rustup toolchain, mise maintained tools and homebrew packages
 brew "jenkinpan/tap/devtool"
-brew "yakitrak/yakitrak/obsidian-cli"
+brew "yakitrak/yakitrak/notesmd-cli"
 # Get the battery level of all your devices on your Mac.
 cask "lihaoyun6/tap/airbattery"
 # Application uninstaller
@@ -142,6 +147,8 @@ cask "obs"
 cask "orbstack"
 # Apple Notes extension
 cask "pronotes"
+# Control your tools with a few keystrokes
+cask "raycast"
 # EPUB ebook editor
 cask "sigil"
 # Unpacks archive files
