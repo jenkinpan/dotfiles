@@ -147,8 +147,6 @@ cask "obs"
 cask "orbstack"
 # Apple Notes extension
 cask "pronotes"
-# Control your tools with a few keystrokes
-cask "raycast"
 # EPUB ebook editor
 cask "sigil"
 # Unpacks archive files
@@ -162,6 +160,7 @@ mas "APTV", id: 1630403500
 mas "Command X", id: 6448461551
 mas "Dropover", id: 1355679052
 mas "Final Cut Pro", id: 1631624924
+mas "Folder Preview", id: 6698876601
 mas "Hidden Bar", id: 1452453066
 mas "Infuse", id: 1136220934
 mas "Keynote讲演", id: 361285480
