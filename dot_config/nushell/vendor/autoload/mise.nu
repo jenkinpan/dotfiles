@@ -16,7 +16,7 @@ def --env "update-env" [] {
   }
 }
 export-env {
-
+  
   'hide,LUA_INIT,
 set,PATH,/opt/homebrew/bin:/opt/homebrew/sbin:/Users/jenkin/.cargo/bin:/Users/jenkin/.bun/bin:/opt/homebrew/opt/mise/bin:/Users/jenkin/.local/bin:/Applications/Obsidian.app/Contents/MacOS:/opt/homebrew/opt/postgresql@17/bin:/opt/homebrew/opt/openjdk@17/bin:/Users/jenkin/.antigravity/antigravity/bin:/opt/local/bin:/Users/jenkin/.cargo/bin:/Users/jenkin/.bun/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pkg/env/active/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/Applications/Ghostty.app/Contents/MacOS:/Users/jenkin/.orbstack/bin
 hide,MISE_SHELL,
@@ -38,8 +38,8 @@ def --env add-hook [field: cell-path new_hook: any] {
   $env.config = ($old_config | upsert $field ($old_hooks ++ [$new_hook]))
 }
 
-export def --env --wrapped main [command?: string --help ...rest: string] {
-  let commands = ["deactivate" "shell" "sh"]
+export def --env --wrapped main [command?: string, --help, ...rest: string] {
+  let commands = ["deactivate", "shell", "sh"]
 
   if ($command == null) {
     ^"/opt/homebrew/bin/mise"
@@ -56,6 +56,7 @@ export def --env --wrapped main [command?: string --help ...rest: string] {
 
 def --env mise_hook [] {
   ^"/opt/homebrew/bin/mise" hook-env -s nu
-  | parse vars
-  | update-env
+    | parse vars
+    | update-env
 }
+
