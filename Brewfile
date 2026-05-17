@@ -1,5 +1,8 @@
+tap "anomalyco/tap"
 tap "antoniorodr/memo"
 tap "cormacrelf/tap"
+tap "happyvibing/tap"
+tap "homebrew/core"
 tap "jenkinpan/tap"
 tap "lihaoyun6/tap"
 tap "sst/tap"
@@ -106,6 +109,8 @@ brew "xcodegen"
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# The AI coding agent built for the terminal.
+brew "anomalyco/tap/opencode"
 # CLI app to manage your Apple Notes and Apple reminders
 brew "antoniorodr/memo/memo"
 # CLI tool for development to update rustup toolchain, mise maintained tools and homebrew packages
@@ -119,6 +124,8 @@ cask "appcleaner"
 cask "blip"
 # Utility that prevents the system from going to sleep
 cask "caffeine"
+# Terminal-based AI coding assistant
+cask "claude-code"
 # Clean keyboard and trackpad
 cask "cleanupbuddy"
 # Write, edit, and chat about your code with AI
@@ -159,7 +166,6 @@ mas "AdBlocker", id: 1018301773
 mas "APTV", id: 1630403500
 mas "Command X", id: 6448461551
 mas "Dropover", id: 1355679052
-mas "Final Cut Pro", id: 1631624924
 mas "Folder Preview", id: 6698876601
 mas "Hidden Bar", id: 1452453066
 mas "Infuse", id: 1136220934
@@ -167,10 +173,10 @@ mas "Keynote讲演", id: 361285480
 mas "Numbers表格", id: 361304891
 mas "Pages文稿", id: 361309726
 mas "PDFgear", id: 6469021132
-mas "Pixelmator Pro", id: 6746662575
 mas "Quantumult X", id: 1443988620
 mas "Shadowrocket", id: 932747118
 mas "Things", id: 904280696
+mas "Xcode", id: 497799835
 cargo "cargo-binstall"
 cargo "cargo-bundle"
 cargo "cargo-cache"
@@ -189,3 +195,4 @@ cargo "rustlings"
 cargo "tauri-cli"
 cargo "topiary-cli"
 cargo "ui-cli"
+uv "graphifyy"
