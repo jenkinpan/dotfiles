@@ -91,8 +91,6 @@ brew "starship"
 brew "tectonic"
 # Enables extra languages support for Tesseract
 brew "tesseract-lang"
-# Official tldr client written in Rust
-brew "tlrc"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
@@ -116,8 +114,6 @@ brew "antoniorodr/memo/memo"
 # CLI tool for development to update rustup toolchain, mise maintained tools and homebrew packages
 brew "jenkinpan/tap/devtool"
 brew "yakitrak/yakitrak/notesmd-cli"
-# Get the battery level of all your devices on your Mac.
-cask "lihaoyun6/tap/airbattery"
 # Application uninstaller
 cask "appcleaner"
 # Send any size file between devices
@@ -165,6 +161,7 @@ cask "zed"
 mas "AdBlocker", id: 1018301773
 mas "APTV", id: 1630403500
 mas "Command X", id: 6448461551
+mas "Developer", id: 640199958
 mas "Dropover", id: 1355679052
 mas "Folder Preview", id: 6698876601
 mas "Hidden Bar", id: 1452453066
@@ -180,7 +177,9 @@ mas "Xcode", id: 497799835
 cargo "cargo-binstall"
 cargo "cargo-bundle"
 cargo "cargo-cache"
+cargo "cargo-deny"
 cargo "cargo-fresh"
+cargo "cargo-license"
 cargo "create-tauri-app"
 cargo "mdbook"
 cargo "mdbook-epub"
@@ -196,3 +195,4 @@ cargo "tauri-cli"
 cargo "topiary-cli"
 cargo "ui-cli"
 uv "graphifyy"
+npm "corepack"
