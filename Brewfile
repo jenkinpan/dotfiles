@@ -111,11 +111,7 @@ brew "zoxide"
 brew "anomalyco/tap/opencode"
 # CLI app to manage your Apple Notes and Apple reminders
 brew "antoniorodr/memo/memo"
-# CLI tool for development to update rustup toolchain, mise maintained tools and homebrew packages
-brew "jenkinpan/tap/devtool"
 brew "yakitrak/yakitrak/notesmd-cli"
-# Application uninstaller
-cask "appcleaner"
 # Send any size file between devices
 cask "blip"
 # Utility that prevents the system from going to sleep
@@ -124,8 +120,6 @@ cask "caffeine"
 cask "claude-code"
 # Clean keyboard and trackpad
 cask "cleanupbuddy"
-# Write, edit, and chat about your code with AI
-cask "cursor"
 # Voice and text chat software
 cask "discord"
 cask "font-hack-nerd-font"
@@ -144,18 +138,12 @@ cask "kitty"
 cask "localsend"
 # Smooths scrolling and set mouse scroll directions independently
 cask "mos"
-# Open-source software for live streaming and screen recording
-cask "obs"
 # Replacement for Docker Desktop
 cask "orbstack"
 # Apple Notes extension
 cask "pronotes"
-# EPUB ebook editor
-cask "sigil"
 # Unpacks archive files
 cask "the-unarchiver"
-# Native desktop client for WhatsApp
-cask "whatsapp"
 # Multiplayer code editor
 cask "zed"
 mas "AdBlocker", id: 1018301773
@@ -190,6 +178,7 @@ cargo "nu_plugin_gstat"
 cargo "nu_plugin_highlight"
 cargo "nu_plugin_inc"
 cargo "nu_plugin_polars"
+cargo "ripgrep"
 cargo "rustlings"
 cargo "tauri-cli"
 cargo "topiary-cli"
