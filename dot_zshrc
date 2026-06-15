@@ -139,3 +139,5 @@ eval "$(starship init zsh)"
 
 # 🎆 STARTUP
 fastfetch --logo none --config examples/13
+
+. "$HOME/.local/bin/env"

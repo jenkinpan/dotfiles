@@ -1,12 +1,12 @@
-tap "anomalyco/tap"
-tap "antoniorodr/memo"
-tap "cormacrelf/tap"
-tap "happyvibing/tap"
+tap "anomalyco/tap", trusted: true
+tap "antoniorodr/memo", trusted: true
+tap "cormacrelf/tap", trusted: true
+tap "happyvibing/tap", trusted: true
 tap "homebrew/core"
-tap "jenkinpan/tap"
-tap "lihaoyun6/tap"
-tap "sst/tap"
-tap "yakitrak/yakitrak"
+tap "jenkinpan/tap", trusted: true
+tap "lihaoyun6/tap", trusted: true
+tap "sst/tap", "https://github.com/anomalyco/homebrew-tap.git", trusted: true
+tap "yakitrak/yakitrak", trusted: true
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Bourne-Again SHell, a UNIX command interpreter
@@ -116,8 +116,6 @@ brew "yakitrak/yakitrak/notesmd-cli"
 cask "blip"
 # Utility that prevents the system from going to sleep
 cask "caffeine"
-# Terminal-based AI coding assistant
-cask "claude-code"
 # Clean keyboard and trackpad
 cask "cleanupbuddy"
 # Voice and text chat software
@@ -161,7 +159,6 @@ mas "PDFgear", id: 6469021132
 mas "Quantumult X", id: 1443988620
 mas "Shadowrocket", id: 932747118
 mas "Things", id: 904280696
-mas "Xcode", id: 497799835
 cargo "cargo-binstall"
 cargo "cargo-bundle"
 cargo "cargo-cache"
