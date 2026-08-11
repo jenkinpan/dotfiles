@@ -141,3 +141,7 @@ eval "$(starship init zsh)"
 fastfetch --logo none --config examples/13
 
 . "$HOME/.local/bin/env"
+
+# Added by GitButler installer
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(but completions zsh)"

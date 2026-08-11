@@ -49,6 +49,8 @@ brew "git"
 brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Agent multiplexer that lives in your terminal
+brew "herdr"
 # Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # Install and debug iPhone apps from the command-line
@@ -107,8 +109,6 @@ brew "xcodegen"
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# The AI coding agent built for the terminal.
-brew "anomalyco/tap/opencode"
 # CLI app to manage your Apple Notes and Apple reminders
 brew "antoniorodr/memo/memo"
 brew "yakitrak/yakitrak/notesmd-cli"
@@ -130,8 +130,6 @@ cask "ghostty"
 cask "google-chrome"
 # Free and open-source media player
 cask "iina"
-# GPU-based terminal emulator
-cask "kitty"
 # Open-source cross-platform alternative to AirDrop
 cask "localsend"
 # Smooths scrolling and set mouse scroll directions independently
@@ -158,7 +156,6 @@ mas "Pages文稿", id: 361309726
 mas "PDFgear", id: 6469021132
 mas "Quantumult X", id: 1443988620
 mas "Shadowrocket", id: 932747118
-mas "Things", id: 904280696
 cargo "cargo-binstall"
 cargo "cargo-bundle"
 cargo "cargo-cache"

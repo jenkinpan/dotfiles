@@ -39,7 +39,6 @@ atuin init fish | source
 fzf --fish | source
 zoxide init --cmd cd fish | source
 starship init fish | source
-hermes completion fish | source
 
 # --- Homebrew ---
 fish_add_path /opt/homebrew/bin
