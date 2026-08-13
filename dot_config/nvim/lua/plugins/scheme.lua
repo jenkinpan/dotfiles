@@ -24,7 +24,7 @@ return {
         sidebars = "transparent",
         floats = "transparent",
       },
-      -- set lualine and snake.explore transparent
+      -- set both lualine and snake.explore transparent
       on_colors = function(colors)
         colors.bg_statusline = colors.none
       end,
