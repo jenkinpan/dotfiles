@@ -31,7 +31,7 @@ export-env {
 #
 
 # Jump to a directory using only keywords.
-def --env --wrapped __zoxide_z [...rest: string] {
+export def --env --wrapped __zoxide_z [...rest: directory] {
   let path = match $rest {
     [] => {'~'},
     [ '-' ] => {'-'},
@@ -44,7 +44,7 @@ def --env --wrapped __zoxide_z [...rest: string] {
 }
 
 # Jump to a directory using interactive search.
-def --env --wrapped __zoxide_zi [...rest:string] {
+export def --env --wrapped __zoxide_zi [...rest: string] {
   cd $'(^zoxide query --interactive -- ...$rest | str trim -r -c "\n")'
 }
 
@@ -53,8 +53,8 @@ def --env --wrapped __zoxide_zi [...rest:string] {
 # Commands for zoxide. Disable these using --no-cmd.
 #
 
-alias cd = __zoxide_z
-alias cdi = __zoxide_zi
+export alias cd = __zoxide_z
+export alias cdi = __zoxide_zi
 
 # =============================================================================
 #
