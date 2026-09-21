@@ -64,3 +64,6 @@ source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 
 # Hermes Agent — ensure ~/.local/bin is on PATH
 fish_add_path "$HOME/.local/bin"
+
+# Pi
+fish_add_path "/Users/jenkin/.local/share/mise/installs/node/24.21.0/bin"
