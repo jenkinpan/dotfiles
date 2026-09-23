@@ -85,8 +85,6 @@ brew "poppler"
 brew "ripgrep"
 # Rust toolchain installer
 brew "rustup"
-# Smart session manager for the terminal
-brew "sesh"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Modernized, complete, self-contained TeX/LaTeX engine
@@ -165,9 +163,9 @@ cargo "nu_plugin_highlight"
 cargo "nu_plugin_inc"
 cargo "nu_plugin_polars"
 cargo "ripgrep"
-cargo "rustlings"
 cargo "tauri-cli"
 cargo "topiary-cli"
 cargo "ui-cli"
 uv "graphifyy"
+npm "@earendil-works/pi-coding-agent"
 npm "corepack"
