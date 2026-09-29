@@ -126,8 +126,6 @@ cask "google-chrome"
 cask "iina"
 # Smooths scrolling and set mouse scroll directions independently
 cask "mos"
-# Replacement for Docker Desktop
-cask "orbstack"
 # Apple Notes extension
 cask "pronotes"
 # Unpacks archive files
