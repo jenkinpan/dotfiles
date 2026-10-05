@@ -87,6 +87,8 @@ brew "ripgrep"
 brew "rustup"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Modern and pretty fancy file manager for the terminal
+brew "superfile"
 # Modernized, complete, self-contained TeX/LaTeX engine
 brew "tectonic"
 # Enables extra languages support for Tesseract
