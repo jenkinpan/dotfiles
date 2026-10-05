@@ -103,8 +103,6 @@ brew "uv"
 brew "wget"
 # Generate your Xcode project from a spec file and your folder structure
 brew "xcodegen"
-# Blazing fast terminal file manager written in Rust, based on async I/O
-brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # CLI app to manage your Apple Notes and Apple reminders
