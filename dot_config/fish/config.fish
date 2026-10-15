@@ -53,7 +53,7 @@ auto_theme
 
 function spf
     # 检测 macOS 外观：暗色模式下该命令返回 "Dark"，亮色模式会报错/为空
-    set -l config ~/.config/superfile/config.toml # 用 `spf pl` 确认你的真实路径
+    set -l config ~/.config/superfile/config.toml
     if defaults read -g AppleInterfaceStyle 2>/dev/null | string match -q Dark
         sed -i '' 's/^theme = .*/theme = "catppuccin-mocha"/' $config
     else
