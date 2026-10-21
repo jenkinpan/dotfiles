@@ -10,16 +10,16 @@ def --env "update-env" [] {
       } else {
         load-env {($var.name): $var.value}
       }
-    } else if $var.op == "hide" and $var.name in $env {
-      hide-env $var.name
+    } else if $var.op == "hide" {
+      try { hide-env $var.name }
     }
   }
 }
 export-env {
-  $env.PATH = r#'/Users/jenkin/.local/share/mise/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/jenkin/.cargo/bin:/Users/jenkin/.bun/bin:/opt/homebrew/opt/mise/bin:/Users/jenkin/.local/bin:/Applications/Obsidian.app/Contents/MacOS:/opt/homebrew/opt/postgresql@17/bin:/opt/homebrew/opt/openjdk@17/bin:/Users/jenkin/.antigravity/antigravity/bin:/opt/local/bin:/Users/jenkin/.cargo/bin:/Users/jenkin/.bun/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Applications/Ghostty.app/Contents/MacOS:/Users/jenkin/.orbstack/bin'#
+  $env.PATH = (r#'/Users/jenkin/.local/share/mise/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/jenkin/.cargo/bin:/Users/jenkin/.bun/bin:/opt/homebrew/opt/mise/bin:/Users/jenkin/.local/share/mise/installs/node/24.21.0/bin:/Users/jenkin/.local/bin:/Applications/Obsidian.app/Contents/MacOS:/opt/homebrew/opt/postgresql@17/bin:/opt/homebrew/opt/openjdk@17/bin:/Users/jenkin/.antigravity/antigravity/bin:/opt/local/bin:/Users/jenkin/.cargo/bin:/Users/jenkin/.bun/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Applications/Ghostty.app/Contents/MacOS'# | split row (char esep))
 
   'hide,LUA_INIT,
-set,PATH,/opt/homebrew/bin:/opt/homebrew/sbin:/Users/jenkin/.cargo/bin:/Users/jenkin/.bun/bin:/opt/homebrew/opt/mise/bin:/Users/jenkin/.local/bin:/Applications/Obsidian.app/Contents/MacOS:/opt/homebrew/opt/postgresql@17/bin:/opt/homebrew/opt/openjdk@17/bin:/Users/jenkin/.antigravity/antigravity/bin:/opt/local/bin:/Users/jenkin/.cargo/bin:/Users/jenkin/.bun/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Applications/Ghostty.app/Contents/MacOS:/Users/jenkin/.orbstack/bin
+set,PATH,/opt/homebrew/bin:/opt/homebrew/sbin:/Users/jenkin/.cargo/bin:/Users/jenkin/.bun/bin:/opt/homebrew/opt/mise/bin:/Users/jenkin/.local/share/mise/installs/node/24.21.0/bin:/Users/jenkin/.local/bin:/Applications/Obsidian.app/Contents/MacOS:/opt/homebrew/opt/postgresql@17/bin:/opt/homebrew/opt/openjdk@17/bin:/Users/jenkin/.antigravity/antigravity/bin:/opt/local/bin:/Users/jenkin/.cargo/bin:/Users/jenkin/.bun/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Applications/Ghostty.app/Contents/MacOS
 hide,MISE_SHELL,
 hide,__MISE_DIFF,
 hide,__MISE_SESSION,' | parse vars | update-env
