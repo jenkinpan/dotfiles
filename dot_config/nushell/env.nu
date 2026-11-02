@@ -3,11 +3,12 @@
 # ------------------------
 # $env.config.history.*
 $env.config.history = {
-  file_format: sqlite
-  max_size: 5_000
-  sync_on_enter: true
-  isolation: true
+    file_format: sqlite
+    max_size: 5_000
+    sync_on_enter: true
+    isolation: true
 }
+
 # ----------------------
 # Miscellaneous Settings
 # ----------------------
@@ -49,10 +50,10 @@ $env.config.completions.sort = "smart"
 
 # set fish completer
 let fish_completer = {|spans|
-  fish --command $"complete '--do-complete=($spans | str replace --all "'" "\\'" | str join ' ')'"
-  | from tsv --flexible --noheaders --no-infer
-  | rename value description
-  | update value {|row|
+    fish --command $"complete '--do-complete=($spans | str replace --all "'" "\\'" | str join ' ')'"
+    | from tsv --flexible --noheaders --no-infer
+    | rename value description
+    | update value {|row|
     let value = $row.value
     let need_quote = ['\' ',' '[' ']' '(' ')' ' ' '\t' "'" '"' "`"] | any { $in in $value }
     if ($need_quote and ($value | path exists)) {
@@ -64,44 +65,44 @@ let fish_completer = {|spans|
 
 # set carapace completer
 let carapace_completer = {|spans: list<string>|
-  carapace $spans.0 nushell ...$spans
-  | from json
-  | if ($in | default [] | where value =~ '^-.*ERR$' | is-empty) { $in } else { null }
+    carapace $spans.0 nushell ...$spans
+    | from json
+    | if ($in | default [] | where value =~ '^-.*ERR$' | is-empty) { $in } else { null }
 }
 
 # Multiple completer
 # Default use carapace
 let external_completer = {|spans|
-  let expanded_alias = scope aliases
-  | where name == $spans.0
-  | get -o 0.expansion
+    let expanded_alias = scope aliases
+    | where name == $spans.0
+    | get -o 0.expansion
 
-  let spans = if $expanded_alias != null {
-    $spans
-    | skip 1
-    | prepend ($expanded_alias | split row ' ' | take 1)
-  } else {
-    $spans
-  }
+    let spans = if $expanded_alias != null {
+        $spans
+        | skip 1
+        | prepend ($expanded_alias | split row ' ' | take 1)
+    } else {
+        $spans
+    }
 
-  match $spans.0 {
-    git => $fish_completer
-    mise => $fish_completer
-    asdf => $fish_completer
-    chezmoi => $fish_completer
-    atuin => $fish_completer
-    brew => $fish_completer
-    _ => $carapace_completer
-  } | do $in $spans
+    match $spans.0 {
+        git => $fish_completer
+        mise => $fish_completer
+        asdf => $fish_completer
+        chezmoi => $fish_completer
+        atuin => $fish_completer
+        brew => $fish_completer
+        _ => $carapace_completer
+    } | do $in $spans
 }
 
 $env.config = {
-  completions: {
-    external: {
-      enable: true # enable external completions
-      completer: $external_completer
+    completions: {
+        external: {
+            enable: true # enable external completions
+            completer: $external_completer
+        }
     }
-  }
 }
 
 # -------------
@@ -127,8 +128,8 @@ $env.config.table.padding.right = 1
 # trim.*: How to display content
 #         when exceed the terminal width.
 $env.config.table.trim = {
-  methodology: "truncating"
-  truncating_suffix: "..."
+    methodology: "truncating"
+    truncating_suffix: "..."
 }
 
 # header not on separator:
@@ -140,13 +141,13 @@ $env.config.table.header_on_separator = false
 # keybindings (list): A list of user-defined keybindings
 
 $env.config.keybindings ++= [
-  {
-    name: modechange
-    modifier: control
-    keycode: "char_["
-    mode: [vi_normal vi_insert]
-    event: {send: vichangemode mode: normal}
-  }
+    {
+        name: modechange
+        modifier: control
+        keycode: "char_["
+        mode: [vi_normal vi_insert]
+        event: {send: vichangemode, mode: normal}
+    }
 ]
 
 # ---------------------------------------------------------------------------------------
@@ -188,10 +189,10 @@ $env.LC_MESSAGES = "zh_CN.UTF-8"
 
 # add custom paths to PATH at the front
 $env.path = [
-  "/opt/homebrew/bin"
-  "/opt/homebrew/sbin"
-  "~/.cargo/bin"
-  "~/.bun/bin"
+    "/opt/homebrew/bin"
+    "/opt/homebrew/sbin"
+    "~/.cargo/bin"
+    "~/.bun/bin"
 ] ++ $env.PATH
 
 # delete duplicate paths

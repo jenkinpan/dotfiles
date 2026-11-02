@@ -5,12 +5,12 @@ export def git_current_branch [] {
 
 export def git_main_branch [] {
     git remote show origin
-        | lines
-        | str trim
-        | find --regex 'HEAD .*?[：: ].+'
-        | first
-        | ansi strip
-        | str replace --regex 'HEAD .*?[：: ]\s*(.+)' '$1'
+    | lines
+    | str trim
+    | find --regex 'HEAD .*?[：: ].+'
+    | first
+    | ansi strip
+    | str replace --regex 'HEAD .*?[：: ]\s*(.+)' '$1'
 }
 
 #
@@ -135,12 +135,13 @@ export alias gpf = git push --force-with-lease
 export alias gpf! = git push --force
 export alias gpl = git pull
 export def gpoat [] {
-    git push origin --all; git push origin --tags
+    git push origin --all
+    git push origin --tags
 }
 export alias gpod = git push origin --delete
 export alias gpodc = git push origin --delete (git_current_branch)
 def "nu-complete git pull rebase" [] {
-  ["false","true","merges","interactive"]
+    ["false", "true", "merges", "interactive"]
 }
 export def gpr [rebase_type: string@"nu-complete git pull rebase"] {
     git pull --rebase $rebase_type
@@ -229,7 +230,7 @@ export def gwta [path: path, branch?: string] {
     if $branch != null {
         git worktree add $path $branch
     } else {
-	git worktree add $path
+        git worktree add $path
     }
 }
 export alias gwtls = git worktree list
@@ -243,4 +244,3 @@ export alias gamc = git am --continue
 export alias gams = git am --skip
 export alias gama = git am --abort
 export alias gamscp = git am --show-current-patch
-

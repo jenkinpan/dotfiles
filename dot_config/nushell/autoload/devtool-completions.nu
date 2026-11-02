@@ -1,13 +1,13 @@
 module completions {
-  # A CLI tool for development in update rustup toolchain, mise maintained tools and homebrew packages.
-  export extern devtool [
+    # A CLI tool for development in update rustup toolchain, mise maintained tools and homebrew packages.
+    export extern devtool [
     --help (-h) # Print help
     --version (-V) # Print version
     ...args: string
   ]
 
-  # upgrade development tools (default command)
-  export extern "devtool update" [
+    # upgrade development tools (default command)
+    export extern "devtool update" [
     --dry-run (-n) # 模拟执行，不实际运行命令 dry-run
     --verbose (-v) # output more details
     --no-color # no color output
@@ -19,19 +19,26 @@ module completions {
     ...args: string
   ]
 
-  def "nu-complete devtool completion shell" [] {
-    ["bash" "zsh" "fish" "powershell" "elvish" "nushell"]
-  }
+    def "nu-complete devtool completion shell" [] {
+        [
+            "bash"
+            "zsh"
+            "fish"
+            "powershell"
+            "elvish"
+            "nushell"
+        ]
+    }
 
-  # generate shell completion scripts
-  export extern "devtool completion" [
+    # generate shell completion scripts
+    export extern "devtool completion" [
     shell: string@"nu-complete devtool completion shell"
     --help (-h) # Print help (see more with '--help')
     ...args: string
   ]
 
-  # show progress status
-  export extern "devtool progress-status" [
+    # show progress status
+    export extern "devtool progress-status" [
     --help (-h) # Print help
     ...args: string
   ]

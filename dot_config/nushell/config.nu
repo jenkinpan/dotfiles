@@ -18,7 +18,9 @@ alias cnu = config nu # config config.nu
 alias cen = config env # config env.nu
 
 # lg to open LazyGit if installed
-def lg [] { if (which lazygit | is-not-empty) { lazygit } }
+def lg [] {
+    if (which lazygit | is-not-empty) { lazygit }
+}
 
 # Show system info on startup
 fastfetch --config examples/14
