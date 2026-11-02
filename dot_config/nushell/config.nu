@@ -1,5 +1,3 @@
-# Startship init
-starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 # Zoxide init
 zoxide init --cmd cd nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
 # Mise init
