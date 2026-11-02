@@ -4,12 +4,11 @@ return {
   event = "VeryLazy",
   opts = {
     formatters_by_ft = {
-      nu = { "topiary_nu" },
+      nu = { "nufmt" },
     },
     formatters = {
-      topiary_nu = {
-        command = "topiary",
-        args = { "format", "--language", "nu" },
+      nufmt = {
+        command = "nufmt",
       },
     },
   },
