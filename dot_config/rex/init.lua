@@ -1,2 +1,2 @@
-require("key/git")
+require("key/lazygit")
 require("key/btop")

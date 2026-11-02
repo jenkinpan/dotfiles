@@ -1,16 +1,12 @@
+local lib = require("key/lib")
+
 rex.action({
 	name = "btop_float",
 	title = "Floating btop",
 	run = function(ctx, args)
-		local layer, err = rex.session.new_layer({
+		local _, err = lib.open_float({
+			command = { "btop" },
 			bounds = { 0.1, 0.1, 0.8, 0.8 },
-			focus = true,
-			layout = rex.layout.block({
-				flavor = "com.superlogical.terminal.shell",
-				options = {
-					command = { "btop" },
-				},
-			}),
 		})
 		if err ~= nil then
 			error(err, 0)
