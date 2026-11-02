@@ -118,8 +118,6 @@ cask "font-hack-nerd-font"
 cask "font-lxgw-wenkai"
 cask "font-monaspace"
 cask "font-monaspace-nf"
-# Terminal emulator that uses platform-native UI and GPU acceleration
-cask "ghostty"
 # Web browser
 cask "google-chrome"
 # Free and open-source media player
@@ -165,5 +163,3 @@ cargo "tauri-cli"
 cargo "topiary-cli"
 cargo "ui-cli"
 uv "graphifyy"
-npm "@earendil-works/pi-coding-agent"
-npm "corepack"
